@@ -21,12 +21,14 @@ class ParkListViewController: UIViewController {
     // MARK: Properties
     
     var appDelegate: AppDelegate!
+    
+    var parks = [Park]()
 //    var studentLocations: StudentLocationCollection!
     
     var dataController: DataController!
     
     var fetchedParkController: NSFetchedResultsController<Park>!
-    var fetchedPlaceController: NSFetchedResultsController<Place>!
+//    var fetchedPlaceController: NSFetchedResultsController<Place>!
 
     // MARK: Outlets
     
@@ -53,6 +55,9 @@ class ParkListViewController: UIViewController {
             parkTableView.deselectRow(at: indexPath, animated: false)
             parkTableView.reloadRows(at: [indexPath], with: .fade)
         }
+        
+        // Hide the toolbar
+        self.navigationController?.setToolbarHidden(true, animated: true)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -176,7 +181,6 @@ extension ParkListViewController: UITableViewDelegate, UITableViewDataSource {
         controller.park = aPark
         controller.annotation = Annotation(park: aPark)
         controller.dataController = dataController
-        controller.navigationItem.setHidesBackButton(false, animated: true)
         
         print("didSelectRowAt")
         navigationController!.pushViewController(controller, animated: true)
@@ -275,10 +279,10 @@ extension ParkListViewController:NSFetchedResultsControllerDelegate {
         switch type {
         case .insert:
             parkTableView.insertRows(at: [newIndexPath!], with: .fade)
-            break
+//            break
         case .delete:
             parkTableView.deleteRows(at: [indexPath!], with: .fade)
-            break
+//            break
         case .update:
             parkTableView.reloadRows(at: [indexPath!], with: .fade)
         case .move:

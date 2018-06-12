@@ -45,6 +45,31 @@ extension PlaceCollectionViewController {
         self.setToolbarItems(toolbarButtons, animated: true)
     }
     
+    // MARK: createBackButton - create and set the back button
+    
+//    func createBackButton() {
+//
+//        var toolbarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
+//        let backButton = UIBarButtonItem(image: UIImage(named: "icon_back-arrow"), style: .plain, target: self, action: #selector(backButtonPressed))
+//        toolbarButtons.append(backButton)
+//        navigationItem.setLeftBarButtonItems(toolbarButtons, animated: true)
+//    }
+    
+    // MARK: createTopBarButtons - create and set the top bar buttons
+    
+    func createTopBarButtons() {
+        
+        var leftBarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
+        let backButton = UIBarButtonItem(image: UIImage(named: "icon_back-arrow"), style: .plain, target: self, action: #selector(backButtonPressed))
+        leftBarButtons.append(backButton)
+        navigationItem.setLeftBarButtonItems(leftBarButtons, animated: true)
+        
+        var rightBarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
+        let visitButton = UIBarButtonItem(image: UIImage(named: "icon_travel"), style: .plain, target: self, action: #selector(postVisit))
+        rightBarButtons.append(visitButton)
+        navigationItem.setRightBarButtonItems(rightBarButtons, animated: true)
+    }
+    
     // MARK: setUIActions - Set UI action buttons
     
     func setUIActions() {

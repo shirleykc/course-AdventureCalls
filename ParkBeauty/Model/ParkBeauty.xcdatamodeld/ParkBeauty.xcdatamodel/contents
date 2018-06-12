@@ -46,18 +46,18 @@
     <entity name="Visit" representedClassName="Visit" syncable="YES" codeGenerationType="class">
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="travelEnd" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="travelStart" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="travelDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="diaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Diary" inverseName="visit" inverseEntity="Diary" syncable="YES"/>
         <relationship name="park" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Park" inverseName="vistis" inverseEntity="Park" syncable="YES"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="visit" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Diary" positionX="547" positionY="-234" width="128" height="88"/>
         <element name="Park" positionX="-0" positionY="-342" width="128" height="208"/>
         <element name="Photo" positionX="367" positionY="-9" width="128" height="105"/>
         <element name="Place" positionX="-29" positionY="-36" width="128" height="193"/>
         <element name="Region" positionX="277" positionY="170" width="128" height="118"/>
         <element name="Visit" positionX="342" positionY="-292" width="128" height="148"/>
-        <element name="Diary" positionX="547" positionY="-234" width="128" height="88"/>
     </elements>
 </model>

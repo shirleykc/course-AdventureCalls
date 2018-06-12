@@ -44,28 +44,6 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var placeCollectionView: UICollectionView!
     
-    @IBAction func morePressed(_ sender: Any) {
-        print("morePressed")
-        guard let urlString = park.url else {
-            appDelegate.presentAlert(self, "Invalid URL")
-            return
-        }
-        
-        appDelegate.validateURLString(urlString) { (success, url, errorString) in
-            performUIUpdatesOnMain {
-                if success {
-                    UIApplication.shared.open(url!, options: [:]) { (success) in
-                        if !success {
-                            self.appDelegate.presentAlert(self, "Cannot open URL")
-                        }
-                    }
-                } else {
-                    self.appDelegate.presentAlert(self, errorString)
-                }
-            }
-        }
-    }
-    
     // MARK: Life Cycle
     
     // MARK: viewDidLoad
@@ -76,10 +54,13 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         
         // Grab the app delegate
         appDelegate = UIApplication.shared.delegate as! AppDelegate
+        dataController = appDelegate.dataController
         
         self.navigationController?.setToolbarHidden(false, animated: true)
         self.navigationController?.toolbar.barTintColor = UIColor.white
         self.navigationController?.toolbar.tintColor = UIColor.blue
+        
+        createTopBarButtons()
         
         // Set title to park name        
         if let name = park.name {
@@ -106,7 +87,7 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         
         // Implement flowLayout here.
         let placeFlowLayout = placeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        configure(flowLayout: placeFlowLayout!, withSpace: 1, withColumns: 3, withRows: 2)
+        configure(flowLayout: placeFlowLayout!, withSpace: 1, withColumns: 3, withRows: 3)
         
         if let description = park.details {
             parkDescriptionLabel.text = description
@@ -133,6 +114,9 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         
         super.viewWillAppear(animated)
         
+        // Grab the places
+        setupFetchedPlaceController(doRemoveAll: false)
+        
         placeCollectionView.reloadData()
     }
     
@@ -157,6 +141,28 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
     }
     
     // MARK: Actions
+    
+    @IBAction func morePressed(_ sender: Any) {
+        print("morePressed")
+        guard let urlString = park.url else {
+            appDelegate.presentAlert(self, "Invalid URL")
+            return
+        }
+        
+        appDelegate.validateURLString(urlString) { (success, url, errorString) in
+            performUIUpdatesOnMain {
+                if success {
+                    UIApplication.shared.open(url!, options: [:]) { (success) in
+                        if !success {
+                            self.appDelegate.presentAlert(self, "Cannot open URL")
+                        }
+                    }
+                } else {
+                    self.appDelegate.presentAlert(self, errorString)
+                }
+            }
+        }
+    }
     
     // MARK: newCollectionPressed - new collection button is pressed
     
@@ -211,6 +217,30 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
             self.newPlacesButton?.isEnabled = true
             self.resetSelectedPlaceCells()
         }
+    }
+    
+    // MARK: backButtonPressed - back button is pressed
+    
+    @objc func backButtonPressed() {
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: postVisit - post visit button is pressed
+    
+    @objc func postVisit() {
+        
+        print("postVisit")
+        
+//        setUIEnabled(true)
+        
+        // go to next view
+        let controller = storyboard!.instantiateViewController(withIdentifier: "VisitListViewController") as! VisitListViewController
+        //        controller.place = place
+        //        controller.mediaURL = mediaURLTextField.text!
+        controller.park = park
+        controller.dataController = dataController
+        navigationController!.pushViewController(controller, animated: true)
     }
     
     // MARK: configure - configure the flowLayout
@@ -304,7 +334,7 @@ extension PlaceCollectionViewController: UICollectionViewDelegate, UICollectionV
                 let aPlace = fetchedPlaceController.object(at: indexPath)
                 if let imageData = aPlace.image {
                     cell.placeImage?.image = UIImage(data: imageData)
-                    if let title = aPlace.imageAltText {
+                    if let title = aPlace.title {
                         cell.title?.text = "\(title)"
                     } else {
                         cell.title?.text = ""

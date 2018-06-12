@@ -16,7 +16,7 @@ extension AppDelegate {
     struct AppConstants {
         
         // MARK: MapView
-        static let RegionRadius: CLLocationDistance = 100  // meters
+        static let RegionRadius: CLLocationDistance = 100000  // meters
     }
     
     // MARK: UI

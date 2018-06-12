@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E43F95FD20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F95FC20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift */; };
+		E43F95FF20CCD11B007DA0F8 /* Diary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F95FE20CCD11B007DA0F8 /* Diary+Extensions.swift */; };
+		E43F960120CD28B8007DA0F8 /* VisitTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F960020CD28B8007DA0F8 /* VisitTableCell.swift */; };
+		E43F960320CD6C74007DA0F8 /* VisitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F960220CD6C74007DA0F8 /* VisitListViewController.swift */; };
 		E46B22E420C0FAC50099AF1C /* NPSPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22E320C0FAC50099AF1C /* NPSPark.swift */; };
 		E46B22E620C0FB430099AF1C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22E520C0FB430099AF1C /* DataController.swift */; };
 		E46B22EF20C11C170099AF1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46B22EE20C11C170099AF1C /* Assets.xcassets */; };
@@ -42,6 +46,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E43F95FC20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitInfoPostingViewController.swift; sourceTree = "<group>"; };
+		E43F95FE20CCD11B007DA0F8 /* Diary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diary+Extensions.swift"; sourceTree = "<group>"; };
+		E43F960020CD28B8007DA0F8 /* VisitTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitTableCell.swift; sourceTree = "<group>"; };
+		E43F960220CD6C74007DA0F8 /* VisitListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitListViewController.swift; sourceTree = "<group>"; };
 		E46B22E320C0FAC50099AF1C /* NPSPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSPark.swift; sourceTree = "<group>"; };
 		E46B22E520C0FB430099AF1C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		E46B22EE20C11C170099AF1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +110,8 @@
 				E4EDD26E20C8DDC800BD3D90 /* PlaceCollectionViewController.swift */,
 				E4EAB67A20CB203C00D80B37 /* PlaceCollectionViewController+Helper.swift */,
 				E4EAB67C20CB306F00D80B37 /* PlaceCollectionViewController+Place.swift */,
+				E43F95FC20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift */,
+				E43F960220CD6C74007DA0F8 /* VisitListViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -130,6 +140,7 @@
 				E46B22F820C19C940099AF1C /* BorderedButton.swift */,
 				E4EED3AB20C667B4007617DC /* ParkTableCell.swift */,
 				E4EDD27420C912B700BD3D90 /* PlaceCollectionCell.swift */,
+				E43F960020CD28B8007DA0F8 /* VisitTableCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +196,7 @@
 				E46F74B220BF7468009C3452 /* Place+Extensions.swift */,
 				E46F74B420BF7486009C3452 /* Visit+Extensions.swift */,
 				E46F74B620BF749E009C3452 /* Photo+Extensions.swift */,
+				E43F95FE20CCD11B007DA0F8 /* Diary+Extensions.swift */,
 			);
 			path = "Managed Object Extensions";
 			sourceTree = "<group>";
@@ -286,6 +298,7 @@
 				E4CE8D6320C4C06B00AC3E27 /* ParkInfoPostingViewController.swift in Sources */,
 				E46F74BB20BF77BB009C3452 /* NPSConstants.swift in Sources */,
 				E46F74B520BF7486009C3452 /* Visit+Extensions.swift in Sources */,
+				E43F960120CD28B8007DA0F8 /* VisitTableCell.swift in Sources */,
 				E4EED3AA20C63ED3007617DC /* ParkMapViewController+Park.swift in Sources */,
 				E4EDD27320C900AC00BD3D90 /* NPSConvenience.swift in Sources */,
 				E4EAB67B20CB203C00D80B37 /* PlaceCollectionViewController+Helper.swift in Sources */,
@@ -294,15 +307,18 @@
 				E46B22E420C0FAC50099AF1C /* NPSPark.swift in Sources */,
 				E4EAB67D20CB306F00D80B37 /* PlaceCollectionViewController+Place.swift in Sources */,
 				E46F749C20BF626A009C3452 /* ParkBeauty.xcdatamodeld in Sources */,
+				E43F960320CD6C74007DA0F8 /* VisitListViewController.swift in Sources */,
 				E46B22F520C193500099AF1C /* Annotation.swift in Sources */,
 				E46F74B120BF743A009C3452 /* Park+Extensions.swift in Sources */,
 				E46B22E620C0FB430099AF1C /* DataController.swift in Sources */,
 				E4EED3AE20C66960007617DC /* ParkListViewController.swift in Sources */,
 				E46F749420BF6269009C3452 /* AppDelegate.swift in Sources */,
+				E43F95FD20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift in Sources */,
 				E4EDD26F20C8DDC800BD3D90 /* PlaceCollectionViewController.swift in Sources */,
 				E46F74A920BF6E3E009C3452 /* Constants.swift in Sources */,
 				E46F74AB20BF6E9C009C3452 /* GDCBlackBox.swift in Sources */,
 				E46F74B720BF749E009C3452 /* Photo+Extensions.swift in Sources */,
+				E43F95FF20CCD11B007DA0F8 /* Diary+Extensions.swift in Sources */,
 				E4EED3AC20C667B4007617DC /* ParkTableCell.swift in Sources */,
 				E46F74BD20BF9150009C3452 /* NPSClient.swift in Sources */,
 				E46F74AF20BF741B009C3452 /* Region+Extensions.swift in Sources */,
