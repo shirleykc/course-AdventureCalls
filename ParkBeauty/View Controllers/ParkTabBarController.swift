@@ -29,19 +29,19 @@ class ParkTabBarController: UITabBarController {
         super.viewDidLoad()
         
         // create and set the bar buttons
-        createBarButtons(navigationItem)
+        createTopBarButtons(navigationItem)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // create and set the bar buttons
-        createBarButtons(navigationItem)
+        createTopBarButtons(navigationItem)
     }
     
-    // MARK: createBarButtons - create and set the bar buttons
+    // MARK: createTopBarButtons - create and set the bar buttons
     
-    private func createBarButtons(_ navigationItem: UINavigationItem) {
+    private func createTopBarButtons(_ navigationItem: UINavigationItem) {
         
         var rightButtons: [UIBarButtonItem] = [UIBarButtonItem]()
         refreshButton = UIBarButtonItem(image: UIImage(named: "icon_refresh"), style: .plain, target: self, action: #selector(refresh))

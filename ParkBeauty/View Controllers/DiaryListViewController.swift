@@ -22,12 +22,13 @@ class DiaryListViewController: UIViewController {
     
     var appDelegate: AppDelegate!
     
+    var visit: Visit!
     var diaries = [Diary]()
     //    var studentLocations: StudentLocationCollection!
     
     var dataController: DataController!
     
-    var fetchedDiaryController: NSFetchedResultsController<Park>!
+    var fetchedDiaryController: NSFetchedResultsController<Diary>!
     //    var fetchedPlaceController: NSFetchedResultsController<Place>!
     
     // MARK: Outlets
@@ -178,7 +179,7 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = storyboard!.instantiateViewController(withIdentifier: "PlaceCollectionViewController") as! PlaceCollectionViewController
         let aDiary = fetchedDiaryController.object(at: indexPath)
-        controller.park = aDiary
+//        controller. = aDiary
 //        controller.annotation = Annotation(park: aPark)
         controller.dataController = dataController
         
@@ -308,55 +309,4 @@ extension DiaryListViewController:NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         diaryTableView.endUpdates()
     }
-}
-
-extension DiaryListViewController {
-    
-    func setUpFetchParkController() {
-        let fetchRequest:NSFetchRequest<Park> = Park.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        fetchedParkController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedParkController.delegate = self
-        do {
-            try fetchedParkController.performFetch()
-            print("ParkListViewController - performFetch")
-        } catch {
-            fatalError("The fetch parks could not be performed: \(error.localizedDescription)")
-        }
-    }
-    
-    //    // MARK: setupFetchPlaceController - fetch the places for the park in data store
-    //
-    //    func setupFetchPlaceController(_ park: Park) -> [Place] {
-    //
-    //        var places = [Place]()
-    //
-    //        let fetchRequest:NSFetchRequest<Place> = Place.fetchRequest()
-    //        let predicate = NSPredicate(format: "park == %@", argumentArray: [park])
-    //        fetchRequest.predicate = predicate
-    //        fetchRequest.sortDescriptors = []
-    //
-    //        fetchedPlaceController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-    //
-    //        do {
-    //            try fetchedPlaceController.performFetch()
-    //            if let results = fetchedPlaceController?.fetchedObjects {
-    //                places = results
-    //            }
-    //        } catch {
-    //            displayError("Cannot fetch places")
-    //        }
-    //
-    //        return places
-    //    }
-    //
-    //    // MARK: displayError - Display error
-    //
-    //    func displayError(_ errorString: String?) {
-    //
-    //        print(errorString!)
-    //        dismiss(animated: true, completion: nil)
-    //    }
 }

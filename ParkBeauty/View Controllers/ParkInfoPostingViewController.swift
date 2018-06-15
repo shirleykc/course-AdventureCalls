@@ -45,7 +45,7 @@ class ParkInfoPostingViewController: UIViewController {
 //    var place: CLPlacemark?
 //    var mediaURL: String?
     
-//    var fetchedParkController: NSFetchedResultsController<Park>!
+    var fetchedParkController: NSFetchedResultsController<Park>!
 //    var fetchedRegionController: NSFetchedResultsController<Region>!
 
     // MARK: Outlets
@@ -65,7 +65,7 @@ class ParkInfoPostingViewController: UIViewController {
         navigationController?.toolbar.barTintColor = UIColor.red
         navigationController?.toolbar.tintColor = UIColor.white
         
-//        createRemoveParkBanner()
+        createRemoveParkBanner()
         removeParkBanner?.isEnabled = true
         
         doDeletePark = true
@@ -90,48 +90,20 @@ class ParkInfoPostingViewController: UIViewController {
                 
                 // Here we create the annotation and set its coordiate, title, and subtitle properties
                 
-                if let latitude = aPark.latitude,
-                    let longitude = aPark.longitude {
+                if let _ = aPark.latitude,
+                    let _ = aPark.longitude {
                     
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                    
-                    let name = aPark.fullName ?? ""
-
-                    annotation.title = "\(name)"
+                    let annotation = Annotation(npsPark: aPark)
 
                     mapView.addAnnotation(annotation)
-
-                    // center the map on the latest student location
- //                   centerMapOnStudentLocation(location: CLLocation(latitude: latitude, longitude: longitude))
-
                 }
             }
+            mapView.showAnnotations(mapView.annotations, animated: true)
+            
         } else {
             appDelegate.presentAlert(self, "Unable to create annotation")
             return
         }
-    }
-    
-    // MARK: Finish - post student location using Parse API
-    
-    @IBAction func finishPressed(_ sender: AnyObject) {
-        
-//        setUIEnabled(false)
-//
-//        let studentParameters = buildJsonBodyParameters(student!)
-//        activityIndicatorView.startAnimating()
-//        UdacityClient.sharedInstance().postStudentLocation(studentParameters) { (success, results, errorString) in
-//            performUIUpdatesOnMain {
-//                self.activityIndicatorView.stopAnimating()
-//                if success {
-//                    self.completeInfoPosting()
-//                } else {
-//                    print(errorString!)
-//                    self.appDelegate.presentAlert(self, "Unable to post student location, please try again")
-//                }
-//            }
-//        }
     }
     
     // MARK: Cancel Add Parks
@@ -146,21 +118,23 @@ class ParkInfoPostingViewController: UIViewController {
     @objc func addParks() {
         
         // Save parks from collection
-        if let newCollection = parkCollection,
-            newCollection.count > 0 {
+        if let annotations = mapView.annotations as? [Annotation],
+            annotations.count > 0 {
             
-            for newPark in newCollection {
+            for newPark in annotations {
                 let park = Park(context: self.dataController.viewContext)
-                park.creationDate = Date()
-                park.parkCode = newPark.parkCode
-                park.stateCode = newPark.states
-                if let latitude = newPark.latitude,
-                    let longtitude = newPark.longitude {
-                    park.latitude = latitude
-                    park.longitude = longtitude
+                if let npsPark = newPark.npsPark {
+                    park.creationDate = Date()
+                    park.parkCode = npsPark.parkCode
+                    park.stateCode = npsPark.states
+                    if let latitude = npsPark.latitude,
+                        let longtitude = npsPark.longitude {
+                        park.latitude = latitude
+                        park.longitude = longtitude
+                    }
+                    park.name = npsPark.fullName
+                    park.url = npsPark.url
                 }
-                park.name = newPark.fullName
-                park.url = newPark.url
             }
         
             try? self.dataController.viewContext.save()
@@ -176,14 +150,14 @@ class ParkInfoPostingViewController: UIViewController {
         completeInfoPosting()
     }
 
-    // MARK: Center map on latest student location
+    // MARK: Center map on latest park
 
-//    private func centerMapOnStudentLocation(location: CLLocation) {
-//        let regionRadius: CLLocationDistance = AppDelegate.AppConstants.RegionRadius
-//        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-//                                                                  regionRadius, regionRadius)
-//        mapView.setRegion(coordinateRegion, animated: true)
-//    }
+    private func centerMapOnPark(location: CLLocation) {
+        let regionRadius: CLLocationDistance = AppDelegate.AppConstants.RegionRadius
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius, regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
 
     // MARK: Complete info posting
 
@@ -206,9 +180,8 @@ extension ParkInfoPostingViewController: MKMapViewDelegate {
         
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.canShowCallout = true
+            pinView!.canShowCallout = false
             pinView!.pinTintColor = .red
-            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         else {
             pinView!.annotation = annotation
@@ -222,20 +195,19 @@ extension ParkInfoPostingViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
         if doDeletePark {
+            print("doDeletePark: \(doDeletePark)")
             if let annotation = view.annotation as? Annotation {
-                if let park = annotation.park {
-                    parkCollection.remove(park)
-                    mapView.removeAnnotation(annotation)
-                }
+                print("removeAnnotation: \(annotation)")
+                mapView.removeAnnotation(annotation)
             }
-        } 
+        }
     }
     
     // MARK: mapView - opens the system browser to the URL specified in
     // the annotationViews subtitle property.
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if control == view.rightCalloutAccessoryView {
+//    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+//        if control == view.rightCalloutAccessoryView {
 //            if let toOpen = view.annotation?.subtitle! {
 //                appDelegate.validateURLString(toOpen) { (success, url, errorString) in
 //                    performUIUpdatesOnMain {
@@ -251,6 +223,6 @@ extension ParkInfoPostingViewController: MKMapViewDelegate {
 //                    }
 //                }
 //            }
-        }
-    }
+//        }
+//    }
 }

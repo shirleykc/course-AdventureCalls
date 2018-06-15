@@ -42,7 +42,7 @@ extension ParkInfoPostingViewController {
         
         var leftButtons: [UIBarButtonItem] = [UIBarButtonItem]()
         cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(cancelAdd))
-        rightButtons.append(cancelButton!)
-        navigationItem.setRightBarButtonItems(rightButtons, animated: true)
+        leftButtons.append(cancelButton!)
+        navigationItem.setLeftBarButtonItems(leftButtons, animated: true)
     }
 }

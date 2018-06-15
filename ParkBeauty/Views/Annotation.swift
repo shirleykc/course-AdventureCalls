@@ -23,6 +23,7 @@ class Annotation: NSObject, MKAnnotation {
     
     var park: Park?
     var title: String?
+    var npsPark: NPSPark?
     
     // MARK: Initializers
     
@@ -30,6 +31,12 @@ class Annotation: NSObject, MKAnnotation {
         self.park = park
         self.locationCoordinate = CLLocationCoordinate2D(latitude: park.latitude, longitude: park.longitude)
         self.title = park.fullName ?? (park.name ?? "")
+    }
+    
+    init(npsPark: NPSPark) {
+        self.npsPark = npsPark
+        self.locationCoordinate = CLLocationCoordinate2D(latitude: npsPark.latitude!, longitude: npsPark.longitude!)
+        self.title = npsPark.fullName ?? (npsPark.name ?? "")
     }
     
     init(locationCoordinate: CLLocationCoordinate2D) {

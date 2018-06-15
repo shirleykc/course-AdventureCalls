@@ -70,7 +70,9 @@ class ParkMapViewController : UIViewController {
         //        addGestureRecognizer()
         
         // Hide the toolbar
-        self.navigationController?.setToolbarHidden(true, animated: true)
+        navigationController?.setToolbarHidden(true, animated: true)
+        navigationController?.toolbar.barTintColor = UIColor.white
+        navigationController?.toolbar.tintColor = UIColor.white
         
         // Create the Edit button on navigation bar
         createEditButton(navigationItem)
@@ -93,7 +95,9 @@ class ParkMapViewController : UIViewController {
         createAnnotations()
         
         // Hide the toolbar
-        self.navigationController?.setToolbarHidden(true, animated: true)
+        navigationController?.setToolbarHidden(true, animated: true)
+        navigationController?.toolbar.barTintColor = UIColor.white
+        navigationController?.toolbar.tintColor = UIColor.white
         
         // Create the Edit button on navigation bar
         createEditButton(navigationItem)
@@ -160,12 +164,12 @@ class ParkMapViewController : UIViewController {
         self.navigationController?.toolbar.barTintColor = UIColor.red
         self.navigationController?.toolbar.tintColor = UIColor.white
         
-        createRemoveParkBanner()
+//        createRemoveParkBanner()
         removeParkBanner?.isEnabled = true
         
         doDeletePark = true
         
-        createDoneButton(navigationItem)
+//        createDoneButton(navigationItem)
     }
     
     // MARK: addGestureRecognizer - configure tap and hold recognizer
@@ -234,7 +238,7 @@ extension ParkMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         
         // Set and save location and zoom level when map region is changed
-        //       setSpan()
+        setSpan()
     }
 }
 

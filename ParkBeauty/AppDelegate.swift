@@ -20,11 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         dataController.load()
-        
-        let navigationController = window?.rootViewController as! UINavigationController
-        let parkTabBarController = navigationController.topViewController as! ParkTabBarController
-        parkTabBarController.dataController = dataController
-        
+                
         return true
     }
     
