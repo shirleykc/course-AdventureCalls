@@ -2,7 +2,7 @@
 //  ParkMapViewController+Region.swift
 //  ParkBeauty
 //
-//  Created by Shirley on 6/4/18.
+//  Created by Admin on 6/13/18.
 //  Copyright © 2018 Udacity. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ import CoreData
 
 extension ParkMapViewController {
     
-    // MARK: setUpFetchRegionController - fetch preset map region data controller
+    // MARK: ParkMapViewController - fetch preset map region data controller
     
     func setUpFetchRegionController() {
         
@@ -93,7 +93,7 @@ extension ParkMapViewController {
         if (region == nil) {
             region = Region(context: dataController.viewContext)
         }
-        
+
         region?.latitude = mapRegion.center.latitude
         region?.longitude = mapRegion.center.longitude
         region?.latitudeDelta = mapRegion.span.latitudeDelta

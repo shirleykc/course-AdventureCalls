@@ -23,10 +23,9 @@ class SearchParkViewController: UIViewController {
     
     var appDelegate: AppDelegate!
     var session: URLSession!
-    
     var dataController: DataController!
-
-//    lazy var geocoder = CLGeocoder()
+    
+    //    lazy var geocoder = CLGeocoder()
     
     var parkCollection: [NPSPark]!
     
@@ -47,6 +46,7 @@ class SearchParkViewController: UIViewController {
         
         /* Grab the app delegate */
         appDelegate = UIApplication.shared.delegate as! AppDelegate
+        dataController = appDelegate.dataController
         
         navigationItem.title = "Add National Parks"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "CANCEL", style: .plain, target: self, action: #selector(cancelAdd))
@@ -91,11 +91,9 @@ class SearchParkViewController: UIViewController {
                         self.completeParkSearching(results)
                         
                         // center the map on the latest student location
-//                        if let latestLoc = self.studentLocations.locations!.first {
-//                            self.centerMapOnStudentLocation(location: latestLoc)
-//                        }
-                    } else {
-                        self.displayError("No parks found!")
+                        //                        if let latestLoc = self.studentLocations.locations!.first {
+                        //                            self.centerMapOnStudentLocation(location: latestLoc)
+                        //                        }
                     }
                 } else {
                     self.displayError(errorString)
@@ -132,10 +130,10 @@ class SearchParkViewController: UIViewController {
         
         // go to next view
         let controller = storyboard!.instantiateViewController(withIdentifier: "ParkInfoPostingViewController") as! ParkInfoPostingViewController
-//        controller.place = place
-//        controller.mediaURL = mediaURLTextField.text!
-        controller.parkCollection = results
+        //        controller.place = place
+        //        controller.mediaURL = mediaURLTextField.text!
         controller.dataController = dataController
+        controller.parkCollection = results
         navigationController!.pushViewController(controller, animated: true)
     }
 }

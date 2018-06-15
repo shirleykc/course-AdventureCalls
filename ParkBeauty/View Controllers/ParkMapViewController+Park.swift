@@ -2,7 +2,7 @@
 //  ParkMapViewController+Park.swift
 //  ParkBeauty
 //
-//  Created by Shirley on 6/4/18.
+//  Created by Admin on 6/13/18.
 //  Copyright © 2018 Udacity. All rights reserved.
 //
 
@@ -14,8 +14,8 @@ import CoreData
 
 extension ParkMapViewController {
     
-    // MARK: setUpFetchParkController - fetch park data controller
-    
+    // MARK: setUpFetchParkController - fetch parks data controller
+
     func setUpFetchParkController() {
         
         let fetchRequest: NSFetchRequest<Park> = Park.fetchRequest()
@@ -26,7 +26,7 @@ extension ParkMapViewController {
         do {
             try fetchedParkController.performFetch()
         } catch {
-            fatalError("The fetch parks could not be performed: \(error.localizedDescription)")
+            fatalError("The fetch pins could not be performed: \(error.localizedDescription)")
         }
     }
     
@@ -50,7 +50,7 @@ extension ParkMapViewController {
         
         // Create an MKPointAnnotation for each park
         guard let parks = fetchedParkController.fetchedObjects else {
-            appDelegate.presentAlert(self, "No parks available")
+            appDelegate.presentAlert(self, "No parks found")
             return
         }
         
@@ -74,7 +74,7 @@ extension ParkMapViewController {
         mapView.addAnnotation(annotation)
     }
     
-    // MARK: createAnnotationFor - create an annotation for a park coordinate
+    // MARK: createAnnotationFor - create an annotation for a location coordinate
     
     func createAnnotationFor(coordinate: CLLocationCoordinate2D) -> Annotation {
         

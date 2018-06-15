@@ -19,6 +19,8 @@
 		E46B22F520C193500099AF1C /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22F420C193500099AF1C /* Annotation.swift */; };
 		E46B22F720C194E70099AF1C /* SearchParkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22F620C194E70099AF1C /* SearchParkViewController.swift */; };
 		E46B22F920C19C940099AF1C /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22F820C19C940099AF1C /* BorderedButton.swift */; };
+		E46E7B1920D3647F0072FCD7 /* ParkInfoPostingViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E7B1720D3647E0072FCD7 /* ParkInfoPostingViewController+Helper.swift */; };
+		E46E7B1A20D3647F0072FCD7 /* ParkMapViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E7B1820D3647E0072FCD7 /* ParkMapViewController+Helper.swift */; };
 		E46F749420BF6269009C3452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F749320BF6269009C3452 /* AppDelegate.swift */; };
 		E46F749920BF626A009C3452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46F749720BF626A009C3452 /* Main.storyboard */; };
 		E46F749C20BF626A009C3452 /* ParkBeauty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E46F749A20BF626A009C3452 /* ParkBeauty.xcdatamodeld */; };
@@ -61,6 +63,8 @@
 		E46B22F420C193500099AF1C /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		E46B22F620C194E70099AF1C /* SearchParkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchParkViewController.swift; sourceTree = "<group>"; };
 		E46B22F820C19C940099AF1C /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		E46E7B1720D3647E0072FCD7 /* ParkInfoPostingViewController+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ParkInfoPostingViewController+Helper.swift"; sourceTree = "<group>"; };
+		E46E7B1820D3647E0072FCD7 /* ParkMapViewController+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ParkMapViewController+Helper.swift"; sourceTree = "<group>"; };
 		E46F749020BF6269009C3452 /* ParkBeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkBeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46F749320BF6269009C3452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E46F749820BF626A009C3452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,10 +112,12 @@
 			children = (
 				E46B22F020C13AEF0099AF1C /* ParkTabBarController.swift */,
 				E46B22F220C192390099AF1C /* ParkMapViewController.swift */,
+				E46E7B1820D3647E0072FCD7 /* ParkMapViewController+Helper.swift */,
+				E4EED3A920C63ED3007617DC /* ParkMapViewController+Park.swift */,
+				E4EED3A720C63A79007617DC /* ParkMapViewController+Region.swift */,
 				E46B22F620C194E70099AF1C /* SearchParkViewController.swift */,
 				E4CE8D6220C4C06B00AC3E27 /* ParkInfoPostingViewController.swift */,
-				E4EED3A720C63A79007617DC /* ParkMapViewController+Region.swift */,
-				E4EED3A920C63ED3007617DC /* ParkMapViewController+Park.swift */,
+				E46E7B1720D3647E0072FCD7 /* ParkInfoPostingViewController+Helper.swift */,
 				E4EED3AD20C66960007617DC /* ParkListViewController.swift */,
 				E4EDD26E20C8DDC800BD3D90 /* PlaceCollectionViewController.swift */,
 				E4EAB67A20CB203C00D80B37 /* PlaceCollectionViewController+Helper.swift */,
@@ -305,6 +311,7 @@
 				E46B22F720C194E70099AF1C /* SearchParkViewController.swift in Sources */,
 				E46B22F920C19C940099AF1C /* BorderedButton.swift in Sources */,
 				E4CE8D6320C4C06B00AC3E27 /* ParkInfoPostingViewController.swift in Sources */,
+				E46E7B1920D3647F0072FCD7 /* ParkInfoPostingViewController+Helper.swift in Sources */,
 				E46F74BB20BF77BB009C3452 /* NPSConstants.swift in Sources */,
 				E46F74B520BF7486009C3452 /* Visit+Extensions.swift in Sources */,
 				E43F960120CD28B8007DA0F8 /* VisitTableCell.swift in Sources */,
@@ -323,6 +330,7 @@
 				E46F74B120BF743A009C3452 /* Park+Extensions.swift in Sources */,
 				E46B22E620C0FB430099AF1C /* DataController.swift in Sources */,
 				E4EED3AE20C66960007617DC /* ParkListViewController.swift in Sources */,
+				E46E7B1A20D3647F0072FCD7 /* ParkMapViewController+Helper.swift in Sources */,
 				E46F749420BF6269009C3452 /* AppDelegate.swift in Sources */,
 				E43F95FD20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift in Sources */,
 				E4EDD26F20C8DDC800BD3D90 /* PlaceCollectionViewController.swift in Sources */,

@@ -21,9 +21,7 @@ class ParkTabBarController: UITabBarController {
     
     var refreshButton: UIBarButtonItem?
     var addpinButton: UIBarButtonItem?
-//    var logoutButton: UIBarButtonItem?
-    
-    var dataController: DataController!
+    //    var logoutButton: UIBarButtonItem?
     
     // MARK: Life Cycle
     
@@ -52,22 +50,22 @@ class ParkTabBarController: UITabBarController {
         rightButtons.append(refreshButton!) // 2nd buttong from the right
         navigationItem.setRightBarButtonItems(rightButtons, animated: true)
         
-//        var leftButtons: [UIBarButtonItem] = [UIBarButtonItem]()
-//        logoutButton = UIBarButtonItem(title: "LOGOUT", style: .plain, target: self, action: #selector(logout))
-//        leftButtons.append(logoutButton!)
-//        navigationItem.setLeftBarButtonItems(leftButtons, animated: true)
+        //        var leftButtons: [UIBarButtonItem] = [UIBarButtonItem]()
+        //        logoutButton = UIBarButtonItem(title: "LOGOUT", style: .plain, target: self, action: #selector(logout))
+        //        leftButtons.append(logoutButton!)
+        //        navigationItem.setLeftBarButtonItems(leftButtons, animated: true)
     }
     
-//    // MARK: Logout
-//
-//    @objc func logout() {
-//        deleteSession()
-//    }
+    //    // MARK: Logout
+    //
+    //    @objc func logout() {
+    //        deleteSession()
+    //    }
     
     // MARK: Refresh
     
     @objc func refresh() {
-//        refreshStudentInformation()
+        //        refreshStudentInformation()
     }
     
     // MARK: Add Pin
@@ -76,7 +74,6 @@ class ParkTabBarController: UITabBarController {
         
         // go to search park view
         let searchParkViewController = storyboard!.instantiateViewController(withIdentifier: "SearchParkViewController") as! SearchParkViewController
-        searchParkViewController.dataController = dataController
         navigationController!.pushViewController(searchParkViewController, animated: true)
     }
 }
@@ -85,70 +82,70 @@ class ParkTabBarController: UITabBarController {
 
 private extension ParkTabBarController {
     
-//    // MARK: Sign Out Udacity
-//
-//    func deleteSession() {
-//
-//        /* start animating */
-//        if let controller = self.selectedViewController as? LocationListViewController {
-//            controller.activityIndicatorView.startAnimating()
-//        } else if let controller = self.selectedViewController as? MapViewController {
-//            controller.activityIndicatorView.startAnimating()
-//        }
-//
-//        UdacityClient.sharedInstance().logoutSession() { (success, errorString) in
-//            performUIUpdatesOnMain {
-//                /* stop animating */
-//                if let controller = self.selectedViewController as? LocationListViewController {
-//                    controller.activityIndicatorView.stopAnimating()
-//                } else if let controller = self.selectedViewController as? MapViewController {
-//                    controller.activityIndicatorView.stopAnimating()
-//                }
-//
-//                if success {
-//                    self.completeSignOut()
-//                } else {
-//                    self.displayError(errorString)
-//                }
-//            }
-//        }
-//    }
-//
-//    // MARK: Refresh Student Information
-//
-//    func refreshStudentInformation() {
-//        UdacityClient.sharedInstance().getStudentLocations { (locations, error) in
-//            if let locations = locations {
-//                if let controller = self.selectedViewController as? LocationListViewController {
-//                    controller.studentLocations.locations = locations
-//                    performUIUpdatesOnMain {
-//                        controller.locationsTableView.reloadData()
-//                    }
-//                } else if let controller = self.selectedViewController as? MapViewController {
-//                    controller.studentLocations.locations = locations
-//                    performUIUpdatesOnMain {
-//                        controller.createAnnotations()
-//
-//                        // center the map on the latest student location
-//                        if let latestLoc = controller.studentLocations.locations!.first {
-//                            controller.centerMapOnStudentLocation(location: latestLoc)
-//                        }
-//                    }
-//                } else {
-//                    print(error ?? "empty error")
-//                }
-//            } else {
-//                print(error ?? "empty error")
-//            }
-//        }
-//    }
-//
-//    // MARK: Complete sign out
-//
-//    func completeSignOut() {
-//
-//        dismiss(animated: true, completion: nil)
-//    }
+    //    // MARK: Sign Out Udacity
+    //
+    //    func deleteSession() {
+    //
+    //        /* start animating */
+    //        if let controller = self.selectedViewController as? LocationListViewController {
+    //            controller.activityIndicatorView.startAnimating()
+    //        } else if let controller = self.selectedViewController as? MapViewController {
+    //            controller.activityIndicatorView.startAnimating()
+    //        }
+    //
+    //        UdacityClient.sharedInstance().logoutSession() { (success, errorString) in
+    //            performUIUpdatesOnMain {
+    //                /* stop animating */
+    //                if let controller = self.selectedViewController as? LocationListViewController {
+    //                    controller.activityIndicatorView.stopAnimating()
+    //                } else if let controller = self.selectedViewController as? MapViewController {
+    //                    controller.activityIndicatorView.stopAnimating()
+    //                }
+    //
+    //                if success {
+    //                    self.completeSignOut()
+    //                } else {
+    //                    self.displayError(errorString)
+    //                }
+    //            }
+    //        }
+    //    }
+    //
+    //    // MARK: Refresh Student Information
+    //
+    //    func refreshStudentInformation() {
+    //        UdacityClient.sharedInstance().getStudentLocations { (locations, error) in
+    //            if let locations = locations {
+    //                if let controller = self.selectedViewController as? LocationListViewController {
+    //                    controller.studentLocations.locations = locations
+    //                    performUIUpdatesOnMain {
+    //                        controller.locationsTableView.reloadData()
+    //                    }
+    //                } else if let controller = self.selectedViewController as? MapViewController {
+    //                    controller.studentLocations.locations = locations
+    //                    performUIUpdatesOnMain {
+    //                        controller.createAnnotations()
+    //
+    //                        // center the map on the latest student location
+    //                        if let latestLoc = controller.studentLocations.locations!.first {
+    //                            controller.centerMapOnStudentLocation(location: latestLoc)
+    //                        }
+    //                    }
+    //                } else {
+    //                    print(error ?? "empty error")
+    //                }
+    //            } else {
+    //                print(error ?? "empty error")
+    //            }
+    //        }
+    //    }
+    //
+    //    // MARK: Complete sign out
+    //
+    //    func completeSignOut() {
+    //
+    //        dismiss(animated: true, completion: nil)
+    //    }
     
     // MAKR: Display error
     
