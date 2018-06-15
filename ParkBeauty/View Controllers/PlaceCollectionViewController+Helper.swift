@@ -65,7 +65,7 @@ extension PlaceCollectionViewController {
         navigationItem.setLeftBarButtonItems(leftBarButtons, animated: true)
         
         var rightBarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
-        let visitButton = UIBarButtonItem(image: UIImage(named: "icon_travel"), style: .plain, target: self, action: #selector(postVisit))
+        let visitButton = UIBarButtonItem(image: UIImage(named: "icon_plane"), style: .plain, target: self, action: #selector(postVisit))
         rightBarButtons.append(visitButton)
         navigationItem.setRightBarButtonItems(rightBarButtons, animated: true)
     }

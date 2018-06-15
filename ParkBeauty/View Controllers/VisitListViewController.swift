@@ -23,6 +23,10 @@ class VisitListViewController: UIViewController, UITableViewDataSource {
     
     var fetchedVisitController:NSFetchedResultsController<Visit>!
     
+    let starImage:  UIImage = UIImage(named: "icon_star.png")!
+    let blankImage: UIImage = UIImage()
+//    let emptyStarImage: UIImage = UIImage(named: "icon_emptystar.png")!
+    
     // A date formatter for date text in note cells
     let dateFormatter: DateFormatter = {
         let df = DateFormatter()
@@ -204,7 +208,14 @@ class VisitListViewController: UIViewController, UITableViewDataSource {
             cell.visitDateLabel.text = ""
         }
         
-        
+        let rating = aVisit.rating
+        if rating >= 0 {
+            cell.ratingStar1Image.image = getRatingStarImage(starNumber: 1, forRating: rating)
+            cell.ratingStar2Image.image = getRatingStarImage(starNumber: 2, forRating: rating)
+            cell.ratingStar3Image.image = getRatingStarImage(starNumber: 3, forRating: rating)
+            cell.ratingStar4Image.image = getRatingStarImage(starNumber: 4, forRating: rating)
+            cell.ratingStar5Image.image = getRatingStarImage(starNumber: 5, forRating: rating)
+        }        
 
 //        if let count = aNotebook.notes?.count {
 //            let pageString = count == 1 ? "page" : "pages"
@@ -290,30 +301,15 @@ extension VisitListViewController {
         navigationItem.setLeftBarButtonItems(leftBarButtons, animated: true)
     }
     
-//    let fullStarImage:  UIImage = UIImage(named: "starFull.png")!
-//    let halfStarImage:  UIImage = UIImage(named: "starHalf.png")!
-//    let emptyStarImage: UIImage = UIImage(named: "starEmpty.png")!
-//    
-//    func getStarImage(starNumber: Double, forRating rating: Double) -> UIImage {
-//        if rating >= starNumber {
-//            return fullStarImage
-//        } else if rating + 0.5 == starNumber {
-//            return halfStarImage
-//        } else {
-//            return emptyStarImage
-//        }
-//    }
-//    
-//    if let ourRating = object?["OurRating"] as? Double {
-//        cell?.star1.image = getStarImage(1, forRating: ourRating)
-//        cell?.star2.image = getStarImage(2, forRating: ourRating)
-//        cell?.star3.image = getStarImage(3, forRating: ourRating)
-//        cell?.star4.image = getStarImage(4, forRating: ourRating)
-//        cell?.star5.image = getStarImage(5, forRating: ourRating)
-//    }
-//    
-//    for (index, imageView) in [cell?.star1, cell?.star2, cell?.star3, cell?.star4, cell?.star5].enumerate() {
-//    imageView?.image = getStarImage(index + 1, forRating: ourRating)
-//    }
+    
+    func getRatingStarImage(starNumber: Int, forRating rating: Int16) -> UIImage {
+        if rating >= starNumber {
+            return starImage
+        } else {
+            return blankImage
+        }
+    }
+    
+
 }
 

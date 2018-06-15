@@ -151,7 +151,8 @@ class VisitInfoPostingViewController: UIViewController {
             if let travelDate = dateFormatter.date(from: visitDateText) {
                 setUIEnabled(false)
                 
-                let visit = addVisit(title: visitTitleText, travelDate: travelDate, rating: Int16(ratingControl.selectedSegmentIndex))
+                let rating = ratingControl.selectedSegmentIndex + 1
+                addVisit(title: visitTitleText, travelDate: travelDate, rating: Int16(rating))
                 
                 setUIEnabled(true)
                 

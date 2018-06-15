@@ -32,6 +32,9 @@
 		E46F74B720BF749E009C3452 /* Photo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74B620BF749E009C3452 /* Photo+Extensions.swift */; };
 		E46F74BB20BF77BB009C3452 /* NPSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74BA20BF77BB009C3452 /* NPSConstants.swift */; };
 		E46F74BD20BF9150009C3452 /* NPSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74BC20BF9150009C3452 /* NPSClient.swift */; };
+		E46FAA6B20CF9E0E008CC06D /* VisitTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA6A20CF9E0E008CC06D /* VisitTabBarController.swift */; };
+		E46FAA6D20CF9E3F008CC06D /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA6C20CF9E3F008CC06D /* DiaryListViewController.swift */; };
+		E46FAA6F20CF9E5B008CC06D /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA6E20CF9E5B008CC06D /* PhotoAlbumViewController.swift */; };
 		E4CE8D6320C4C06B00AC3E27 /* ParkInfoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CE8D6220C4C06B00AC3E27 /* ParkInfoPostingViewController.swift */; };
 		E4EAB67B20CB203C00D80B37 /* PlaceCollectionViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EAB67A20CB203C00D80B37 /* PlaceCollectionViewController+Helper.swift */; };
 		E4EAB67D20CB306F00D80B37 /* PlaceCollectionViewController+Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EAB67C20CB306F00D80B37 /* PlaceCollectionViewController+Place.swift */; };
@@ -73,6 +76,9 @@
 		E46F74B620BF749E009C3452 /* Photo+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Extensions.swift"; sourceTree = "<group>"; };
 		E46F74BA20BF77BB009C3452 /* NPSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSConstants.swift; sourceTree = "<group>"; };
 		E46F74BC20BF9150009C3452 /* NPSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSClient.swift; sourceTree = "<group>"; };
+		E46FAA6A20CF9E0E008CC06D /* VisitTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitTabBarController.swift; sourceTree = "<group>"; };
+		E46FAA6C20CF9E3F008CC06D /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
+		E46FAA6E20CF9E5B008CC06D /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		E4CE8D6220C4C06B00AC3E27 /* ParkInfoPostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkInfoPostingViewController.swift; sourceTree = "<group>"; };
 		E4EAB67A20CB203C00D80B37 /* PlaceCollectionViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceCollectionViewController+Helper.swift"; sourceTree = "<group>"; };
 		E4EAB67C20CB306F00D80B37 /* PlaceCollectionViewController+Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceCollectionViewController+Place.swift"; sourceTree = "<group>"; };
@@ -112,6 +118,9 @@
 				E4EAB67C20CB306F00D80B37 /* PlaceCollectionViewController+Place.swift */,
 				E43F95FC20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift */,
 				E43F960220CD6C74007DA0F8 /* VisitListViewController.swift */,
+				E46FAA6A20CF9E0E008CC06D /* VisitTabBarController.swift */,
+				E46FAA6C20CF9E3F008CC06D /* DiaryListViewController.swift */,
+				E46FAA6E20CF9E5B008CC06D /* PhotoAlbumViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -303,8 +312,10 @@
 				E4EDD27320C900AC00BD3D90 /* NPSConvenience.swift in Sources */,
 				E4EAB67B20CB203C00D80B37 /* PlaceCollectionViewController+Helper.swift in Sources */,
 				E46F74B320BF7468009C3452 /* Place+Extensions.swift in Sources */,
+				E46FAA6F20CF9E5B008CC06D /* PhotoAlbumViewController.swift in Sources */,
 				E4EED3A820C63A79007617DC /* ParkMapViewController+Region.swift in Sources */,
 				E46B22E420C0FAC50099AF1C /* NPSPark.swift in Sources */,
+				E46FAA6D20CF9E3F008CC06D /* DiaryListViewController.swift in Sources */,
 				E4EAB67D20CB306F00D80B37 /* PlaceCollectionViewController+Place.swift in Sources */,
 				E46F749C20BF626A009C3452 /* ParkBeauty.xcdatamodeld in Sources */,
 				E43F960320CD6C74007DA0F8 /* VisitListViewController.swift in Sources */,
@@ -323,6 +334,7 @@
 				E46F74BD20BF9150009C3452 /* NPSClient.swift in Sources */,
 				E46F74AF20BF741B009C3452 /* Region+Extensions.swift in Sources */,
 				E46B22F120C13AEF0099AF1C /* ParkTabBarController.swift in Sources */,
+				E46FAA6B20CF9E0E008CC06D /* VisitTabBarController.swift in Sources */,
 				E4EDD27120C8ECF400BD3D90 /* NPSPlace.swift in Sources */,
 				E4EDD27520C912B700BD3D90 /* PlaceCollectionCell.swift in Sources */,
 			);
