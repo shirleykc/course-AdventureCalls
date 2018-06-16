@@ -17,6 +17,11 @@ extension AppDelegate {
         
         // MARK: MapView
         static let RegionRadius: CLLocationDistance = 100000  // meters
+        
+        // MARK: label view
+        static let ViewMaxHeight: CGFloat = 180
+        static let ViewMinHeight: CGFloat = 40
+        static let MaxNumberOfLines: Int = 5
     }
     
     // MARK: UI

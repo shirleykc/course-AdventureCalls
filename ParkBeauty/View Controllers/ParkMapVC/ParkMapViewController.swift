@@ -117,34 +117,6 @@ class ParkMapViewController : UIViewController {
     
     // MARK: Actions
     
-    // MARK: dropPin - drop a location pin on the map
-    
-    //    @objc func dropPin(_ recognizer: UIGestureRecognizer) {
-    //
-    //        let point:CGPoint = recognizer.location(in: self.mapView)
-    //
-    //        let coordinate = mapView.convert(point, toCoordinateFrom: self.mapView)
-    //
-    //        if (recognizer.state == .began) {
-    //
-    // //           annotation = createAnnotationFor(coordinate: coordinate)
-    //
-    //        } else if (recognizer.state == .changed) {
-    //
-    //            // move pin to a new location
-    //            annotation?.updateCoordinate(newLocationCoordinate: coordinate)
-    //
-    //        } else if (recognizer.state == .ended) {
-    //
-    //            // Save location pin to data store
-    //  //          let pin = addLocationPin(latitude: coordinate.latitude, longitude: coordinate.longitude)
-    // //           annotation?.pin = pin
-    //
-    //            // Download photos for pin location
-    //   //         searchPhotoCollectionFor(pin)
-    //        }
-    //    }
-    
     // MARK: done - Done deleting pins
     
     @objc func done() {
@@ -195,8 +167,9 @@ extension ParkMapViewController: MKMapViewDelegate {
         
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.canShowCallout = false
+            pinView!.canShowCallout = true
             pinView!.pinTintColor = .red
+            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         else {
             pinView!.annotation = annotation
@@ -205,31 +178,56 @@ extension ParkMapViewController: MKMapViewDelegate {
         return pinView
     }
     
-    // MARK: mapView - didSelect - opens the photo album of the selected location pin
+//    // MARK: mapView - didSelect - opens the photo album of the selected location pin
+//    
+//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+//        
+//        if doDeletePark {
+//            if let annotation = view.annotation as? Annotation {
+//                //                if let pin = annotation.pin {
+//                //                    dataController.viewContext.delete(pin)
+//                //                    try? dataController.viewContext.save()
+//                //
+//                //                    mapView.removeAnnotation(annotation)
+//                //                    setUpFetchPinsController()
+//                //                }
+//            }
+//        } else {
+//            //           let controller = storyboard!.instantiateViewController(withIdentifier: "PhotoAlbumViewController") as! PhotoAlbumViewController
+//            if let annotation = view.annotation as? Annotation {
+//                
+//                //                controller.pin = annotation.pin
+//                //                controller.annotation = annotation
+//                //                controller.span = mapView.region.span
+//                //                controller.dataController = dataController
+//            }
+//            
+//            //           navigationController!.pushViewController(controller, animated: true)
+//        }
+//    }
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    // MARK: mapView - calloutAccessoryControlTapped - opens the places of the selected park
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-        if doDeletePark {
-            if let annotation = view.annotation as? Annotation {
-                //                if let pin = annotation.pin {
-                //                    dataController.viewContext.delete(pin)
-                //                    try? dataController.viewContext.save()
-                //
-                //                    mapView.removeAnnotation(annotation)
-                //                    setUpFetchPinsController()
-                //                }
-            }
-        } else {
-            //           let controller = storyboard!.instantiateViewController(withIdentifier: "PhotoAlbumViewController") as! PhotoAlbumViewController
+        if control == view.rightCalloutAccessoryView {
+            
             if let annotation = view.annotation as? Annotation {
                 
-                //                controller.pin = annotation.pin
-                //                controller.annotation = annotation
-                //                controller.span = mapView.region.span
-                //                controller.dataController = dataController
+                let controller = storyboard!.instantiateViewController(withIdentifier: "PlaceCollectionViewController") as! PlaceCollectionViewController
+
+                controller.park = annotation.park
+                controller.annotation = annotation
+                controller.span = mapView.region.span
+                controller.dataController = dataController
+                
+                navigationController!.pushViewController(controller, animated: true)
+                
+            } else {
+                
+                self.appDelegate.presentAlert(self, "Cannot load park details")
+                
             }
-            
-            //           navigationController!.pushViewController(controller, animated: true)
         }
     }
     

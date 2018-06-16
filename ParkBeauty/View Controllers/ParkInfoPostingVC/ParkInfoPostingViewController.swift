@@ -34,6 +34,7 @@ class ParkInfoPostingViewController: UIViewController {
     var dataController: DataController!
     
     var parkCollection: [NPSPark]?
+    var fetchedParks: [Park]!
     
     // action buttons
     var removeParkBanner: UIBarButtonItem?
@@ -59,14 +60,15 @@ class ParkInfoPostingViewController: UIViewController {
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         dataController = appDelegate.dataController
         
- 
+        setUpFetchParkController()
+        fetchedParks = fetchedParkController.fetchedObjects
         
-        navigationController?.setToolbarHidden(false, animated: true)
-        navigationController?.toolbar.barTintColor = UIColor.red
-        navigationController?.toolbar.tintColor = UIColor.white
+        navigationController?.setToolbarHidden(true, animated: true)
+//        navigationController?.toolbar.barTintColor = UIColor.red
+//        navigationController?.toolbar.tintColor = UIColor.white
         
-        createRemoveParkBanner()
-        removeParkBanner?.isEnabled = true
+//        createRemoveParkBanner()
+//        removeParkBanner?.isEnabled = true
         
         doDeletePark = true
         
@@ -88,7 +90,7 @@ class ParkInfoPostingViewController: UIViewController {
             
             for aPark in parks {
                 
-                // Here we create the annotation and set its coordiate, title, and subtitle properties
+                // Here we create the annotation and set its park properties
                 
                 if let _ = aPark.latitude,
                     let _ = aPark.longitude {
@@ -98,8 +100,9 @@ class ParkInfoPostingViewController: UIViewController {
                     mapView.addAnnotation(annotation)
                 }
             }
-            mapView.showAnnotations(mapView.annotations, animated: true)
-            
+            if mapView.annotations.count > 1 {
+                mapView.showAnnotations(mapView.annotations, animated: true)
+            }            
         } else {
             appDelegate.presentAlert(self, "Unable to create annotation")
             return
@@ -122,18 +125,27 @@ class ParkInfoPostingViewController: UIViewController {
             annotations.count > 0 {
             
             for newPark in annotations {
-                let park = Park(context: self.dataController.viewContext)
                 if let npsPark = newPark.npsPark {
-                    park.creationDate = Date()
-                    park.parkCode = npsPark.parkCode
-                    park.stateCode = npsPark.states
-                    if let latitude = npsPark.latitude,
-                        let longtitude = npsPark.longitude {
-                        park.latitude = latitude
-                        park.longitude = longtitude
+                    
+                    if fetchedParks.first(where: { $0.parkCode == npsPark.parkCode}) != nil {
+                        print("Park \(npsPark.parkCode) exists in data store")
+                        continue
+                    } else {
+                        print("Park \(npsPark.parkCode) not in data store")
+                        let park = Park(context: self.dataController.viewContext)
+                        park.creationDate = Date()
+                        park.parkCode = npsPark.parkCode
+                        park.stateCode = npsPark.states
+                        if let latitude = npsPark.latitude,
+                            let longtitude = npsPark.longitude {
+                            park.latitude = latitude
+                            park.longitude = longtitude
+                        }
+                        park.name = npsPark.fullName
+                        park.url = npsPark.url
+                        park.details = npsPark.description
+                        park.fullName = npsPark.fullName
                     }
-                    park.name = npsPark.fullName
-                    park.url = npsPark.url
                 }
             }
         
@@ -148,15 +160,6 @@ class ParkInfoPostingViewController: UIViewController {
         
         // go to next view
         completeInfoPosting()
-    }
-
-    // MARK: Center map on latest park
-
-    private func centerMapOnPark(location: CLLocation) {
-        let regionRadius: CLLocationDistance = AppDelegate.AppConstants.RegionRadius
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius, regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
     }
 
     // MARK: Complete info posting
@@ -180,8 +183,17 @@ extension ParkInfoPostingViewController: MKMapViewDelegate {
         
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.canShowCallout = false
-            pinView!.pinTintColor = .red
+            pinView!.canShowCallout = true
+            pinView!.pinTintColor = .purple
+            pinView!.animatesDrop = true
+            
+            let deleteButton = UIButton(type: UIButtonType.custom) as UIButton
+            deleteButton.frame.size.width = 44
+            deleteButton.frame.size.height = 44
+            deleteButton.backgroundColor = .yellow
+            deleteButton.setImage(UIImage(named: "icon_trash"), for: .normal)
+            
+            pinView!.leftCalloutAccessoryView = deleteButton
         }
         else {
             pinView!.annotation = annotation
@@ -190,39 +202,14 @@ extension ParkInfoPostingViewController: MKMapViewDelegate {
         return pinView
     }
     
-    // MARK: mapView - didSelect - delete the selected location pin
+    // MARK: mapView - calloutAccessoryControlTapped - delete the selected park from callout
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
-        if doDeletePark {
-            print("doDeletePark: \(doDeletePark)")
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.leftCalloutAccessoryView {
             if let annotation = view.annotation as? Annotation {
-                print("removeAnnotation: \(annotation)")
                 mapView.removeAnnotation(annotation)
             }
         }
     }
-    
-    // MARK: mapView - opens the system browser to the URL specified in
-    // the annotationViews subtitle property.
-    
-//    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-//        if control == view.rightCalloutAccessoryView {
-//            if let toOpen = view.annotation?.subtitle! {
-//                appDelegate.validateURLString(toOpen) { (success, url, errorString) in
-//                    performUIUpdatesOnMain {
-//                        if success {
-//                            UIApplication.shared.open(url!, options: [:]) { (success) in
-//                                if !success {
-//                                    self.appDelegate.presentAlert(self, "Cannot open URL \(url!)")
-//                                }
-//                            }
-//                        } else {
-//                            self.appDelegate.presentAlert(self, errorString)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
+
 }

@@ -145,7 +145,7 @@ extension ParkListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ParkTableCell", for: indexPath) as! ParkTableCell
         
         // Configure cell
-        var name = aPark.name
+        var name = aPark.fullName
         if name == nil {
             name = ""
         }
@@ -314,8 +314,9 @@ extension ParkListViewController {
     
     func setUpFetchParkController() {
         let fetchRequest:NSFetchRequest<Park> = Park.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        let sortDescriptor1 = NSSortDescriptor(key: "stateCode", ascending: true)
+        let sortDescriptor2 = NSSortDescriptor(key: "fullName", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor1, sortDescriptor2]
         
         fetchedParkController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedParkController.delegate = self

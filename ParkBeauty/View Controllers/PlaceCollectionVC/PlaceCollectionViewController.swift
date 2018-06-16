@@ -34,6 +34,7 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
     var selectedPlaceCells = [IndexPath]()
     
     var isLoadingNPSPlaces: Bool = false
+    var isLabelExpanded: Bool = false
     
     static var hasNPSPlace: Bool = false
     
@@ -41,6 +42,7 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var parkDescriptionLabel: UILabel!
+    @IBOutlet weak var parkDescriptionLabelHeight: NSLayoutConstraint!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var placeCollectionView: UICollectionView!
     
@@ -54,7 +56,7 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         
         // Grab the app delegate
         appDelegate = UIApplication.shared.delegate as! AppDelegate
-        dataController = appDelegate.dataController
+//        dataController = appDelegate.dataController
         
         self.navigationController?.setToolbarHidden(false, animated: true)
         self.navigationController?.toolbar.barTintColor = UIColor.white
@@ -89,11 +91,17 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         let placeFlowLayout = placeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         configure(flowLayout: placeFlowLayout!, withSpace: 1, withColumns: 3, withRows: 3)
         
+        addGestureRecognizer()
+                
+        print("park details: \(park.details)")
         if let description = park.details {
             parkDescriptionLabel.text = description
         } else {
             parkDescriptionLabel.text = ""
         }
+        parkDescriptionLabel.numberOfLines = AppDelegate.AppConstants.MaxNumberOfLines
+        parkDescriptionLabel.lineBreakMode = .byTruncatingTail
+        isLabelExpanded = false
         
         // Initialize new collection button
         createNewPlacesButton()
@@ -108,11 +116,55 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         }
     }
     
+    // MARK: addGestureRecognizer - configure tap and hold recognizer
+    
+    func addGestureRecognizer() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapLabel(_:)))
+        parkDescriptionLabel.isUserInteractionEnabled = true
+        parkDescriptionLabel.addGestureRecognizer(tapRecognizer)
+    }
+
+    @objc func handleTapLabel(_ sender: UITapGestureRecognizer)
+    {
+        if let label = sender.view as? UILabel {
+            if isLabelExpanded {
+                label.numberOfLines = AppDelegate.AppConstants.MaxNumberOfLines
+                label.lineBreakMode = .byTruncatingTail
+                isLabelExpanded = false
+            } else {
+                label.numberOfLines = 0
+                label.lineBreakMode = .byWordWrapping
+                isLabelExpanded = true
+            }
+            UIView.animate(withDuration: 0.5) {
+                label.superview?.layoutIfNeeded()
+            }
+        }
+    }
+    
+//    @IBAction func onReadMore(sender: AnyObject)
+//    {
+//        let frame = parkDescriptionLabel.inputView?.frame
+//
+//        if (frame?.height)! < AppDelegate.AppConstants.ViewMaxHeight
+//        {
+//            parkDescriptionLabel.inputView?.frame = CGRect(x: frame!.origin.x, y: frame!.origin.y, width: frame!.width, height: AppDelegate.AppConstants.ViewMaxHeight)
+//        }
+//        else
+//        {
+//            parkDescriptionLabel.inputView?.frame = CGRect(x: frame!.origin.x, y: frame!.origin.y, width: frame!.width, height: AppDelegate.AppConstants.ViewMinHeight)
+//        }
+//    }
+    
     // MARK: viewWillAppear
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        parkDescriptionLabel.numberOfLines = AppDelegate.AppConstants.MaxNumberOfLines
+        parkDescriptionLabel.lineBreakMode = .byTruncatingTail
+        isLabelExpanded = false
         
         // Grab the places
         setupFetchedPlaceController(doRemoveAll: false)
@@ -142,6 +194,19 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
     
     // MARK: Actions
     
+//    @IBAction func showAction(_ sender: UIGestureRecognizer) {
+//        if isLabelExpanded {
+//            print("showAction")
+//            
+//            let rect: CGRect = self.parkDescriptionLabel.bounds
+//            let newRect = CGRect(x: rect.origin.x, y: rect.origin.y, width: rect.width, height: AppDelegate.AppConstants.ViewMaxHeight)
+//            let textRect = parkDescriptionLabel.textRect(forBounds: newRect, limitedToNumberOfLines: 0)
+//            parkDescriptionLabel.numberOfLines = 0
+//            parkDescriptionLabel.lineBreakMode = .byWordWrapping
+//            parkDescriptionLabel.drawText(in: textRect)
+//            self.view.layoutIfNeeded()
+//    }
+    
     @IBAction func morePressed(_ sender: Any) {
         print("morePressed")
         guard let urlString = park.url else {
@@ -163,6 +228,8 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
             }
         }
     }
+    
+
     
     // MARK: newCollectionPressed - new collection button is pressed
     
