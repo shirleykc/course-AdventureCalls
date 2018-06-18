@@ -9,7 +9,13 @@
 import UIKit
 import CoreData
 
+// MARK: VisitInfoPostingViewController
+
 class VisitInfoPostingViewController: UIViewController {
+    
+    // MARK: Properties
+    
+    var appDelegate: AppDelegate!
     
     // The park whose visits are being displayed
     var park: Park!
@@ -18,6 +24,8 @@ class VisitInfoPostingViewController: UIViewController {
     var dataController:DataController!
     
     var fetchedVisitController:NSFetchedResultsController<Visit>!
+    
+    // Outlets
     
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var visitTitleTextField: UITextField!
@@ -29,65 +37,65 @@ class VisitInfoPostingViewController: UIViewController {
 //    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     // A date formatter for date text in note cells
+    
     let dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .medium
         return df
     }()
     
-    func setupFetchedVisitController() {
-        
-        let fetchRequest:NSFetchRequest<Visit> = Visit.fetchRequest()
-        let predicate = NSPredicate(format: "park == %@", argumentArray: [park!])
-        fetchRequest.predicate = predicate
-        fetchRequest.sortDescriptors = []
-        
-        fetchedVisitController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-//        fetchedVisitController.delegate = self
-        do {
-            try fetchedVisitController.performFetch()
-            if let results = fetchedVisitController?.fetchedObjects {
-                self.visits = results
-            }
-        } catch {
-            fatalError("The fetch could not be performed: \(error.localizedDescription)")
-        }
-    }
+    // MARK: Life Cycle
+    
+    // MARK: viewDidLoad
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        // Grab the app delegate
+        
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
         setupFetchedVisitController()
 
         // Set title to park name
-        if let name = park.name {
+        
+        if let name = park.fullName {
             self.title = name
         } else {
             self.title = "National Park Visit"
         }
         
-        navigationItem.rightBarButtonItem = editButtonItem
+        createTopBarButtons()
+ //       navigationItem.rightBarButtonItem = editButtonItem
         
         // Add gesture recognizer
+        
         addGestureRecognizer()
         
     }
     
+    // MARK: viewWillAppear
+    
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
+        
         setupFetchedVisitController()
-//        if let indexPath = tableView.indexPathForSelectedRow {
-//            tableView.deselectRow(at: indexPath, animated: false)
-//            tableView.reloadRows(at: [indexPath], with: .fade)
-//        }
     }
     
+    // MARK: viewDidDisappear
+    
     override func viewDidDisappear(_ animated: Bool) {
+        
         super.viewDidDisappear(animated)
+        
         fetchedVisitController = nil
     }
     
-    // -------------------------------------------------------------------------
     // MARK: - Actions
+    
+    // MARK: travelDateTextFieldEditing - enable date picker
     
     @IBAction func travelDateTextFieldEditing(_ sender: UITextField) {
 
@@ -101,44 +109,11 @@ class VisitInfoPostingViewController: UIViewController {
         datePickerView.addTarget(self, action: #selector(datePickerValueChanged), for: UIControlEvents.valueChanged)
     }
     
-//    @IBAction func travelDateTextFieldEndEditing(_ sender: UITextField) {
-//        
-//        sender.inputView?.resignFirstResponder()
-//    }
+    // MARK: travelDateTextFieldEndEditing - resign date picker
     
-    @objc func datePickerValueChanged(sender:UIDatePicker) {
+    @IBAction func travelDateTextFieldEndEditing(_ sender: UITextField) {
         
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateStyle = DateFormatter.Style.medium
-        
-        dateFormatter.timeStyle = DateFormatter.Style.none
-        
-        visitDateTextField.text = dateFormatter.string(from: sender.date)
-        
-    }
-    
-    // MARK: addGestureRecognizer - configure tap and hold recognizer
-    
-    func addGestureRecognizer() {
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        
-        self.view.addGestureRecognizer(tapRecognizer)
-    }
-    
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        if sender.state == .ended {
-            // handling code
-            self.view.endEditing(true)
-        }
-    }
-    
-    // MARK: cancelButtonPressed - cancel button is pressed
-        
-    @objc func cancelButtonPressed() {
-            
-        navigationController?.popViewController(animated: true)
-
+        sender.inputView?.resignFirstResponder()
     }
     
     @IBAction func postVisit(_ sender: Any) {
@@ -167,8 +142,53 @@ class VisitInfoPostingViewController: UIViewController {
         }
     }
     
-    /// Adds a new visit to the end of the `visit` array
+    // MARK: datePickerValueChanged - format visit date text field
+    
+    @objc func datePickerValueChanged(sender:UIDatePicker) {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        
+        dateFormatter.timeStyle = DateFormatter.Style.none
+        
+        visitDateTextField.text = dateFormatter.string(from: sender.date)
+        
+    }
+    
+    // MARK: handleTap - tap to end editing
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        
+        if sender.state == .ended {
+            
+            // handling code
+            
+            self.view.endEditing(true)
+        }
+    }
+    
+    // MARK: cancelButtonPressed - cancel button is pressed
+        
+    @objc func cancelButtonPressed() {
+            
+        navigationController?.popViewController(animated: true)
+
+    }
+    
+    // MARK: addGestureRecognizer - configure tap and hold recognizer
+    
+    func addGestureRecognizer() {
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        
+        self.view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    // MARK: addVisit - Adds a new visit to the data store
+    
     func addVisit(title: String, travelDate: Date, rating: Int16) -> Visit {
+        
         let visit = Visit(context: dataController.viewContext)
         visit.title = title
         visit.travelDate = travelDate
@@ -180,8 +200,6 @@ class VisitInfoPostingViewController: UIViewController {
         
         return visit
     }
-    
-
     
     // -------------------------------------------------------------------------
     // MARK: - Navigation
@@ -201,47 +219,12 @@ class VisitInfoPostingViewController: UIViewController {
 
 extension VisitInfoPostingViewController: UITextFieldDelegate {
     
-    // MARK: UITextFieldDelegate
+    // MARK: textFieldShouldReturn - UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         textField.resignFirstResponder()
         return true
     }
     
-}
-
-extension VisitInfoPostingViewController {
-    
-    // MARK: createTopBarButtons - create and set the top bar buttons
-    
-    func createTopBarButtons() {
-        
-        var leftBarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonPressed))
-        leftBarButtons.append(cancelButton)
-        navigationItem.setLeftBarButtonItems(leftBarButtons, animated: true)
-//
-//        var rightBarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
-//        let visitButton = UIBarButtonItem(image: UIImage(named: "icon_travel"), style: .plain, target: self, action: #selector(postVisit))
-//        rightBarButtons.append(visitButton)
-//        navigationItem.setRightBarButtonItems(rightBarButtons, animated: true)
-    }
-    
-    // MARK: Enable or disable UI
-    
-    func setUIEnabled(_ enabled: Bool) {
-        
-        visitTitleTextField.isEnabled = enabled
-        visitDateTextField.isEnabled = enabled
-        ratingControl.isEnabled = enabled
-        visitTitleTextField.text = ""
-        alertTextLabel.isEnabled = enabled
-        
-        // post visit button alpha
-        if enabled {
-            postVisitButton.alpha = 1.0
-        } else {
-            postVisitButton.alpha = 0.5
-        }
-    }
 }

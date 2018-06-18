@@ -45,16 +45,6 @@ extension PlaceCollectionViewController {
         self.setToolbarItems(toolbarButtons, animated: true)
     }
     
-    // MARK: createBackButton - create and set the back button
-    
-//    func createBackButton() {
-//
-//        var toolbarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
-//        let backButton = UIBarButtonItem(image: UIImage(named: "icon_back-arrow"), style: .plain, target: self, action: #selector(backButtonPressed))
-//        toolbarButtons.append(backButton)
-//        navigationItem.setLeftBarButtonItems(toolbarButtons, animated: true)
-//    }
-    
     // MARK: createTopBarButtons - create and set the top bar buttons
     
     func createTopBarButtons() {
@@ -65,18 +55,25 @@ extension PlaceCollectionViewController {
         navigationItem.setLeftBarButtonItems(leftBarButtons, animated: true)
         
         var rightBarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
+        let infoButton = UIBarButtonItem(image: UIImage(named: "icon_info"), style: .plain, target: self, action: #selector(infoButtonPressed))
         let visitButton = UIBarButtonItem(image: UIImage(named: "icon_plane"), style: .plain, target: self, action: #selector(postVisit))
+        rightBarButtons.append(infoButton)
         rightBarButtons.append(visitButton)
         navigationItem.setRightBarButtonItems(rightBarButtons, animated: true)
+//        navigationController?.toolbar.barTintColor = UIColor.white
+//        navigationController?.toolbar.tintColor = UIColor.white
     }
     
     // MARK: setUIActions - Set UI action buttons
     
     func setUIActions() {
+        
         if (isLoadingNPSPlaces) {
+            
             newPlacesButton?.isEnabled = false
             removePlacesButton?.isEnabled = false
         } else {
+            
             newPlacesButton?.isEnabled = true
             removePlacesButton?.isEnabled = false
         }
@@ -85,6 +82,7 @@ extension PlaceCollectionViewController {
     // MARK: setUIForDownloadingPlaces - Set user interface for downloading places
     
     func setUIForDownloadingPlaces() {
+        
         newPlacesButton?.isEnabled = false
         removePlacesButton?.isEnabled = false
         placeCollectionView.reloadData()
@@ -93,6 +91,7 @@ extension PlaceCollectionViewController {
     // MARK: resetUIAfterDownloadingPlaces - Reset user interface after download
     
     func resetUIAfterDownloadingPlaces() {
+        
         newPlacesButton?.isEnabled = true
         removePlacesButton?.isEnabled = false
         placeCollectionView.reloadData()
@@ -111,9 +110,12 @@ extension PlaceCollectionViewController {
     func setSelectedPlace(_ cell: PlaceCollectionCell, at indexPath: IndexPath) {
         
         // Set place cell selection
+        
         if let index = selectedPlaceCells.index(of: indexPath) {
+            
             selectedPlaceCells.remove(at: index)
         } else {
+            
             selectedPlaceCells.append(indexPath)
         }
         
@@ -125,6 +127,7 @@ extension PlaceCollectionViewController {
     func toggleSelectedPlace(_ cell: PlaceCollectionCell, at indexPath: IndexPath) {
         
         // Toggle place selection
+        
         if let _ = selectedPlaceCells.index(of: indexPath) {
             cell.alpha = 0.375
         } else {

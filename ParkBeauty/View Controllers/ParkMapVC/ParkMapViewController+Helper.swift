@@ -15,13 +15,18 @@ extension ParkMapViewController {
     
     // MARK: createEditButton - create and set the Edit bar buttons
     
-    func createEditButton(_ navigationItem: UINavigationItem) {
-        
-        var rightButtons: [UIBarButtonItem] = [UIBarButtonItem]()
-        editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(editPark))
-        rightButtons.append(editButton!)
-        navigationItem.setRightBarButtonItems(rightButtons, animated: true)
-    }
+//    func createEditButton(_ navigationItem: UINavigationItem) {
+//        
+//        var rightButtons: [UIBarButtonItem] = [UIBarButtonItem]()
+//        editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(editPark))
+//        rightButtons.append(editButton!)
+//        navigationItem.setRightBarButtonItems(rightButtons, animated: true)
+//    }
     
+//    func hideBottomBar(_ hidden: Bool) {
+//        navigationController?.setToolbarHidden(true, animated: true)
+//        navigationController?.toolbar.barTintColor = UIColor.white
+//        navigationController?.toolbar.tintColor = UIColor.white
+//    }
 }
 

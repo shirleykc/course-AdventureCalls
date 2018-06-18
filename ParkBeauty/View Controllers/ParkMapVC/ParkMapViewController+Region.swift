@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import CoreData
 
-// MARK: ParkMapViewController+Region
+// MARK: ParkMapViewController+Region 
 
 extension ParkMapViewController {
     
@@ -25,8 +25,10 @@ extension ParkMapViewController {
         
         fetchedRegionController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "region")
         do {
+            
             try fetchedRegionController.performFetch()
         } catch {
+            
             fatalError("The fetch region could not be performed: \(error.localizedDescription)")
         }
     }
@@ -46,10 +48,12 @@ extension ParkMapViewController {
     func setRegion(_ latitudeDelta: CLLocationDegrees, _ longitudeDelta: CLLocationDegrees) {
         
         // Set map to selected location
+        
         let latitude = mapView.region.center.latitude
         let longitude = mapView.region.center.longitude
         
         // Set map region per location and zoom level choice
+        
         let location = CLLocationCoordinate2DMake(latitude, longitude)
         let span = MKCoordinateSpanMake(latitudeDelta, longitudeDelta)
         let region = MKCoordinateRegionMake(location, span)
@@ -65,6 +69,7 @@ extension ParkMapViewController {
         // Create an MKPointAnnotation for each pin
         if let results = fetchedRegionController.fetchedObjects,
             results.count > 0 {
+            
             region = results[0]
         }
         
@@ -91,6 +96,7 @@ extension ParkMapViewController {
         
         // Save map region to user selected location and zoom level
         if (region == nil) {
+            
             region = Region(context: dataController.viewContext)
         }
 
@@ -101,6 +107,5 @@ extension ParkMapViewController {
         region?.creationDate = Date()
         
         try? dataController.viewContext.save()
-    }
-    
+    }    
 }

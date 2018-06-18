@@ -11,6 +11,8 @@ import UIKit
 import MapKit
 import CoreData
 
+// MARK: PlaceCollectionViewController
+
 class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
     // MARK: Properties
@@ -18,7 +20,6 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
     var appDelegate: AppDelegate!
     var annotation: Annotation!
     var span: MKCoordinateSpan!
-    var placeCollection: [NPSPlace]!
     
     // action buttons
     var newPlacesButton: UIBarButtonItem?
@@ -27,6 +28,7 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
     // The park whose places are being displayed
     var park: Park!
     var places = [Place]()
+    var placeCollection: [NPSPlace]!
     
     var dataController:DataController!
     var fetchedPlaceController:NSFetchedResultsController<Place>!
@@ -42,8 +44,7 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var parkDescriptionLabel: UILabel!
-    @IBOutlet weak var parkDescriptionLabelHeight: NSLayoutConstraint!
-    @IBOutlet weak var moreButton: UIButton!
+//    @IBOutlet weak var parkDescriptionLabelHeight: NSLayoutConstraint!
     @IBOutlet weak var placeCollectionView: UICollectionView!
     
     // MARK: Life Cycle
@@ -55,6 +56,7 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         super.viewDidLoad()
         
         // Grab the app delegate
+        
         appDelegate = UIApplication.shared.delegate as! AppDelegate
 //        dataController = appDelegate.dataController
         
@@ -65,7 +67,7 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         createTopBarButtons()
         
         // Set title to park name        
-        if let name = park.name {
+        if let name = park.fullName {
             self.title = name
         } else {
             self.title = "National Park Places"
@@ -76,23 +78,16 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         mapView.delegate = self
         
         // add annotation to the map
+        
         mapView.addAnnotation(annotation)
         
         // center the map on the park location
+        
         let location = CLLocation(latitude: park.latitude, longitude: park.longitude)
         centerMapOnParkLocation(location: location)
         
-        // Grab the places
-        setupFetchedPlaceController(doRemoveAll: false)
-        
-        isLoadingNPSPlaces = (places.count == 0) ? true : false
-        
-        // Implement flowLayout here.
-        let placeFlowLayout = placeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        configure(flowLayout: placeFlowLayout!, withSpace: 1, withColumns: 3, withRows: 3)
-        
         addGestureRecognizer()
-                
+        
         print("park details: \(park.details)")
         if let description = park.details {
             parkDescriptionLabel.text = description
@@ -103,58 +98,33 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         parkDescriptionLabel.lineBreakMode = .byTruncatingTail
         isLabelExpanded = false
         
+        // Grab the places
+        
+        setupFetchedPlaceController(doRemoveAll: false)
+        
+        isLoadingNPSPlaces = (places.count == 0) ? true : false
+        
+        // Implement flowLayout here.
+        
+        let placeFlowLayout = placeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        configure(flowLayout: placeFlowLayout!, withSpace: 1, withColumns: 3, withRows: 3)
+        
         // Initialize new collection button
+        
         createNewPlacesButton()
         setUIActions()
         
         // If empty places collection, then download new set of places
+        
         if (isLoadingNPSPlaces) {
+            
             setUIForDownloadingPlaces()
             downloadNPSPlacesFor(park)
         } else {
+            
             newPlacesButton?.isEnabled = true
         }
     }
-    
-    // MARK: addGestureRecognizer - configure tap and hold recognizer
-    
-    func addGestureRecognizer() {
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapLabel(_:)))
-        parkDescriptionLabel.isUserInteractionEnabled = true
-        parkDescriptionLabel.addGestureRecognizer(tapRecognizer)
-    }
-
-    @objc func handleTapLabel(_ sender: UITapGestureRecognizer)
-    {
-        if let label = sender.view as? UILabel {
-            if isLabelExpanded {
-                label.numberOfLines = AppDelegate.AppConstants.MaxNumberOfLines
-                label.lineBreakMode = .byTruncatingTail
-                isLabelExpanded = false
-            } else {
-                label.numberOfLines = 0
-                label.lineBreakMode = .byWordWrapping
-                isLabelExpanded = true
-            }
-            UIView.animate(withDuration: 0.5) {
-                label.superview?.layoutIfNeeded()
-            }
-        }
-    }
-    
-//    @IBAction func onReadMore(sender: AnyObject)
-//    {
-//        let frame = parkDescriptionLabel.inputView?.frame
-//
-//        if (frame?.height)! < AppDelegate.AppConstants.ViewMaxHeight
-//        {
-//            parkDescriptionLabel.inputView?.frame = CGRect(x: frame!.origin.x, y: frame!.origin.y, width: frame!.width, height: AppDelegate.AppConstants.ViewMaxHeight)
-//        }
-//        else
-//        {
-//            parkDescriptionLabel.inputView?.frame = CGRect(x: frame!.origin.x, y: frame!.origin.y, width: frame!.width, height: AppDelegate.AppConstants.ViewMinHeight)
-//        }
-//    }
     
     // MARK: viewWillAppear
     
@@ -194,42 +164,63 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
     
     // MARK: Actions
     
-//    @IBAction func showAction(_ sender: UIGestureRecognizer) {
-//        if isLabelExpanded {
-//            print("showAction")
-//            
-//            let rect: CGRect = self.parkDescriptionLabel.bounds
-//            let newRect = CGRect(x: rect.origin.x, y: rect.origin.y, width: rect.width, height: AppDelegate.AppConstants.ViewMaxHeight)
-//            let textRect = parkDescriptionLabel.textRect(forBounds: newRect, limitedToNumberOfLines: 0)
-//            parkDescriptionLabel.numberOfLines = 0
-//            parkDescriptionLabel.lineBreakMode = .byWordWrapping
-//            parkDescriptionLabel.drawText(in: textRect)
-//            self.view.layoutIfNeeded()
-//    }
+    // MARK: infoButtonPressed - info button to launch NPS official site
     
-    @IBAction func morePressed(_ sender: Any) {
-        print("morePressed")
+    @objc func infoButtonPressed(_ sender: Any) {
+        print("infoButtonPressed")
         guard let urlString = park.url else {
+            
             appDelegate.presentAlert(self, "Invalid URL")
             return
         }
         
         appDelegate.validateURLString(urlString) { (success, url, errorString) in
             performUIUpdatesOnMain {
+                
                 if success {
+                    
                     UIApplication.shared.open(url!, options: [:]) { (success) in
                         if !success {
+                            
                             self.appDelegate.presentAlert(self, "Cannot open URL")
                         }
                     }
                 } else {
+                    
                     self.appDelegate.presentAlert(self, errorString)
                 }
             }
         }
     }
     
-
+    // MARK: handleTapLabel - tap label to toggle expand or collapse text
+    
+    @objc func handleTapLabel(_ sender: UITapGestureRecognizer) {
+        
+        if let label = sender.view as? UILabel {
+            
+            if isLabelExpanded {
+                
+                // collapse text
+                
+                label.numberOfLines = AppDelegate.AppConstants.MaxNumberOfLines
+                label.lineBreakMode = .byTruncatingTail
+                isLabelExpanded = false
+            } else {
+                
+                // expand text
+                
+                label.numberOfLines = 0
+                label.lineBreakMode = .byWordWrapping
+                isLabelExpanded = true
+            }
+            
+            UIView.animate(withDuration: 0.5) {
+                
+                label.superview?.layoutIfNeeded()
+            }
+        }
+    }
     
     // MARK: newCollectionPressed - new collection button is pressed
     
@@ -303,14 +294,22 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         
         // go to next view
         let controller = storyboard!.instantiateViewController(withIdentifier: "VisitListViewController") as! VisitListViewController
-        //        controller.place = place
-        //        controller.mediaURL = mediaURLTextField.text!
         controller.park = park
         controller.dataController = dataController
         navigationController!.pushViewController(controller, animated: true)
     }
     
-    // MARK: configure - configure the flowLayout
+    // MARK: addGestureRecognizer - configure tap and hold recognizer
+    
+    func addGestureRecognizer() {
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapLabel(_:)))
+        
+        parkDescriptionLabel.isUserInteractionEnabled = true
+        parkDescriptionLabel.addGestureRecognizer(tapRecognizer)
+    }
+
+    // MARK: configure - configure the places collection view flowLayout
     
     func configure(flowLayout: UICollectionViewFlowLayout, withSpace space: CGFloat, withColumns numOfColumns: CGFloat, withRows numOfRows: CGFloat) {
         
@@ -345,11 +344,16 @@ extension PlaceCollectionViewController: MKMapViewDelegate {
         var placeView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         
         if placeView == nil {
+            
             placeView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            
+            // callout to show park name
+            
             placeView!.canShowCallout = true
             placeView!.pinTintColor = .red
         }
         else {
+            
             placeView!.annotation = annotation
         }
         
@@ -364,6 +368,7 @@ extension PlaceCollectionViewController: UICollectionViewDelegate, UICollectionV
     // MARK: numberOfSections - collectionView - Collection View Data Source
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
         return fetchedPlaceController.sections?.count ?? 1
     }
     
@@ -374,8 +379,10 @@ extension PlaceCollectionViewController: UICollectionViewDelegate, UICollectionV
         // Set number of photos to display
         var placeCount: Int
         if (isLoadingNPSPlaces) {
+            
             placeCount = Int(NPSClient.ParameterValues.PerPage)!
         } else {
+            
             placeCount = places.count
         }
         
@@ -389,17 +396,22 @@ extension PlaceCollectionViewController: UICollectionViewDelegate, UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlaceCollectionCell", for: indexPath) as! PlaceCollectionCell
         
         // Initialize
+        
         cell.placeImage?.image = UIImage()
         
         if (PlaceCollectionViewController.hasNPSPlace) {
+            
             cell.activityIndicatorView.startAnimating()
         }
         
         // Display photo
         if (!isLoadingNPSPlaces) {
+            
             if indexPath.item < places.count {
+                
                 let aPlace = fetchedPlaceController.object(at: indexPath)
                 if let imageData = aPlace.image {
+                    
                     cell.placeImage?.image = UIImage(data: imageData)
                     if let title = aPlace.title {
                         cell.title?.text = "\(title)"
@@ -427,10 +439,12 @@ extension PlaceCollectionViewController: UICollectionViewDelegate, UICollectionV
         
         // create and set action button
         if selectedPlaceCells.count > 0 {
+            
             newPlacesButton?.isEnabled = false
             createRemovePlacesButton()
             removePlacesButton?.isEnabled = true
         } else {
+            
             removePlacesButton?.isEnabled = false
             createNewPlacesButton()
             newPlacesButton?.isEnabled = true

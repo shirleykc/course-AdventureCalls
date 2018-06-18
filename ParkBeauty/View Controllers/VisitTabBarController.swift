@@ -29,14 +29,14 @@ class VisitTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("VisitTabBarController viewDidLoad")
         // create and set the bar buttons
         createBarButtons(navigationItem)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        print("VisitTabBarController viewWillAppear")
         // create and set the bar buttons
         createBarButtons(navigationItem)
     }

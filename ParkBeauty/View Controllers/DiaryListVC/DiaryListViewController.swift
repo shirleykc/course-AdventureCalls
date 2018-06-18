@@ -23,36 +23,77 @@ class DiaryListViewController: UIViewController {
     var appDelegate: AppDelegate!
     
     var visit: Visit!
+    var park: Park!
     var diaries = [Diary]()
-    //    var studentLocations: StudentLocationCollection!
     
     var dataController: DataController!
     
     var fetchedDiaryController: NSFetchedResultsController<Diary>!
-    //    var fetchedPlaceController: NSFetchedResultsController<Place>!
+    
+    // A date formatter for date text
+    
+    let dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateStyle = .medium
+        return df
+    }()
     
     // MARK: Outlets
     
+    @IBOutlet weak var parkCodeLabel: UILabel!
+    @IBOutlet weak var parkNameLabel: UILabel!
     @IBOutlet weak var diaryTableView: UITableView!
     //    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     // MARK: Life Cycle
     
+    // MARK: viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("DiaryListViewController viewDidLoad")
         /* Grab the app delegate */
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         dataController = appDelegate.dataController
+
+        // Set title to travel date
+        
+        if let travelDate = visit.travelDate {
+            self.title = dateFormatter.string(from: travelDate)
+        } else if let name = park.fullName {
+            self.title = name
+        } else {
+            self.title = "National Park Visit Diary"
+        }
+        
+        if let parkCode = park.parkCode {
+            parkCodeLabel?.text = parkCode.uppercased()
+        } else {
+            parkCodeLabel?.text = ""
+        }
+        
+        if let parkName = park.fullName {
+            parkNameLabel?.text = parkName
+        } else {
+            parkNameLabel?.text = ""
+        }
         
         /* Grab the park data store */
         setUpFetchDiaryController()
+        
+        createTopBarButtons(navigationItem)
     }
     
+    // MARK: viewWillAppear
+    
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
+        print("DiaryListViewController viewWillAppear")
+
         setUpFetchDiaryController()
         if let indexPath = diaryTableView.indexPathForSelectedRow {
+            
             diaryTableView.deselectRow(at: indexPath, animated: false)
             diaryTableView.reloadRows(at: [indexPath], with: .fade)
         }
@@ -61,35 +102,75 @@ class DiaryListViewController: UIViewController {
         self.navigationController?.setToolbarHidden(true, animated: true)
     }
     
+    // MARK: viewDidDisappear
+    
     override func viewDidDisappear(_ animated: Bool) {
+        
         super.viewDidDisappear(animated)
+        
         fetchedDiaryController = nil
     }
     
-    /// Adds a new diary to the end of the `diaries` array
-    func addDiary(name: String) {
-        let diary = Diary(context: dataController.viewContext)
-//        diary.name = name
-        diary.creationDate = Date()
+    // MARK: Actions
+    
+    // MARK: addDiaryPressed - Add Diary
+    
+    @objc func addDiaryPressed() {
+        
+        // go to search park view
+        
+        let diaryDetailViewController = storyboard!.instantiateViewController(withIdentifier: "DiaryDetailViewController") as! DiaryDetailViewController
+        
+        diaryDetailViewController.dataController = dataController
+        diaryDetailViewController.park = park
+        diaryDetailViewController.visit = visit
+        
+        navigationController!.pushViewController(diaryDetailViewController, animated: true)
+    }
+    
+    // MARK: backButtonPressed - back button is pressed
+    
+    @objc func backButtonPressed() {
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    /// Adds a new diary to the data store
+//    func addDiary(title: String?, note: String?) {
+//        let diary = Diary(context: dataController.viewContext)
+////        diary.name = name
+//        diary.title = title
+//        diary.creationDate = Date()
+//
+//        try? dataController.viewContext.save()
+//    }
+    
+    // MARK: deleteDiary - Deletes the diary at the specified index path
+    
+    func deleteDiary(at indexPath: IndexPath) {
+        
+        let diaryToDelete = fetchedDiaryController.object(at: indexPath)
+        dataController.viewContext.delete(diaryToDelete)
         
         try? dataController.viewContext.save()
     }
     
-    /// Deletes the diary at the specified index path
-    func deleteDiary(at indexPath: IndexPath) {
-        let diaryToDelete = fetchedDiaryController.object(at: indexPath)
-        dataController.viewContext.delete(diaryToDelete)
-        try? dataController.viewContext.save()
-    }
+    // MARK: updateEditButtonState - Enable or disable the Edit button
     
     func updateEditButtonState() {
+        
         if let sections = fetchedDiaryController.sections {
+            
             navigationItem.rightBarButtonItem?.isEnabled = sections[0].numberOfObjects > 0
         }
     }
     
+    // MARK: setEditing - set editing state
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
+        
         super.setEditing(editing, animated: animated)
+        
         diaryTableView.setEditing(editing, animated: animated)
     }
     
@@ -128,185 +209,151 @@ class DiaryListViewController: UIViewController {
     //    }
 }
 
+// MARK: DiaryListViewController: UITableViewDelegate, UITableViewDataSource
+
 extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    // -------------------------------------------------------------------------
-    // MARK: - Table view data source
+
+    // MARK: numberOfSections
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         return fetchedDiaryController.sections?.count ?? 1
     }
     
+    // MARK: tableView - numberOfRowsInSection
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return fetchedDiaryController.sections?[section].numberOfObjects ?? 0
     }
     
+    // MARK: tableView - cellForRowAt
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let aPark = fetchedDiaryController.object(at: indexPath)
+        
+        let aDiary = fetchedDiaryController.object(at: indexPath)
+        print("aDiary: \(indexPath) - \(aDiary)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "DiaryTableCell", for: indexPath) as! DiaryTableCell
         
         // Configure cell
-//        var name = aDiary.name
-//        if name == nil {
-//            name = ""
-//        }
-//        cell.parkNameLabel?.text = "\(name!)"
-//
-//        var stateCode = aPark.stateCode
-//        if stateCode == nil {
-//            stateCode = ""
-//        }
-//        cell.parkStateLabel?.text = "\(stateCode!)"
-//
-//        var parkCode = aPark.parkCode
-//        if parkCode == nil {
-//            parkCode = ""
-//        } else {
-//            parkCode = parkCode?.uppercased()
-//        }
-//        cell.parkCodeLabel?.text = "\(parkCode!)"
+        
+        if let title = aDiary.title {
+            cell.diaryTitleLabel.text = title
+        } else {
+            cell.diaryTitleLabel.text = ""
+        }
+        
+        if let count = visit.diaries?.count {
+            let pageString = count == 1 ? "page" : "pages"
+            cell.pageCountLabel.text = "\(count) \(pageString)"
+        }
         
         return cell
     }
     
+//    // MARK: tableView - didSelectRowAt
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        let controller = storyboard!.instantiateViewController(withIdentifier: "DiaryDetailViewController") as! DiaryDetailViewController
+//
+//        let aDiary = fetchedDiaryController.object(at: indexPath)
+//        controller.visit = visit
+//        controller.park = park
+//        controller.diary = aDiary
+//        controller.dataController = dataController
+//
+//        print("DiaryListViewController didSelectRowAt")
+//        navigationController!.pushViewController(controller, animated: true)
+//    }
+    
+    // MARK: tableView - commit
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
         switch editingStyle {
+            
         case .delete: deleteDiary(at: indexPath)
+            
         default: () // Unsupported
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = storyboard!.instantiateViewController(withIdentifier: "PlaceCollectionViewController") as! PlaceCollectionViewController
-        let aDiary = fetchedDiaryController.object(at: indexPath)
-//        controller. = aDiary
-//        controller.annotation = Annotation(park: aPark)
-        controller.dataController = dataController
+    // MARK: - prepare - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        print("didSelectRowAt")
-        navigationController!.pushViewController(controller, animated: true)
+        // If this is a DiaryDetailsViewController, we'll configure its `Diary`
+        // and its delete action
+        
+        if let vc = segue.destination as? DiaryDetailViewController {
+            if let indexPath = diaryTableView.indexPathForSelectedRow {
+                vc.diary = fetchedDiaryController.object(at: indexPath)
+                vc.park = park
+                vc.visit = visit
+                vc.dataController = dataController
+                
+                vc.onDelete = { [weak self] in
+                    if let indexPath = self?.diaryTableView.indexPathForSelectedRow {
+                        self?.deleteDiary(at: indexPath)
+                        self?.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }
+        }
     }
 }
-
-//// MARK: - LocationListViewController: UITableViewDelegate, UITableViewDataSource
-//
-//extension LocationListViewController: UITableViewDelegate, UITableViewDataSource {
-//
-//    // MARK: tableView - cellForRowAt
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        /* Get cell type */
-//        let cellReuseIdentifier = "StudentLocationTableCell"
-//        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! StudentLocationTableCell
-//
-//        if let locations = studentLocations.locations {
-//            let location = locations[(indexPath as NSIndexPath).row]
-//
-//            /* Set cell defaults */
-//            var firstName = location.firstName
-//            if firstName == nil {
-//                firstName = ""
-//            }
-//            var lastName = location.lastName
-//            if lastName == nil {
-//                lastName = ""
-//            }
-//            cell.studentNameLabel?.text = "\(firstName!) \(lastName!)"
-//
-//            var mediaURL = location.mediaURL
-//            if mediaURL == nil {
-//                mediaURL = ""
-//            }
-//            cell.mediaURLLabel?.text = "\(mediaURL!)"
-//        }
-//
-//        return cell
-//    }
-//
-//    // MARK: tableView - numberOfRowsInSection
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if let locations = studentLocations.locations {
-//            return locations.count
-//        } else {
-//            return 0
-//        }
-//    }
-//
-//    // MARK: tableView - didSelectRowAt
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let locations = studentLocations.locations else {
-//            appDelegate.presentAlert(self, "No student locations available")
-//            return
-//        }
-//
-//        let studentInformation = locations[(indexPath as NSIndexPath).row]
-//
-//        // deselect the selected row
-//        tableView.deselectRow(at: indexPath, animated: true)
-//
-//        guard let mediaURLString = studentInformation.mediaURL else {
-//            appDelegate.presentAlert(self, "Invalid URL")
-//            return
-//        }
-//
-//        appDelegate.validateURLString(mediaURLString) { (success, url, errorString) in
-//            performUIUpdatesOnMain {
-//                if success {
-//                    UIApplication.shared.open(url!, options: [:]) { (success) in
-//                        if !success {
-//                            self.appDelegate.presentAlert(self, "Cannot open URL")
-//                        }
-//                    }
-//                } else {
-//                    self.appDelegate.presentAlert(self, errorString)
-//                }
-//            }
-//        }
-//    }
-//
-//    // MARK: tableView - heightForRowAt
-//
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 60
-//    }
-//}
+    
+// MARK: DiaryListViewController:NSFetchedResultsControllerDelegate
 
 extension DiaryListViewController:NSFetchedResultsControllerDelegate {
     
+    // MARK: controller - didChange an object
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
+            
         case .insert:
             diaryTableView.insertRows(at: [newIndexPath!], with: .fade)
-        //            break
+            
         case .delete:
             diaryTableView.deleteRows(at: [indexPath!], with: .fade)
-        //            break
+            
         case .update:
             diaryTableView.reloadRows(at: [indexPath!], with: .fade)
+            
         case .move:
             diaryTableView.moveRow(at: indexPath!, to: newIndexPath!)
         }
     }
     
+    // MARK: controller - didChange section
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        
         let indexSet = IndexSet(integer: sectionIndex)
         switch type {
+            
         case .insert: diaryTableView.insertSections(indexSet, with: .fade)
+            
         case .delete: diaryTableView.deleteSections(indexSet, with: .fade)
+            
         case .update, .move:
             fatalError("Invalid change type in controller(_:didChange:atSectionIndex:for:). Only .insert or .delete should be possible.")
         }
     }
     
+    // MARK: controllerWillChangeContent
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
         diaryTableView.beginUpdates()
     }
     
+    // MARK: controllerDidChangeContent
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
         diaryTableView.endUpdates()
     }
 }

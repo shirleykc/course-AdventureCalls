@@ -15,14 +15,11 @@ class DiaryTableCell: UITableViewCell {
     // MARK: Outlets
     
     @IBOutlet weak var diaryTitleLabel: UILabel!
-    @IBOutlet weak var noteLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-//    @IBOutlet weak var iconImage: UIImageView!
+    @IBOutlet weak var pageCountLabel: UILabel!
     
     override func prepareForReuse() {
         super.prepareForReuse()
         diaryTitleLabel.text = nil
-        noteLabel.text = nil
-        dateLabel.text = nil
+        pageCountLabel.text = nil
     }
 }

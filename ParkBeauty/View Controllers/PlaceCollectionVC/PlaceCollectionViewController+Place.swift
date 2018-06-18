@@ -23,16 +23,17 @@ extension PlaceCollectionViewController {
         fetchRequest.sortDescriptors = []
         
         fetchedPlaceController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-        //        fetchedPlaceController.delegate = self
         do {
             try fetchedPlaceController.performFetch()
             if let results = fetchedPlaceController?.fetchedObjects {
+                
                 if doRemoveAll {
                     self.places.removeAll()
                 }
                 self.places = results
             }
         } catch {
+            
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
     }
@@ -43,7 +44,9 @@ extension PlaceCollectionViewController {
         
         // Save place urls and titles for park
         for newPlace in newCollection {
+            
             if let imageUrl = newPlace.imageUrl {
+                
                 let place = Place(context: self.dataController.viewContext)
                 place.creationDate = Date()
                 place.title = newPlace.title
@@ -74,13 +77,17 @@ extension PlaceCollectionViewController {
         
         setupFetchedPlaceController(doRemoveAll: false)
         if self.places.count > 0 {
+            
             for aPlace in self.places {
+                
                 if let imageUrl = aPlace.imageUrl {
                     
                     NPSClient.sharedInstance().getPlaceImageFrom(imageUrl) { (imageData, error) in
                         
                         if error == nil {
+                            
                             performUIUpdatesOnMain {
+                                
                                 aPlace.image = imageData
                                 try? self.dataController.viewContext.save()
                             }
@@ -97,11 +104,14 @@ extension PlaceCollectionViewController {
     func deleteAllPlaces() {
         
         for aPlace in self.places {
+            
             dataController.viewContext.delete(aPlace)
         }
+        
         try? dataController.viewContext.save()
         
         // Reset
+        
         self.places.removeAll()
     }
     
@@ -112,14 +122,18 @@ extension PlaceCollectionViewController {
         NPSClient.sharedInstance().getPlacesFor(park.parkCode, start) { (results, start, error) in
             
             guard (error == nil) else {
+                
                 completionHandlerForSearchPlaceCollection(false, nil, (error?.userInfo[NSLocalizedDescriptionKey] as! String))
                 return
             }
             
             performUIUpdatesOnMain {
+                
                 if let results = results {
+                    
                     completionHandlerForSearchPlaceCollection(true, results, nil)
                 } else {
+                    
                     completionHandlerForSearchPlaceCollection(false, nil, "Cannot load places")
                 }
             }
@@ -148,14 +162,17 @@ extension PlaceCollectionViewController {
                                 }
                             }
                             else {
+                                
                                 self.displayError("Unable to save place images")
                             }
                         }
                     } else {
+                        
                         self.displayError("Unable to save place")
                     }
                 }
             } else {
+                
                 self.displayError(error)
             }
             self.isLoadingNPSPlaces = false
@@ -172,14 +189,16 @@ extension PlaceCollectionViewController {
         
         // Display new set of places for the park
         if (self.places.count > 0) {
+            
             let delay = DispatchTime.now() + .seconds(1)
             DispatchQueue.main.asyncAfter(deadline: delay) {
+                
                 completionHandlerForDisplayPlaces(true)
             }
         } else {
+            
             self.appDelegate.presentAlert(self, "No places available")
             completionHandlerForDisplayPlaces(true)
         }
     }
-    
 }

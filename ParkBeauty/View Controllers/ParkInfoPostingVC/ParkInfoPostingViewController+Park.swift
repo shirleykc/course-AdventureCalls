@@ -24,8 +24,10 @@ extension ParkInfoPostingViewController {
         
         fetchedParkController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         do {
+            
             try fetchedParkController.performFetch()
         } catch {
+            
             fatalError("The fetch park could not be performed: \(error.localizedDescription)")
         }
     }

@@ -24,41 +24,35 @@ extension ParkMapViewController {
         
         fetchedParkController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         do {
+            
             try fetchedParkController.performFetch()
         } catch {
+            
             fatalError("The fetch pins could not be performed: \(error.localizedDescription)")
         }
     }
-    
-//    // MARK: addLocationPin - add a location pin to data store
-//
-//    func addLocationPin(latitude: CLLocationDegrees, longitude: CLLocationDegrees) -> Pin {
-//
-//        let pin = Pin(context: dataController.viewContext)
-//        pin.latitude = latitude
-//        pin.longitude = longitude
-//        pin.creationDate = Date()
-//
-//        try? dataController.viewContext.save()
-//
-//        return pin
-//    }
     
     // MARK: createAnnotations - fetch parks from data store to create annotaions on map
     
     func createAnnotations() {
         
         // Create an MKPointAnnotation for each park
+        
         guard let parks = fetchedParkController.fetchedObjects else {
+            
             appDelegate.presentAlert(self, "No parks found")
             return
         }
         
         // first, remove previous annotations
+        
         let allannotations = mapView.annotations
         mapView.removeAnnotations(allannotations)
         
+        // create annotations
+        
         for aPark in parks {
+            
             createAnnotation(park: aPark)
         }
     }
@@ -68,9 +62,11 @@ extension ParkMapViewController {
     func createAnnotation(park: Park) {
         
         // create the annotation and set its coordiate properties
+        
         let annotation = Annotation(park: park)
         
         // add annotation to the map
+        
         mapView.addAnnotation(annotation)
     }
     
@@ -79,9 +75,11 @@ extension ParkMapViewController {
     func createAnnotationFor(coordinate: CLLocationCoordinate2D) -> Annotation {
         
         // create the annotation and set its coordiate properties
+        
         let annotation = Annotation(locationCoordinate: coordinate)
         
         // add annotation to the map
+        
         mapView.addAnnotation(annotation)
         
         return annotation

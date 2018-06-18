@@ -44,11 +44,11 @@ class ParkMapViewController : UIViewController {
     var region: Region?
     
     // action buttons
-    var removeParkBanner: UIBarButtonItem?
-    var editButton: UIBarButtonItem?
-    var doneButton: UIBarButtonItem?
+//    var removeParkBanner: UIBarButtonItem?
+//    var editButton: UIBarButtonItem?
+//    var doneButton: UIBarButtonItem?
     
-    var doDeletePark: Bool = false
+//    var doDeletePark: Bool = false
     
     // MARK: Outlets
     
@@ -63,19 +63,13 @@ class ParkMapViewController : UIViewController {
         super.viewDidLoad()
         
         // Grab the app delegate
+        
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         dataController = appDelegate.dataController
         
-        // Add gesture recognizer
-        //        addGestureRecognizer()
-        
         // Hide the toolbar
-        navigationController?.setToolbarHidden(true, animated: true)
-        navigationController?.toolbar.barTintColor = UIColor.white
-        navigationController?.toolbar.tintColor = UIColor.white
         
-        // Create the Edit button on navigation bar
-        createEditButton(navigationItem)
+        navigationController?.setToolbarHidden(true, animated: true)
     }
     
     // MARK: viewAllAppear
@@ -87,20 +81,18 @@ class ParkMapViewController : UIViewController {
         mapView.delegate = self
         
         // Grab the region
+        
         setUpFetchRegionController()
         loadMapRegion()
         
-        // Grab the pins
+        // Grab the parks
+        
         setUpFetchParkController()
         createAnnotations()
         
         // Hide the toolbar
-        navigationController?.setToolbarHidden(true, animated: true)
-        navigationController?.toolbar.barTintColor = UIColor.white
-        navigationController?.toolbar.tintColor = UIColor.white
         
-        // Create the Edit button on navigation bar
-        createEditButton(navigationItem)
+        navigationController?.setToolbarHidden(true, animated: true)
     }
     
     // MARK: viewDidDisappear
@@ -110,47 +102,13 @@ class ParkMapViewController : UIViewController {
         super.viewDidDisappear(animated)
         
         // reset
+        
         fetchedParkController = nil
         fetchedRegionController = nil
-        //       fetchedPhotosController = nil
     }
     
     // MARK: Actions
     
-    // MARK: done - Done deleting pins
-    
-    @objc func done() {
-        
-        self.navigationController?.setToolbarHidden(true, animated: true)
-        
-        doDeletePark = false
-        
-        createEditButton(navigationItem)
-    }
-    
-    // MARK: editPark - edit park pin button is pressed
-    
-    @objc func editPark() {
-        
-        self.navigationController?.setToolbarHidden(false, animated: true)
-        self.navigationController?.toolbar.barTintColor = UIColor.red
-        self.navigationController?.toolbar.tintColor = UIColor.white
-        
-//        createRemoveParkBanner()
-        removeParkBanner?.isEnabled = true
-        
-        doDeletePark = true
-        
-//        createDoneButton(navigationItem)
-    }
-    
-    // MARK: addGestureRecognizer - configure tap and hold recognizer
-    
-    //    func addGestureRecognizer() {
-    //        let longpressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(dropPin(_:)))
-    //
-    //        mapView.addGestureRecognizer(longpressRecognizer)
-    //    }
 }
 
 // MARK: MKMapViewDelegate
@@ -166,45 +124,19 @@ extension ParkMapViewController: MKMapViewDelegate {
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         
         if pinView == nil {
+            
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
             pinView!.pinTintColor = .red
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         else {
+            
             pinView!.annotation = annotation
         }
         
         return pinView
     }
-    
-//    // MARK: mapView - didSelect - opens the photo album of the selected location pin
-//    
-//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-//        
-//        if doDeletePark {
-//            if let annotation = view.annotation as? Annotation {
-//                //                if let pin = annotation.pin {
-//                //                    dataController.viewContext.delete(pin)
-//                //                    try? dataController.viewContext.save()
-//                //
-//                //                    mapView.removeAnnotation(annotation)
-//                //                    setUpFetchPinsController()
-//                //                }
-//            }
-//        } else {
-//            //           let controller = storyboard!.instantiateViewController(withIdentifier: "PhotoAlbumViewController") as! PhotoAlbumViewController
-//            if let annotation = view.annotation as? Annotation {
-//                
-//                //                controller.pin = annotation.pin
-//                //                controller.annotation = annotation
-//                //                controller.span = mapView.region.span
-//                //                controller.dataController = dataController
-//            }
-//            
-//            //           navigationController!.pushViewController(controller, animated: true)
-//        }
-//    }
     
     // MARK: mapView - calloutAccessoryControlTapped - opens the places of the selected park
     
@@ -236,7 +168,7 @@ extension ParkMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         
         // Set and save location and zoom level when map region is changed
+        
         setSpan()
     }
 }
-

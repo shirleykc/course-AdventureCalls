@@ -26,8 +26,10 @@ struct NPSPark {
     
     // MARK: Initializers
     
-    // construct a NPSPark from a dictionary
+    // MARK: init - construct a NPSPark from a dictionary
+    
     init(dictionary: [String:AnyObject]) {
+        
         parkCode = dictionary[NPSClient.ResponseKeys.ParkCode] as! String
         states = dictionary[NPSClient.ResponseKeys.States] as? String
         latLong = dictionary[NPSClient.ResponseKeys.LatLong] as? String
@@ -37,6 +39,8 @@ struct NPSPark {
         url = dictionary[NPSClient.ResponseKeys.Url] as? String
     }
     
+    // MARK: init - construct a NPSPark from park parameters
+    
     init(parkCode: String,
          states: String?,
          latLong: String?,
@@ -44,6 +48,7 @@ struct NPSPark {
          fullName: String?,
          name: String?,
          url: String?) {
+        
         self.parkCode = parkCode
         self.states = states
         self.latLong = latLong
@@ -53,49 +58,25 @@ struct NPSPark {
         self.url = url
     }
     
-    init(parkCode: String,
-         states: String?,
-         latLong: String?,
-         description: String?,
-         fullName: String?,
-         name: String?,
-         url: String?,
-         latitude: Double?,
-         longitude: Double?) {
-        self.parkCode = parkCode
-        self.states = states
-        self.latLong = latLong
-        self.description = description
-        self.fullName = fullName
-        self.name = name
-        self.url = url
-        self.latitude = latitude
-        self.longitude = longitude
-    }
-    
-    static func parksFromResults(_ results: [[String:AnyObject]]) -> [NPSPark] {
-        
-        var parks = [NPSPark]()
-        
-        // iterate through array of dictionaries, each Park is a dictionary
-        for result in results {
-            parks.append(NPSPark(dictionary: result))
-        }
-        
-        return parks
-    }
+    // MARK: parksFromResults - construct a collection of NPSPark from query results
     
     static func parksFromResults(_ results: [AnyObject]) -> [NPSPark] {
         
         var parks = [NPSPark]()
         
         // iterate through array of dictionaries, each Park is a dictionary
+        
         for result in results {
+            
+            // extract latitude and longitude
+            
             var latitude: Double?
             var longitude: Double?
             if let latLong = result[NPSClient.ResponseKeys.LatLong] as? String {
+                
                 let latLongStringArray = latLong.components(separatedBy: ",")
                 for item in latLongStringArray {
+                    
                     let trimmed = item.trimmingCharacters(in: .whitespacesAndNewlines)
                     if trimmed.hasPrefix("lat") {
                         if let idx = trimmed.index(of: ":") {
@@ -115,6 +96,8 @@ struct NPSPark {
                 }
             }
             
+            // construct a NPSPark instance
+            
             var aPark = NPSPark(parkCode: result[NPSClient.ResponseKeys.ParkCode] as! String,
                 states: result[NPSClient.ResponseKeys.States] as? String,
                 latLong: result[NPSClient.ResponseKeys.LatLong] as? String,
@@ -126,10 +109,13 @@ struct NPSPark {
             
             if latitude != nil,
                 longitude != nil {
+                
                 aPark.latitude = latitude
                 aPark.longitude = longitude
             }
 
+            // add to collection
+            
             parks.append(aPark)
         }
         
@@ -142,6 +128,7 @@ struct NPSPark {
 extension NPSPark: Equatable {}
 
 func ==(lhs: NPSPark, rhs: NPSPark) -> Bool {
+    
     return lhs.parkCode == rhs.parkCode
 }
 

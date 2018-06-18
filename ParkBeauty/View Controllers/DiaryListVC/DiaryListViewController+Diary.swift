@@ -25,8 +25,10 @@ extension DiaryListViewController {
         
         fetchedDiaryController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         do {
+            
             try fetchedDiaryController.performFetch()
         } catch {
+            
             fatalError("The fetch region could not be performed: \(error.localizedDescription)")
         }
     }

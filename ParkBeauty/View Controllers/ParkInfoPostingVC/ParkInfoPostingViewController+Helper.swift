@@ -13,22 +13,6 @@ import UIKit
 
 extension ParkInfoPostingViewController {
     
-    // MARK: createRemoveParkBanner - create and set the remove park banner
-    
-    func createRemoveParkBanner() {
-        
-        var toolbarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
-        
-        // use empty flexible space bar button to center the new collection button
-        let flexButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-        
-        removeParkBanner = UIBarButtonItem(title: "Tap Pins to Delete", style: .plain, target: self, action: nil)
-        toolbarButtons.append(flexButton)
-        toolbarButtons.append(removeParkBanner!)
-        toolbarButtons.append(flexButton)
-        self.setToolbarItems(toolbarButtons, animated: true)
-    }
-    
     // MARK: createDoneButton - create and set the Done bar buttons
     
     func createTopBarButton(_ navigationItem: UINavigationItem) {
@@ -45,5 +29,4 @@ extension ParkInfoPostingViewController {
         leftButtons.append(cancelButton!)
         navigationItem.setLeftBarButtonItems(leftButtons, animated: true)
     }
-
 }

@@ -21,15 +21,7 @@ class VisitTableCell: UITableViewCell {
     @IBOutlet weak var ratingStar3Image: UIImageView!
     @IBOutlet weak var ratingStar4Image: UIImageView!
     @IBOutlet weak var ratingStar5Image: UIImageView!
-    
-//    @IBOutlet weak var visitTitleLabel: UILabel!
-//    @IBOutlet weak var visitTitleText: UITextField!
-//    @IBOutlet weak var visitDateLabel: UILabel!
-//    @IBOutlet weak var visitDatePicker: UIDatePicker!
-//    @IBOutlet weak var ratingLabel: UILabel!
-//    @IBOutlet weak var ratingControl: UISegmentedControl!
-    
-    
+        
     override func prepareForReuse() {
         super.prepareForReuse()
         visitTitleLabel.text = nil

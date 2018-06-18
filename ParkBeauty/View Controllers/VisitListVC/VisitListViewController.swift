@@ -9,68 +9,66 @@
 import UIKit
 import CoreData
 
-class VisitListViewController: UIViewController, UITableViewDataSource {
+// MARK: VisitListViewController: UIViewController
+
+/**
+ * This view controller presents a table view of visits.
+ */
+
+class VisitListViewController: UIViewController {
     
     // MARK: Properties
     
     var appDelegate: AppDelegate!
+    var dataController:DataController!
         
     // The park whose visits are being displayed
+    
     var park: Park!
     var visits = [Visit]()
     
-    var dataController:DataController!
-    
     var fetchedVisitController:NSFetchedResultsController<Visit>!
+    
+    // Images for star rating
     
     let starImage:  UIImage = UIImage(named: "icon_star.png")!
     let blankImage: UIImage = UIImage()
-//    let emptyStarImage: UIImage = UIImage(named: "icon_emptystar.png")!
     
-    // A date formatter for date text in note cells
+    // A date formatter for date text
+    
     let dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .medium
         return df
     }()
     
+    // MARK: IBOutlets
+    
     // A table view that displays a list of visits
+    
     @IBOutlet weak var visitTableView: UITableView!
     
-    func setupFetchedVisitController() {
-        
-        let fetchRequest:NSFetchRequest<Visit> = Visit.fetchRequest()
-        let predicate = NSPredicate(format: "park == %@", argumentArray: [park!])
-        fetchRequest.predicate = predicate
-        fetchRequest.sortDescriptors = []
-        
-        fetchedVisitController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedVisitController.delegate = self
-        do {
-            try fetchedVisitController.performFetch()
-            if let results = fetchedVisitController?.fetchedObjects {
-                self.visits = results
-            }
-        } catch {
-            fatalError("The fetch could not be performed: \(error.localizedDescription)")
-        }
-    }
+    // MARK: Life Cycle
+    
+    // MARK: viewDidLoad
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // Grab the app delegate
+        
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         dataController = appDelegate.dataController
         
         // Set title to park name
-        if let name = park.name {
+        if let name = park.fullName {
             self.title = name
         } else {
             self.title = "National Park Visits"
         }
         
-        setupFetchedVisitController()
+//        setupFetchedVisitController()
 
         createBarButtons(navigationItem)
  //       navigationItem.rightBarButtonItem = editButtonItem
@@ -78,36 +76,49 @@ class VisitListViewController: UIViewController, UITableViewDataSource {
         
     }
     
+    // MARK: viewWillAppear
+    
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
+        
+        /* Grab the park data store */
+
         setupFetchedVisitController()
+        
         if let indexPath = visitTableView.indexPathForSelectedRow {
+            
             visitTableView.deselectRow(at: indexPath, animated: false)
             visitTableView.reloadRows(at: [indexPath], with: .fade)
         }
-        
     }
     
+    // MARK: viewDidDisappear
+    
     override func viewDidDisappear(_ animated: Bool) {
+        
         super.viewDidDisappear(animated)
+        
         fetchedVisitController = nil
     }
     
-    // -------------------------------------------------------------------------
     // MARK: - Actions
     
 //    @IBAction func addTapped(sender: Any) {
 //        presentNewNotebookAlert()
 //    }
     
-    // MARK: Add Visit
+    // MARK: addVisitPressed - Add Visit
     
     @objc func addVisitPressed() {
         
-        // go to search park view
+        // go to visit info posting view
+        
         let visitInfoPostingViewController = storyboard!.instantiateViewController(withIdentifier: "VisitInfoPostingViewController") as! VisitInfoPostingViewController
+        
         visitInfoPostingViewController.dataController = dataController
         visitInfoPostingViewController.park = park
+        
         navigationController!.pushViewController(visitInfoPostingViewController, animated: true)
     }
     
@@ -152,50 +163,77 @@ class VisitListViewController: UIViewController, UITableViewDataSource {
 //        present(alert, animated: true, completion: nil)
 //    }
     
-    /// Adds a new visit to the end of the `visit` array
+    // MARK: addVisit - Adds a new visit to the data store
+    
     func addVisit(title: String) {
+        
         print("VisitListViewController - addVisit: \(title)")
         let visit = Visit(context: dataController.viewContext)
         visit.title = title
         visit.creationDate = Date()
+        visit.park = park
+        
         try? dataController.viewContext.save()
     }
     
-    /// Deletes the visit at the specified index path
+    // MARK: deleteVisit - Deletes the visit at the specified index path
+    
     func deleteVisit(at indexPath: IndexPath) {
+        
         let visitToDelete = fetchedVisitController.object(at: indexPath)
         dataController.viewContext.delete(visitToDelete)
+        
         try? dataController.viewContext.save()
     }
     
+    // MARK: updateEditButtonState - enable or disable edit button
+    
     func updateEditButtonState() {
+        
         if let sections = fetchedVisitController.sections {
+            
             navigationItem.rightBarButtonItem?.isEnabled = sections[0].numberOfObjects > 0
         }
     }
     
+    // MARK: setEditing - set the table view edit state
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
+        
         super.setEditing(editing, animated: animated)
+        
         visitTableView.setEditing(editing, animated: animated)
     }
+}
+
+// MARK: VisitListViewController: UITableViewDelegate, UITableViewDataSource
+
+extension VisitListViewController: UITableViewDelegate, UITableViewDataSource {
     
-    // -------------------------------------------------------------------------
-    // MARK: - Table view data source
+    // MARK: numberOfSections
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         return fetchedVisitController.sections?.count ?? 1
     }
     
+    // MARK: tableView - numberOfRowsInSection
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return fetchedVisitController.sections?[section].numberOfObjects ?? 0
     }
     
+    // MARK: tableView - cellForRowAt
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let aVisit = fetchedVisitController.object(at: indexPath)
         print("aVisit: \(indexPath) - \(aVisit)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "VisitTableCell", for: indexPath) as! VisitTableCell
         
-         // Configure cell
+        // Configure cell
+        
         if let title = aVisit.title {
             cell.visitTitleLabel.text = title
         } else {
@@ -225,9 +263,29 @@ class VisitListViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    // MARK: tableView - didSelectRowAt
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                
+        let controller = storyboard!.instantiateViewController(withIdentifier: "DiaryListViewController") as! DiaryListViewController
+        
+        let aVisit = fetchedVisitController.object(at: indexPath)
+        controller.visit = aVisit
+        controller.park = park
+        controller.dataController = dataController
+        
+        print("VisitListViewController didSelectRowAt")
+        navigationController!.pushViewController(controller, animated: true)
+    }
+    
+    // MARK: tableView - commit
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
         switch editingStyle {
+            
         case .delete: deleteVisit(at: indexPath)
+            
         default: () // Unsupported
         }
     }
@@ -246,70 +304,56 @@ class VisitListViewController: UIViewController, UITableViewDataSource {
     //    }
 }
 
+// MARK: VisitListViewController:NSFetchedResultsControllerDelegate
+
 extension VisitListViewController:NSFetchedResultsControllerDelegate {
+    
+    // MARK: controller - didChange an object
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
+            
         case .insert:
             visitTableView.insertRows(at: [newIndexPath!], with: .fade)
- //           break
+
         case .delete:
             visitTableView.deleteRows(at: [indexPath!], with: .fade)
- //           break
+ 
         case .update:
             visitTableView.reloadRows(at: [indexPath!], with: .fade)
+            
         case .move:
             visitTableView.moveRow(at: indexPath!, to: newIndexPath!)
         }
     }
     
+    // MARK: controller - didChange section
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        
         let indexSet = IndexSet(integer: sectionIndex)
         switch type {
+            
         case .insert: visitTableView.insertSections(indexSet, with: .fade)
+            
         case .delete: visitTableView.deleteSections(indexSet, with: .fade)
+            
         case .update, .move:
             fatalError("Invalid change type in controller(_:didChange:atSectionIndex:for:). Only .insert or .delete should be possible.")
         }
     }
     
+    // MARK: controllerWillChangeContent
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
         visitTableView.beginUpdates()
     }
     
+    // MARK: controllerDidChangeContent
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
         visitTableView.endUpdates()
     }
-    
 }
-
-extension VisitListViewController {
-    
-    // MARK: createBarButtons - create and set the bar buttons
-    
-    func createBarButtons(_ navigationItem: UINavigationItem) {
-        
-        var rightButtons: [UIBarButtonItem] = [UIBarButtonItem]()
-        let addVisitButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addVisitPressed))
-        rightButtons.append(addVisitButton)  // 1st button from the right
-        navigationItem.setRightBarButtonItems(rightButtons, animated: true)
-        
-        var leftBarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
-        let backButton = UIBarButtonItem(image: UIImage(named: "icon_back-arrow"), style: .plain, target: self, action: #selector(backButtonPressed))
-        leftBarButtons.append(backButton)
-        navigationItem.setLeftBarButtonItems(leftBarButtons, animated: true)
-    }
-    
-    
-    func getRatingStarImage(starNumber: Int, forRating rating: Int16) -> UIImage {
-        if rating >= starNumber {
-            return starImage
-        } else {
-            return blankImage
-        }
-    }
-    
-
-}
-
