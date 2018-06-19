@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-// MARK: DiaryListViewController+Region
+// MARK: DiaryListViewController+Diary
 
 extension DiaryListViewController {
     
@@ -24,6 +24,8 @@ extension DiaryListViewController {
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         fetchedDiaryController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedDiaryController.delegate = self
+
         do {
             
             try fetchedDiaryController.performFetch()

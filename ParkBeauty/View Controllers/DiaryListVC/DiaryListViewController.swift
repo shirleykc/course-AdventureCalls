@@ -13,7 +13,7 @@ import MapKit
 // MARK: - DiaryListViewController: UIViewController
 
 /**
- * This view controller presents a table view of parks.
+ * This view controller presents a table view of diary entries for a visit to a park.
  */
 
 class DiaryListViewController: UIViewController {
@@ -24,7 +24,7 @@ class DiaryListViewController: UIViewController {
     
     var visit: Visit!
     var park: Park!
-    var diaries = [Diary]()
+    var diaries: [Diary]!
     
     var dataController: DataController!
     
@@ -43,7 +43,6 @@ class DiaryListViewController: UIViewController {
     @IBOutlet weak var parkCodeLabel: UILabel!
     @IBOutlet weak var parkNameLabel: UILabel!
     @IBOutlet weak var diaryTableView: UITableView!
-    //    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     // MARK: Life Cycle
     
@@ -77,11 +76,15 @@ class DiaryListViewController: UIViewController {
         } else {
             parkNameLabel?.text = ""
         }
+ 
+ //       createTopBarButtons(navigationItem)
         
         /* Grab the park data store */
         setUpFetchDiaryController()
         
-        createTopBarButtons(navigationItem)
+        updateEditButtonState()
+        
+
     }
     
     // MARK: viewWillAppear
@@ -98,8 +101,10 @@ class DiaryListViewController: UIViewController {
             diaryTableView.reloadRows(at: [indexPath], with: .fade)
         }
         
+        updateEditButtonState()
+
         // Hide the toolbar
-        self.navigationController?.setToolbarHidden(true, animated: true)
+//        self.navigationController?.setToolbarHidden(true, animated: true)
     }
     
     // MARK: viewDidDisappear
@@ -115,35 +120,40 @@ class DiaryListViewController: UIViewController {
     
     // MARK: addDiaryPressed - Add Diary
     
-    @objc func addDiaryPressed() {
+//    @objc func addDiaryPressed() {
+    @IBAction func addDiaryPressed() {
         
-        // go to search park view
+        addDiary()
         
-        let diaryDetailViewController = storyboard!.instantiateViewController(withIdentifier: "DiaryDetailViewController") as! DiaryDetailViewController
-        
-        diaryDetailViewController.dataController = dataController
-        diaryDetailViewController.park = park
-        diaryDetailViewController.visit = visit
-        
-        navigationController!.pushViewController(diaryDetailViewController, animated: true)
+//        let diaryDetailViewController = storyboard!.instantiateViewController(withIdentifier: "DiaryDetailViewController") as! DiaryDetailViewController
+//
+//        diaryDetailViewController.dataController = dataController
+//        diaryDetailViewController.fetchedDiaryController = fetchedDiaryController
+//        diaryDetailViewController.park = park
+//        diaryDetailViewController.visit = visit
+//
+//        let diary = Diary(context: dataController.viewContext)
+//        diaryDetailViewController.diary = diary
+//
+//        navigationController!.pushViewController(diaryDetailViewController, animated: true)
     }
     
     // MARK: backButtonPressed - back button is pressed
     
-    @objc func backButtonPressed() {
+//    @objc func backButtonPressed() {
+    @IBAction func backButtonPressed() {
         
         navigationController?.popViewController(animated: true)
     }
     
     /// Adds a new diary to the data store
-//    func addDiary(title: String?, note: String?) {
-//        let diary = Diary(context: dataController.viewContext)
-////        diary.name = name
-//        diary.title = title
-//        diary.creationDate = Date()
-//
-//        try? dataController.viewContext.save()
-//    }
+    func addDiary() {
+        let diary = Diary(context: dataController.viewContext)
+        diary.visit = visit
+        diary.creationDate = Date()
+
+        try? dataController.viewContext.save()
+    }
     
     // MARK: deleteDiary - Deletes the diary at the specified index path
     
@@ -161,7 +171,11 @@ class DiaryListViewController: UIViewController {
         
         if let sections = fetchedDiaryController.sections {
             
-            navigationItem.rightBarButtonItem?.isEnabled = sections[0].numberOfObjects > 0
+            if let rightButtons = navigationItem.rightBarButtonItems,
+                rightButtons.count >= 2 {
+                rightButtons[1].isEnabled = sections[0].numberOfObjects > 0
+                navigationItem.rightBarButtonItems = rightButtons
+            }
         }
     }
     
@@ -172,6 +186,37 @@ class DiaryListViewController: UIViewController {
         super.setEditing(editing, animated: animated)
         
         diaryTableView.setEditing(editing, animated: animated)
+    }
+    
+    // MARK: - prepare - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // If this is a DiaryDetailsViewController, we'll configure its `Diary`
+        // and its delete action
+        
+        if let vc = segue.destination as? DiaryDetailViewController {
+            if let indexPath = diaryTableView.indexPathForSelectedRow {
+                vc.diary = fetchedDiaryController.object(at: indexPath)
+            } else {
+                let diary = Diary(context: dataController.viewContext)
+                vc.diary = diary
+            }
+            if vc.diary != nil {
+                vc.park = park
+                vc.visit = visit
+                vc.dataController = dataController
+ //               vc.fetchedDiaryController = fetchedDiaryController
+                
+                vc.onDelete = { [weak self] in
+                    if let indexPath = self?.diaryTableView.indexPathForSelectedRow {
+  //                      self?.fetchedDiaryController = vc.fetchedDiaryController
+                        self?.deleteDiary(at: indexPath)
+                        self?.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -224,7 +269,7 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return fetchedDiaryController.sections?[section].numberOfObjects ?? 0
+        return fetchedDiaryController.sections?[0].numberOfObjects ?? 0
     }
     
     // MARK: tableView - cellForRowAt
@@ -243,10 +288,22 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.diaryTitleLabel.text = ""
         }
         
-        if let count = visit.diaries?.count {
-            let pageString = count == 1 ? "page" : "pages"
-            cell.pageCountLabel.text = "\(count) \(pageString)"
-        }
+//        if let count = visit.diaries?.count {
+//            let pageString = count == 1 ? "page" : "pages"
+//            cell.pageCountLabel.text = "\(count) \(pageString)"
+//        }
+        
+//        let aNote = fetchedResultsController.object(at: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: NoteCell.defaultReuseIdentifier, for: indexPath) as! NoteCell
+//
+//        // Configure cell
+//        cell.textPreviewLabel.attributedText = aNote.attributedText
+//
+//        if let creationDate = aNote.creationDate {
+//            cell.dateLabel.text = dateFormatter.string(from: creationDate)
+//        }
+//
+//        return cell
         
         return cell
     }
@@ -279,28 +336,10 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    // MARK: - prepare - Navigation
+    // MARK: tableView - heightForRowAt
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // If this is a DiaryDetailsViewController, we'll configure its `Diary`
-        // and its delete action
-        
-        if let vc = segue.destination as? DiaryDetailViewController {
-            if let indexPath = diaryTableView.indexPathForSelectedRow {
-                vc.diary = fetchedDiaryController.object(at: indexPath)
-                vc.park = park
-                vc.visit = visit
-                vc.dataController = dataController
-                
-                vc.onDelete = { [weak self] in
-                    if let indexPath = self?.diaryTableView.indexPathForSelectedRow {
-                        self?.deleteDiary(at: indexPath)
-                        self?.navigationController?.popViewController(animated: true)
-                    }
-                }
-            }
-        }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 }
     
@@ -315,9 +354,11 @@ extension DiaryListViewController:NSFetchedResultsControllerDelegate {
             
         case .insert:
             diaryTableView.insertRows(at: [newIndexPath!], with: .fade)
+            break
             
         case .delete:
             diaryTableView.deleteRows(at: [indexPath!], with: .fade)
+            break
             
         case .update:
             diaryTableView.reloadRows(at: [indexPath!], with: .fade)

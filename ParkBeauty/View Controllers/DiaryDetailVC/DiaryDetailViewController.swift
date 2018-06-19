@@ -25,7 +25,8 @@ class DiaryDetailViewController: UIViewController {
     var park: Park!
     
     var dataController:DataController!
-    
+    var fetchedDiaryController: NSFetchedResultsController<Diary>!
+
     var saveObserverToken: Any?
     
     // A closure that is run when the user asks to delete the current note
@@ -57,14 +58,24 @@ class DiaryDetailViewController: UIViewController {
         
         super.viewDidLoad()
         
-        if let title = park.fullName {
-            diaryTitleText.text = title
-        }
+        /* Grab the app delegate */
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
+
         if let travelDate = visit.travelDate {
             navigationItem.title = dateFormatter.string(from: travelDate)
         }
         
-        createTopBarButtons(navigationItem)
+        if let aDiary = diary {
+            if let diaryTitle = aDiary.title {
+                diaryTitleText.text = diaryTitle
+            }
+            
+            if let diaryNote = aDiary.note {
+                diaryNoteTextView.text = diaryNote
+            }
+        }
+        
+//        createTopBarButtons(navigationItem)
         
         // keyboard toolbar configuration
 //        configureToolbarItems()
@@ -81,7 +92,7 @@ class DiaryDetailViewController: UIViewController {
     
     // MARK: deleteDiary
     
-    @objc func deleteDiary(sender: Any) {
+    @IBAction func deleteDiary(sender: Any) {
         
         presentDeleteDiaryAlert()
     }
@@ -121,7 +132,12 @@ extension DiaryDetailViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         
-        diary.note = textView.attributedText
+//        let diary = Diary(context: dataController.viewContext)
+        diary.note = textView.text
+        diary.title = diaryTitleText?.text
+//        diary.visit = visit
+//        diary.creationDate = Date()
+        
         try? dataController.viewContext.save()
     }
 }
@@ -152,7 +168,10 @@ extension DiaryDetailViewController {
     
     fileprivate func reloadText() {
         
-        diaryNoteTextView.attributedText = diary.note as! NSAttributedString
+        if let aDiary = diary {
+            diaryTitleText.text = aDiary.title
+            diaryNoteTextView.text = aDiary.note
+        }
     }
     
     // MARK: handleSaveNotification

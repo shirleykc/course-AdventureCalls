@@ -20,6 +20,7 @@ extension DiaryListViewController {
         var rightButtons: [UIBarButtonItem] = [UIBarButtonItem]()
         let addDiaryButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDiaryPressed))
         rightButtons.append(addDiaryButton)  // 1st button from the right
+        rightButtons.append(editButtonItem)  // 2nd button from the right
         navigationItem.setRightBarButtonItems(rightButtons, animated: true)
         
         var leftBarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
