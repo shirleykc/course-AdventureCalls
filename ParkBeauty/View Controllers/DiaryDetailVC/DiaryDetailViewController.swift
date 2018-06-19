@@ -27,7 +27,7 @@ class DiaryDetailViewController: UIViewController {
     var dataController:DataController!
     var fetchedDiaryController: NSFetchedResultsController<Diary>!
 
-    var saveObserverToken: Any?
+//    var saveObserverToken: Any?
     
     // A closure that is run when the user asks to delete the current note
     
@@ -49,7 +49,7 @@ class DiaryDetailViewController: UIViewController {
     // A text view that displays a diary's note text
     
     @IBOutlet weak var diaryNoteTextView: UITextView!
-    @IBOutlet weak var diaryTitleText: UITextField!
+//    @IBOutlet weak var diaryTitleText: UITextField!
     
     // MARK: Life Cycle
     
@@ -61,13 +61,14 @@ class DiaryDetailViewController: UIViewController {
         /* Grab the app delegate */
         appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-        if let travelDate = visit.travelDate {
-            navigationItem.title = dateFormatter.string(from: travelDate)
-        }
+//        if let travelDate = visit.travelDate {
+//            navigationItem.title = dateFormatter.string(from: travelDate)
+//        }
+        
         
         if let aDiary = diary {
             if let diaryTitle = aDiary.title {
-                diaryTitleText.text = diaryTitle
+                navigationItem.title = diaryTitle
             }
             
             if let diaryNote = aDiary.note {
@@ -81,27 +82,36 @@ class DiaryDetailViewController: UIViewController {
 //        configureToolbarItems()
 //        configureTextViewInputAccessoryView()
         
-        addSaveNotificationObserver()
+//        addSaveNotificationObserver()
     }
     
-    deinit {
-        removeSaveNotificationObserver()
-    }
+//    deinit {
+//        removeSaveNotificationObserver()
+//    }
     
     // MARK: Actions
     
     // MARK: deleteDiary
     
-    @IBAction func deleteDiary(sender: Any) {
+    @IBAction func deleteDiary() {
         
         presentDeleteDiaryAlert()
     }
     
     // MARK: backButtonPressed - back button is pressed
     
-    @IBAction func backButtonPressed() {
+    @IBAction func saveButtonPressed() {
+        
+        saveNoteFor(diary, diaryNoteTextView)
         
         navigationController?.popViewController(animated: true)
+    }
+    
+    func saveNoteFor(_ diary: Diary, _ textView: UITextView) {
+        
+        diary.note = textView.text
+        
+        try? dataController.viewContext.save()
     }
 }
 
@@ -126,61 +136,65 @@ extension DiaryDetailViewController {
 
 // MARK: DiaryDetailViewController: UITextViewDelegate
 
-extension DiaryDetailViewController: UITextViewDelegate {
-    
-    // MARK: textViewDidEndEditing
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        
+//extension DiaryDetailViewController: UITextViewDelegate {
+//
+//    // MARK: textViewDidEndEditing
+//
+//    fileprivate func saveNote(_ textView: UITextView) {
 //        let diary = Diary(context: dataController.viewContext)
-        diary.note = textView.text
-        diary.title = diaryTitleText?.text
+//        diary.note = textView.text
+//        diary.title = diaryTitleText?.text
 //        diary.visit = visit
 //        diary.creationDate = Date()
-        
-        try? dataController.viewContext.save()
-    }
-}
+//
+//        try? dataController.viewContext.save()
+//    }
+//
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//
+//        saveNote(textView)
+//    }
+//}
 
 // MARK: DiaryDetailViewController - Helpers for 
 
-extension DiaryDetailViewController {
-    
-    // MARK: addSaveNotificationObserver
-    
-    func addSaveNotificationObserver() {
-        
-        removeSaveNotificationObserver()
-        saveObserverToken = NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: dataController?.viewContext, queue: nil, using: handleSaveNotification(notification:))
-    }
-    
-    // MARK: removeSaveNotificationObserver
-    
-    func removeSaveNotificationObserver() {
-        
-        if let token = saveObserverToken {
-            
-            NotificationCenter.default.removeObserver(token)
-        }
-    }
-    
-    // MARK: reloadText
-    
-    fileprivate func reloadText() {
-        
-        if let aDiary = diary {
-            diaryTitleText.text = aDiary.title
-            diaryNoteTextView.text = aDiary.note
-        }
-    }
-    
-    // MARK: handleSaveNotification
-    
-    func handleSaveNotification(notification:Notification) {
-        
-        DispatchQueue.main.async {
-            
-            self.reloadText()
-        }
-    }
-}
+//extension DiaryDetailViewController {
+//
+//    // MARK: addSaveNotificationObserver
+//
+//    func addSaveNotificationObserver() {
+//
+//        removeSaveNotificationObserver()
+//        saveObserverToken = NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: dataController?.viewContext, queue: nil, using: handleSaveNotification(notification:))
+//    }
+//
+//    // MARK: removeSaveNotificationObserver
+//
+//    func removeSaveNotificationObserver() {
+//
+//        if let token = saveObserverToken {
+//
+//            NotificationCenter.default.removeObserver(token)
+//        }
+//    }
+//
+//    // MARK: reloadText
+//
+//    fileprivate func reloadText() {
+//
+//        if let aDiary = diary {
+//            diaryTitleText.text = aDiary.title
+//            diaryNoteTextView.text = aDiary.note
+//        }
+//    }
+//
+//    // MARK: handleSaveNotification
+//
+//    func handleSaveNotification(notification:Notification) {
+//
+//        DispatchQueue.main.async {
+//
+//            self.reloadText()
+//        }
+//    }
+//}

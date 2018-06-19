@@ -43,6 +43,7 @@ class DiaryListViewController: UIViewController {
     @IBOutlet weak var parkCodeLabel: UILabel!
     @IBOutlet weak var parkNameLabel: UILabel!
     @IBOutlet weak var diaryTableView: UITableView!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     
     // MARK: Life Cycle
     
@@ -58,9 +59,9 @@ class DiaryListViewController: UIViewController {
         // Set title to travel date
         
         if let travelDate = visit.travelDate {
-            self.title = dateFormatter.string(from: travelDate)
+            self.title = "Visit on \(dateFormatter.string(from: travelDate))"
         } else if let name = park.fullName {
-            self.title = name
+            self.title = "\(name) Visit Diary"
         } else {
             self.title = "National Park Visit Diary"
         }
@@ -82,6 +83,7 @@ class DiaryListViewController: UIViewController {
         /* Grab the park data store */
         setUpFetchDiaryController()
         
+        editButton = editButtonItem
         updateEditButtonState()
         
 
@@ -113,7 +115,7 @@ class DiaryListViewController: UIViewController {
         
         super.viewDidDisappear(animated)
         
-        fetchedDiaryController = nil
+//        fetchedDiaryController = nil
     }
     
     // MARK: Actions
@@ -123,7 +125,7 @@ class DiaryListViewController: UIViewController {
 //    @objc func addDiaryPressed() {
     @IBAction func addDiaryPressed() {
         
-        addDiary()
+        presentNewDiaryAlert()
         
 //        let diaryDetailViewController = storyboard!.instantiateViewController(withIdentifier: "DiaryDetailViewController") as! DiaryDetailViewController
 //
@@ -147,8 +149,9 @@ class DiaryListViewController: UIViewController {
     }
     
     /// Adds a new diary to the data store
-    func addDiary() {
+    func addDiary(title: String) {
         let diary = Diary(context: dataController.viewContext)
+        diary.title = title
         diary.visit = visit
         diary.creationDate = Date()
 
@@ -198,25 +201,51 @@ class DiaryListViewController: UIViewController {
         if let vc = segue.destination as? DiaryDetailViewController {
             if let indexPath = diaryTableView.indexPathForSelectedRow {
                 vc.diary = fetchedDiaryController.object(at: indexPath)
-            } else {
-                let diary = Diary(context: dataController.viewContext)
-                vc.diary = diary
-            }
-            if vc.diary != nil {
                 vc.park = park
                 vc.visit = visit
                 vc.dataController = dataController
- //               vc.fetchedDiaryController = fetchedDiaryController
+                vc.fetchedDiaryController = fetchedDiaryController
                 
                 vc.onDelete = { [weak self] in
                     if let indexPath = self?.diaryTableView.indexPathForSelectedRow {
-  //                      self?.fetchedDiaryController = vc.fetchedDiaryController
+ //                       self?.fetchedDiaryController = vc.fetchedDiaryController
                         self?.deleteDiary(at: indexPath)
                         self?.navigationController?.popViewController(animated: true)
                     }
                 }
             }
         }
+    }
+    
+    /// Display an alert prompting the user to name a new notebook. Calls
+    /// `addNotebook(name:)`.
+    func presentNewDiaryAlert() {
+        let alert = UIAlertController(title: "New Diary", message: "Enter a title for this diary", preferredStyle: .alert)
+        
+        // Create actions
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] action in
+            if let title = alert.textFields?.first?.text {
+                self?.addDiary(title: title)
+            }
+        }
+        saveAction.isEnabled = false
+        
+        // Add a text field
+        alert.addTextField { textField in
+            textField.placeholder = "Title"
+            NotificationCenter.default.addObserver(forName: .UITextFieldTextDidChange, object: textField, queue: .main) { notif in
+                if let text = textField.text, !text.isEmpty {
+                    saveAction.isEnabled = true
+                } else {
+                    saveAction.isEnabled = false
+                }
+            }
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+        present(alert, animated: true, completion: nil)
     }
     
     // -------------------------------------------------------------------------
