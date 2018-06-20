@@ -32,7 +32,7 @@
             </objects>
             <point key="canvasLocation" x="60" y="101"/>
         </scene>
-        <!--Park List View Controller-->
+        <!--Parks-->
         <scene sceneID="EYT-ih-DOj">
             <objects>
                 <viewController storyboardIdentifier="ParkListViewController" id="Qg7-wW-ukt" customClass="ParkListViewController" customModule="ParkBeauty" customModuleProvider="target" sceneMemberID="viewController">
@@ -129,9 +129,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WjZ-Aq-65o"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="icon_listview-selected" id="IFE-Qi-Vhn">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Parks" image="icon_listview-selected" selectedImage="icon_listview-selected" id="IFE-Qi-Vhn"/>
                     <connections>
                         <outlet property="parkTableView" destination="2o6-s6-rPI" id="6ry-Ve-xXq"/>
                     </connections>
@@ -155,7 +153,7 @@
                                     <constraint firstAttribute="height" constant="130" id="dyv-bn-mvS"/>
                                 </constraints>
                             </mapView>
-                            <label multipleTouchEnabled="YES" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axJ-ev-5hR">
+                            <label multipleTouchEnabled="YES" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axJ-ev-5hR">
                                 <rect key="frame" x="16" y="192" width="343" height="84"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -264,7 +262,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wDT-KL-tDQ">
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wDT-KL-tDQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -374,12 +372,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="wDT-KL-tDQ" firstAttribute="top" secondItem="Ywj-eY-RYM" secondAttribute="top" id="NDv-MQ-jFH"/>
-                            <constraint firstItem="wDT-KL-tDQ" firstAttribute="bottom" secondItem="Ywj-eY-RYM" secondAttribute="bottom" id="RIh-i1-kK3"/>
+                            <constraint firstItem="wDT-KL-tDQ" firstAttribute="bottom" secondItem="Ywj-eY-RYM" secondAttribute="bottom" priority="750" id="RIh-i1-kK3"/>
                             <constraint firstItem="wDT-KL-tDQ" firstAttribute="leading" secondItem="Ywj-eY-RYM" secondAttribute="leading" id="hpS-9z-VqV"/>
                             <constraint firstItem="wDT-KL-tDQ" firstAttribute="trailing" secondItem="Ywj-eY-RYM" secondAttribute="trailing" id="uXH-BM-ziw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ywj-eY-RYM"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <toolbarItems>
+                        <barButtonItem systemItem="flexibleSpace" id="Lfh-hw-c7d"/>
+                        <barButtonItem enabled="NO" title="Visits" image="icon_plane" id="zg7-Rj-82I"/>
+                        <barButtonItem systemItem="flexibleSpace" id="yr3-91-ZPw"/>
+                    </toolbarItems>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
@@ -388,9 +392,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbH-cj-hAy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3617" y="511"/>
+            <point key="canvasLocation" x="3616.8000000000002" y="510.49475262368821"/>
         </scene>
-        <!--Park Map View Controller-->
+        <!--Parks-->
         <scene sceneID="Jco-qe-H1u">
             <objects>
                 <viewController id="Iae-nx-UrX" customClass="ParkMapViewController" customModule="ParkBeauty" customModuleProvider="target" sceneMemberID="viewController">
@@ -411,9 +415,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zC1-cG-lC2"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="icon_mapview-selected" id="iNM-PC-JHA">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Parks" image="icon_mapview-selected" selectedImage="icon_mapview-selected" id="iNM-PC-JHA"/>
                     <connections>
                         <outlet property="mapView" destination="dAm-kq-1H8" id="Szq-pZ-uU1"/>
                     </connections>
@@ -560,7 +562,7 @@
             <objects>
                 <tabBarController id="EhY-Zc-jZb" customClass="ParkTabBarController" customModule="ParkBeauty" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="National Parks" leftItemsSupplementBackButton="YES" id="UqG-4h-Qa5"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3bE-nb-ICk">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionIndicatorImage="icon_mapview-selected" id="3bE-nb-ICk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -688,28 +690,140 @@
             </objects>
             <point key="canvasLocation" x="4489" y="510"/>
         </scene>
-        <!--Item 2-->
+        <!--PhotoAlbumViewController-->
         <scene sceneID="byT-Ry-grF">
             <objects>
-                <viewController id="bea-cb-bx5" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoAlbumViewController" title="PhotoAlbumViewController" id="bea-cb-bx5" customClass="PhotoAlbumViewController" customModule="ParkBeauty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pBg-Ir-F1U">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bz8-8J-LLP">
+                                <rect key="frame" x="16" y="0.0" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4g0-U6-nkD"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="i8o-ld-TaU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n02-pf-6hT">
+                                <rect key="frame" x="74" y="0.0" width="285" height="50"/>
+                                <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="0.32678724320000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aJe-X6-rH5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DuU-0g-YwG">
+                                <rect key="frame" x="0.0" y="58" width="375" height="501"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="Byi-ca-EQA">
+                                    <size key="itemSize" width="120" height="131"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionCell" id="uiw-m2-phD" customClass="PhotoCollectionCell" customModule="ParkBeauty" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="131"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="131"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SKz-Gp-U4D">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="H2u-aH-FiK">
+                                                    <rect key="frame" x="42" y="32" width="37" height="37"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </activityIndicatorView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh9-XH-ddz">
+                                                    <rect key="frame" x="0.0" y="101" width="120" height="30"/>
+                                                    <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="NGi-ju-btg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="10"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="SKz-Gp-U4D" secondAttribute="trailing" id="2kO-fB-AAh"/>
+                                            <constraint firstItem="Hh9-XH-ddz" firstAttribute="trailing" secondItem="SKz-Gp-U4D" secondAttribute="trailing" id="7QF-dl-YRg"/>
+                                            <constraint firstItem="H2u-aH-FiK" firstAttribute="centerX" secondItem="SKz-Gp-U4D" secondAttribute="centerX" id="Gch-Xi-gtV"/>
+                                            <constraint firstItem="SKz-Gp-U4D" firstAttribute="leading" secondItem="uiw-m2-phD" secondAttribute="leading" id="OEa-yc-yOa"/>
+                                            <constraint firstItem="SKz-Gp-U4D" firstAttribute="top" secondItem="uiw-m2-phD" secondAttribute="top" id="dUd-p4-6Eu"/>
+                                            <constraint firstItem="Hh9-XH-ddz" firstAttribute="top" secondItem="SKz-Gp-U4D" secondAttribute="bottom" constant="1" id="eYh-Id-phq"/>
+                                            <constraint firstItem="Hh9-XH-ddz" firstAttribute="leading" secondItem="SKz-Gp-U4D" secondAttribute="leading" id="h5b-E1-Jl4"/>
+                                            <constraint firstItem="SKz-Gp-U4D" firstAttribute="centerY" secondItem="H2u-aH-FiK" secondAttribute="centerY" id="rFs-R4-JfM"/>
+                                            <constraint firstAttribute="bottom" secondItem="Hh9-XH-ddz" secondAttribute="bottom" id="xkp-2P-Mi5"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="activityIndicatorView" destination="H2u-aH-FiK" id="eGw-y5-fx0"/>
+                                            <outlet property="photoImage" destination="SKz-Gp-U4D" id="ZxS-XM-qls"/>
+                                            <outlet property="title" destination="Hh9-XH-ddz" id="muA-dJ-OMo"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="bea-cb-bx5" id="A6e-f9-0ET"/>
+                                    <outlet property="delegate" destination="bea-cb-bx5" id="GAP-uT-KYp"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="n02-pf-6hT" firstAttribute="leading" secondItem="bz8-8J-LLP" secondAttribute="trailing" constant="8" id="1aJ-G9-LKm"/>
+                            <constraint firstItem="DuU-0g-YwG" firstAttribute="leading" secondItem="pBg-Ir-F1U" secondAttribute="leading" id="6Ky-fd-uoa"/>
+                            <constraint firstAttribute="trailing" secondItem="DuU-0g-YwG" secondAttribute="trailing" id="8HQ-h5-BNe"/>
+                            <constraint firstItem="bz8-8J-LLP" firstAttribute="leading" secondItem="pBg-Ir-F1U" secondAttribute="leadingMargin" id="D19-Jp-EzQ"/>
+                            <constraint firstItem="DuU-0g-YwG" firstAttribute="bottom" secondItem="oq8-Ho-OBC" secondAttribute="bottom" id="OSL-aZ-34g"/>
+                            <constraint firstItem="bz8-8J-LLP" firstAttribute="top" secondItem="oq8-Ho-OBC" secondAttribute="top" id="fKf-zJ-BXt"/>
+                            <constraint firstItem="DuU-0g-YwG" firstAttribute="top" secondItem="bz8-8J-LLP" secondAttribute="bottom" constant="8" symbolic="YES" id="hcx-V5-ldN"/>
+                            <constraint firstItem="n02-pf-6hT" firstAttribute="top" secondItem="bz8-8J-LLP" secondAttribute="top" id="hlc-h9-PD4"/>
+                            <constraint firstItem="n02-pf-6hT" firstAttribute="bottom" secondItem="bz8-8J-LLP" secondAttribute="bottom" id="kBl-GG-P7Z"/>
+                            <constraint firstItem="n02-pf-6hT" firstAttribute="trailing" secondItem="pBg-Ir-F1U" secondAttribute="trailingMargin" id="z2A-hA-6eM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oq8-Ho-OBC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="A9P-ez-A9c"/>
+                    <toolbarItems>
+                        <barButtonItem systemItem="flexibleSpace" id="s7f-WX-y4c"/>
+                        <barButtonItem title="Diary" image="icon_diaryview-deselected" id="wfo-wJ-e6y"/>
+                        <barButtonItem systemItem="flexibleSpace" id="IEQ-Wf-0MN"/>
+                        <barButtonItem enabled="NO" title="Photos" image="icon_camera-deselected" id="Xc2-RB-atO"/>
+                        <barButtonItem systemItem="flexibleSpace" id="vUT-jA-qhO"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Photo Album" id="jw3-dn-Cx4">
+                        <barButtonItem key="leftBarButtonItem" image="icon_back-arrow" id="jJt-KK-KUz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="doI-kY-8wM"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="parkCodeLabel" destination="bz8-8J-LLP" id="89X-sw-Ffr"/>
+                        <outlet property="parkNameLabel" destination="n02-pf-6hT" id="H1Y-eY-zig"/>
+                        <outlet property="photoCollectionView" destination="DuU-0g-YwG" id="Sy0-jE-ajO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oXN-Kv-jlj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3618" y="2228"/>
+            <point key="canvasLocation" x="4488.8000000000002" y="2149.4752623688159"/>
         </scene>
         <!--DiaryListViewController-->
         <scene sceneID="JWC-dy-ijI">
             <objects>
                 <viewController storyboardIdentifier="DiaryListViewController" title="DiaryListViewController" id="okD-bj-M9K" customClass="DiaryListViewController" customModule="ParkBeauty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OcU-U5-big">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFn-Df-BKM">
@@ -733,7 +847,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="16y-4J-LWf">
-                                <rect key="frame" x="0.0" y="58" width="375" height="496"/>
+                                <rect key="frame" x="0.0" y="58" width="375" height="501"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DiaryTableCell" rowHeight="50" id="xiL-qI-Dfc" customClass="DiaryTableCell" customModule="ParkBeauty" customModuleProvider="target">
@@ -787,7 +901,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hwX-MG-R2H"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="icon_diaryview-deselected" id="IsW-Kb-N9Y"/>
+                    <toolbarItems>
+                        <barButtonItem systemItem="flexibleSpace" id="Ehg-YW-zZT"/>
+                        <barButtonItem enabled="NO" title="Diary" image="icon_diaryview-deselected" id="I1l-9V-wWo"/>
+                        <barButtonItem systemItem="flexibleSpace" id="NBW-7O-A6a"/>
+                        <barButtonItem title="Photo" image="icon_camera" id="Zf3-jt-KJp">
+                            <connections>
+                                <action selector="photoAlbumPressed" destination="okD-bj-M9K" id="7QT-wQ-gyM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="flexibleSpace" id="VMN-nj-6Yc"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Title" id="fOS-Xf-8KQ">
                         <barButtonItem key="leftBarButtonItem" title="Back" image="icon_back-arrow" id="fQ5-ct-Oj5">
                             <connections>
@@ -800,10 +924,11 @@
                                     <action selector="addDiaryPressed" destination="okD-bj-M9K" id="dqD-87-x6f"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem style="plain" systemItem="edit" id="M8T-ZI-fa5"/>
+                            <barButtonItem systemItem="edit" id="M8T-ZI-fa5"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="diaryTableView" destination="16y-4J-LWf" id="6wr-fd-xwa"/>
                         <outlet property="editButton" destination="M8T-ZI-fa5" id="rfe-zB-juF"/>
@@ -820,11 +945,11 @@
             <objects>
                 <viewController storyboardIdentifier="DiaryDetailViewController" title="DiaryDetailViewController" id="lnR-5x-X24" customClass="DiaryDetailViewController" customModule="ParkBeauty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g8W-9i-69P">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="in3-V5-KEo">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
@@ -862,32 +987,17 @@
             </objects>
             <point key="canvasLocation" x="5372" y="1342.5787106446778"/>
         </scene>
-        <!--Visit Tab Bar Controller-->
-        <scene sceneID="L8C-XD-vp6">
-            <objects>
-                <tabBarController storyboardIdentifier="VisitTabBarController" id="ENx-Ta-CDM" customClass="VisitTabBarController" customModule="ParkBeauty" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qBc-qF-nKO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="bea-cb-bx5" kind="relationship" relationship="viewControllers" id="988-pv-mC1"/>
-                        <segue destination="okD-bj-M9K" kind="relationship" relationship="viewControllers" id="LwN-xz-WJq"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bDQ-hX-i9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3618" y="1343"/>
-        </scene>
     </scenes>
     <resources>
         <image name="icon_b_plane" width="128" height="128"/>
         <image name="icon_back-arrow" width="24" height="24"/>
+        <image name="icon_camera" width="32" height="32"/>
+        <image name="icon_camera-deselected" width="32" height="32"/>
         <image name="icon_diaryview-deselected" width="24" height="24"/>
         <image name="icon_footprint" width="200" height="200"/>
         <image name="icon_listview-selected" width="75" height="50"/>
         <image name="icon_mapview-selected" width="75" height="50"/>
+        <image name="icon_plane" width="24" height="24"/>
         <image name="icon_wolf_footprint" width="24" height="24"/>
     </resources>
 </document>

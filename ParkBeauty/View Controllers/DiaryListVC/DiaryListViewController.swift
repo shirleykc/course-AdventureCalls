@@ -44,6 +44,7 @@ class DiaryListViewController: UIViewController {
     @IBOutlet weak var parkNameLabel: UILabel!
     @IBOutlet weak var diaryTableView: UITableView!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var photoAlbumButton: UIBarButtonItem!
     
     // MARK: Life Cycle
     
@@ -80,10 +81,15 @@ class DiaryListViewController: UIViewController {
  
  //       createTopBarButtons(navigationItem)
         
+        if let rightButtons = navigationItem.rightBarButtonItems,
+            rightButtons.count >= 2 {
+            navigationItem.rightBarButtonItems?.remove(at: 1)
+            navigationItem.rightBarButtonItems?.append(editButtonItem)
+        }
+        
         /* Grab the park data store */
         setUpFetchDiaryController()
-        
-        editButton = editButtonItem
+
         updateEditButtonState()
         
 
@@ -146,6 +152,22 @@ class DiaryListViewController: UIViewController {
     @IBAction func backButtonPressed() {
         
         navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: photoAlbumPressed - photo album button is pressed
+    
+    @IBAction func photoAlbumPressed() {
+        
+        print("photoAlbumPressed")
+        
+        //        setUIEnabled(true)
+        
+        // go to next view
+        let controller = storyboard!.instantiateViewController(withIdentifier: "PhotoAlbumViewController") as! PhotoAlbumViewController
+        controller.park = park
+        controller.visit = visit
+        controller.dataController = dataController
+        navigationController!.pushViewController(controller, animated: true)
     }
     
     /// Adds a new diary to the data store

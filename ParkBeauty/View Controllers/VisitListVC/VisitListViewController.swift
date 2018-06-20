@@ -70,10 +70,9 @@ class VisitListViewController: UIViewController {
         
 //        setupFetchedVisitController()
 
-        createBarButtons(navigationItem)
- //       navigationItem.rightBarButtonItem = editButtonItem
-        
-        
+        createTopBarButtons(navigationItem)
+        navigationController?.setToolbarHidden(false, animated: true)
+//        createBottomBarButton()
     }
     
     // MARK: viewWillAppear
@@ -91,6 +90,8 @@ class VisitListViewController: UIViewController {
             visitTableView.deselectRow(at: indexPath, animated: false)
             visitTableView.reloadRows(at: [indexPath], with: .fade)
         }
+        
+        navigationController?.setToolbarHidden(false, animated: true)
     }
     
     // MARK: viewDidDisappear
