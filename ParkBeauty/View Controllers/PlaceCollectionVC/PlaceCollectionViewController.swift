@@ -22,8 +22,8 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
     var span: MKCoordinateSpan!
     
     // action buttons
-    var newPlacesButton: UIBarButtonItem?
-    var removePlacesButton: UIBarButtonItem?
+//    var newPlacesButton: UIBarButtonItem?
+//    var removePlacesButton: UIBarButtonItem?
     
     // The park whose places are being displayed
     var park: Park!
@@ -61,10 +61,10 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
 //        dataController = appDelegate.dataController
         
         self.navigationController?.setToolbarHidden(false, animated: true)
-        self.navigationController?.toolbar.barTintColor = UIColor.white
-        self.navigationController?.toolbar.tintColor = UIColor.blue
+//        self.navigationController?.toolbar.barTintColor = UIColor.white
+//        self.navigationController?.toolbar.tintColor = UIColor.blue
         
-        createTopBarButtons()
+//        createTopBarButtons()
         
         // Set title to park name        
         if let name = park.fullName {
@@ -111,8 +111,8 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         
         // Initialize new collection button
         
-        createNewPlacesButton()
-        setUIActions()
+//        createNewPlacesButton()
+//        setUIActions()
         
         // If empty places collection, then download new set of places
         
@@ -122,7 +122,7 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
             downloadNPSPlacesFor(park)
         } else {
             
-            newPlacesButton?.isEnabled = true
+ //           newPlacesButton?.isEnabled = true
         }
     }
     
@@ -139,6 +139,8 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         // Grab the places
         setupFetchedPlaceController(doRemoveAll: false)
         
+        self.navigationController?.setToolbarHidden(false, animated: true)
+        
         placeCollectionView.reloadData()
     }
     
@@ -148,6 +150,8 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         
         super.viewDidAppear(animated)
         
+        self.navigationController?.setToolbarHidden(false, animated: true)
+
         placeCollectionView.reloadData()
     }
     
@@ -159,14 +163,14 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         
         fetchedPlaceController = nil
         
-        self.navigationController?.setToolbarHidden(true, animated: true)
+//        self.navigationController?.setToolbarHidden(true, animated: true)
     }
     
     // MARK: Actions
     
     // MARK: infoButtonPressed - info button to launch NPS official site
     
-    @objc func infoButtonPressed(_ sender: Any) {
+    @IBAction func infoButtonPressed(_ sender: Any) {
         print("infoButtonPressed")
         guard let urlString = park.url else {
             
@@ -224,69 +228,69 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
     
     // MARK: newCollectionPressed - new collection button is pressed
     
-    @objc func newCollectionPressed() {
-        
-        // Initialize
-        isLoadingNPSPlaces = true
-        
-        setUIForDownloadingPlaces()
-//        deleteAllPlaces()
-        
-//        downloadNPSPlacesFor(park)
-    }
+//    @objc func newCollectionPressed() {
+//
+//        // Initialize
+//        isLoadingNPSPlaces = true
+//
+//        setUIForDownloadingPlaces()
+////        deleteAllPlaces()
+//
+////        downloadNPSPlacesFor(park)
+//    }
     
     // MARK: removePlacesPressed - remove selected places button is pressed
     
-    @objc func removePlacesPressed(_ sender: UIButton?) {
-        
-        var selectedPlaces = [Place]()
-        selectedPlaceCells = selectedPlaceCells.sorted(by: {$0.item > $1.item})
-        
-        // Delete selected places and perform batch update
-        placeCollectionView.performBatchUpdates({
-            
-            // Delete places from collectioView and collection
-            for indexPath in self.selectedPlaceCells {
-                self.placeCollectionView.deleteItems(at: [indexPath])
-                self.places.remove(at: indexPath.item)
-            }
-            
-            // Delete places from data store
-            for indexPath in self.selectedPlaceCells {
-                let aPlace = fetchedPlaceController.object(at: indexPath)
-                selectedPlaces.append(aPlace)
-            }
-            
-            performUIUpdatesOnMain {
-                for aPlace in selectedPlaces {
-                    self.dataController.viewContext.delete(aPlace)
-                }
-                
-                try? self.dataController.viewContext.save()
-            }
-        }) {(completion) in
-            
-            // Fetch remaining photos from the data store
-            self.setupFetchedPlaceController(doRemoveAll: true)
-            
-            // Reset
-            self.removePlacesButton?.isEnabled = false
-            self.createNewPlacesButton()
-            self.newPlacesButton?.isEnabled = true
-            self.resetSelectedPlaceCells()
-        }
-    }
+//    @objc func removePlacesPressed(_ sender: UIButton?) {
+//
+//        var selectedPlaces = [Place]()
+//        selectedPlaceCells = selectedPlaceCells.sorted(by: {$0.item > $1.item})
+//
+//        // Delete selected places and perform batch update
+//        placeCollectionView.performBatchUpdates({
+//
+//            // Delete places from collectioView and collection
+//            for indexPath in self.selectedPlaceCells {
+//                self.placeCollectionView.deleteItems(at: [indexPath])
+//                self.places.remove(at: indexPath.item)
+//            }
+//
+//            // Delete places from data store
+//            for indexPath in self.selectedPlaceCells {
+//                let aPlace = fetchedPlaceController.object(at: indexPath)
+//                selectedPlaces.append(aPlace)
+//            }
+//
+//            performUIUpdatesOnMain {
+//                for aPlace in selectedPlaces {
+//                    self.dataController.viewContext.delete(aPlace)
+//                }
+//
+//                try? self.dataController.viewContext.save()
+//            }
+//        }) {(completion) in
+//
+//            // Fetch remaining photos from the data store
+//            self.setupFetchedPlaceController(doRemoveAll: true)
+//
+//            // Reset
+//            self.removePlacesButton?.isEnabled = false
+//            self.createNewPlacesButton()
+//            self.newPlacesButton?.isEnabled = true
+//            self.resetSelectedPlaceCells()
+//        }
+//    }
     
     // MARK: backButtonPressed - back button is pressed
     
-    @objc func backButtonPressed() {
+    @IBAction func backButtonPressed() {
         
         navigationController?.popViewController(animated: true)
     }
     
     // MARK: postVisit - post visit button is pressed
     
-    @objc func postVisit() {
+    @IBAction func postVisit() {
         
         print("postVisit")
         
@@ -423,31 +427,31 @@ extension PlaceCollectionViewController: UICollectionViewDelegate, UICollectionV
             }
         }
         
-        toggleSelectedPlace(cell, at: indexPath)
+ //       toggleSelectedPlace(cell, at: indexPath)
         
         return cell
     }
     
     // MARK: collectionView - didSelectItemAt - Select an item in Collection View
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
-        
-        // Add or remove the highlighted cells to the list
-        let cell = collectionView.cellForItem(at: indexPath) as! PlaceCollectionCell
-        
-        setSelectedPlace(cell, at: indexPath)
-        
-        // create and set action button
-        if selectedPlaceCells.count > 0 {
-            
-            newPlacesButton?.isEnabled = false
-            createRemovePlacesButton()
-            removePlacesButton?.isEnabled = true
-        } else {
-            
-            removePlacesButton?.isEnabled = false
-            createNewPlacesButton()
-            newPlacesButton?.isEnabled = true
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
+//        
+//        // Add or remove the highlighted cells to the list
+//        let cell = collectionView.cellForItem(at: indexPath) as! PlaceCollectionCell
+//        
+//        setSelectedPlace(cell, at: indexPath)
+//        
+//        // create and set action button
+//        if selectedPlaceCells.count > 0 {
+//            
+//            newPlacesButton?.isEnabled = false
+//            createRemovePlacesButton()
+//            removePlacesButton?.isEnabled = true
+//        } else {
+//            
+//            removePlacesButton?.isEnabled = false
+//            createNewPlacesButton()
+//            newPlacesButton?.isEnabled = true
+//        }
+//    }
 }

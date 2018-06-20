@@ -122,12 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ParkBeauty/View Controllers/DiaryListVC/DiaryListViewController.swift"
-            timestampString = "551177362.8302751"
+            timestampString = "551196743.47949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "addDiary(title:)"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "updateEditButtonState()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -138,12 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ParkBeauty/View Controllers/DiaryListVC/DiaryListViewController.swift"
-            timestampString = "551177362.830373"
+            timestampString = "551196743.479587"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "404"
-            endingLineNumber = "404"
-            landmarkName = "tableView(_:commit:forRowAt:)"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
+            landmarkName = "controller(_:didChange:at:for:newIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -154,13 +154,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ParkBeauty/View Controllers/DiaryListVC/DiaryListViewController.swift"
-            timestampString = "551177362.830446"
+            timestampString = "551196743.47967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
-            landmarkName = "DiaryListViewController"
-            landmarkType = "3">
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ParkBeauty/View Controllers/DiaryDetailVC/DiaryDetailViewController.swift"
-            timestampString = "551177362.8305171"
+            timestampString = "551196743.47975"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ParkBeauty/View Controllers/DiaryDetailVC/DiaryDetailViewController.swift"
-            timestampString = "551177362.830578"
+            timestampString = "551196743.479818"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ParkBeauty/View Controllers/DiaryListVC/DiaryListViewController.swift"
-            timestampString = "551177362.830637"
+            timestampString = "551196743.479881"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"

@@ -87,8 +87,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         }
         
         self.navigationController?.setToolbarHidden(false, animated: true)
-        self.navigationController?.toolbar.barTintColor = UIColor.white
-        self.navigationController?.toolbar.tintColor = UIColor.blue
         
 //        createTopBarButtons()
         
@@ -133,6 +131,8 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         // Grab the places
         setUpFetchedPhotoController(doRemoveAll: false)
         
+        self.navigationController?.setToolbarHidden(false, animated: true)
+        
         photoCollectionView.reloadData()
     }
     
@@ -141,6 +141,8 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
+        
+        self.navigationController?.setToolbarHidden(false, animated: true)
         
         photoCollectionView.reloadData()
     }

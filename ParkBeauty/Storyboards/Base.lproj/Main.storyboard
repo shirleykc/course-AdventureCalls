@@ -138,7 +138,7 @@
             </objects>
             <point key="canvasLocation" x="1888.8" y="511.39430284857576"/>
         </scene>
-        <!--Place Collection View Controller-->
+        <!--National Parks-->
         <scene sceneID="mOv-Ja-hJd">
             <objects>
                 <viewController storyboardIdentifier="PlaceCollectionViewController" id="T4T-mo-rKD" customClass="PlaceCollectionViewController" customModule="ParkBeauty" customModuleProvider="target" sceneMemberID="viewController">
@@ -241,7 +241,30 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hf3-9v-hK3"/>
                     </view>
-                    <toolbarItems/>
+                    <toolbarItems>
+                        <barButtonItem title="Home" image="icon_home" id="KL2-ib-JqH"/>
+                        <barButtonItem systemItem="flexibleSpace" id="oQA-aq-m90"/>
+                        <barButtonItem systemItem="flexibleSpace" id="kdD-DC-4OM"/>
+                        <barButtonItem title="Visits" image="icon_plane" id="Swa-Se-5qq">
+                            <connections>
+                                <action selector="postVisit" destination="T4T-mo-rKD" id="eMh-Y1-Phf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="flexibleSpace" id="vkf-ut-RlR"/>
+                        <barButtonItem title="Info" image="icon_info" id="2Xy-Mx-YqJ">
+                            <connections>
+                                <action selector="infoButtonPressed:" destination="T4T-mo-rKD" id="hVG-40-crg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="flexibleSpace" id="x26-H3-RE1"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="National Parks" id="PKt-Q4-ROg">
+                        <barButtonItem key="leftBarButtonItem" title="Back" image="icon_back-arrow" id="yFP-6G-9rZ">
+                            <connections>
+                                <action selector="backButtonPressed" destination="T4T-mo-rKD" id="o4a-tl-8Pl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
@@ -995,6 +1018,8 @@
         <image name="icon_camera-deselected" width="32" height="32"/>
         <image name="icon_diaryview-deselected" width="24" height="24"/>
         <image name="icon_footprint" width="200" height="200"/>
+        <image name="icon_home" width="32" height="32"/>
+        <image name="icon_info" width="24" height="24"/>
         <image name="icon_listview-selected" width="75" height="50"/>
         <image name="icon_mapview-selected" width="75" height="50"/>
         <image name="icon_plane" width="24" height="24"/>

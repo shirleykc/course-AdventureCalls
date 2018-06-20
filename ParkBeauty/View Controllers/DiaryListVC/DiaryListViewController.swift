@@ -92,7 +92,7 @@ class DiaryListViewController: UIViewController {
 
         updateEditButtonState()
         
-
+        self.navigationController?.setToolbarHidden(false, animated: true)
     }
     
     // MARK: viewWillAppear
@@ -113,6 +113,7 @@ class DiaryListViewController: UIViewController {
 
         // Hide the toolbar
 //        self.navigationController?.setToolbarHidden(true, animated: true)
+        self.navigationController?.setToolbarHidden(false, animated: true)
     }
     
     // MARK: viewDidDisappear
