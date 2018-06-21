@@ -19,7 +19,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     
     // action buttons
 //    var newPlacesButton: UIBarButtonItem?
-    var removePhotosButton: UIBarButtonItem?
+//    var removePhotosButton: UIBarButtonItem?
     
     // The park visit whose photos are being displayed
     var park: Park!
@@ -32,7 +32,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     
     var selectedPhotoCells = [IndexPath]()
     
-    var isLoadingPhotos: Bool = false
+//    var isLoadingPhotos: Bool = false
 //    var isLabelExpanded: Bool = false
     
     static var hasPhotos: Bool = false
@@ -50,6 +50,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     @IBOutlet weak var parkCodeLabel: UILabel!
     @IBOutlet weak var parkNameLabel: UILabel!
     @IBOutlet weak var photoCollectionView: UICollectionView!
+    @IBOutlet weak var removePhotosButton: UIBarButtonItem!
     
     // MARK: Life Cycle
     
@@ -98,7 +99,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         
         setUpFetchedPhotoController(doRemoveAll: false)
         
-        isLoadingPhotos = (photos.count == 0) ? true : false
+//        isLoadingPhotos = (photos.count == 0) ? true : false
         
         // Implement flowLayout here.
         
@@ -108,7 +109,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         // Initialize new collection button
         
 //        createNewPlacesButton()
-//        setUIActions()
+        setUIActions()
         
         // If empty places collection, then download new set of places
         
@@ -192,7 +193,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     
     // MARK: addPhotoPressed - Add Photo
     
-    @IBAction func addDiaryPressed() {
+    @IBAction func addPhotoPressed() {
         
 //        presentNewDiaryAlert()
 
@@ -221,7 +222,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     
     // MARK: removePhotosPressed - remove selected photos button is pressed
     
-    @objc func removePhotosPressed(_ sender: UIButton?) {
+    @IBAction func removePhotosPressed(_ sender: Any?) {
         
         var selectedPhotos = [Photo]()
         selectedPhotoCells = selectedPhotoCells.sorted(by: {$0.item > $1.item})
@@ -343,15 +344,15 @@ extension PhotoAlbumViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         
         // Display photo
-        if (!isLoadingPhotos) {
+//        if (!isLoadingPhotos) {
             
             if indexPath.item < photos.count {
                 
-                let aPlace = fetchedPhotoController.object(at: indexPath)
-                if let imageData = aPlace.image {
+                let aPhoto = fetchedPhotoController.object(at: indexPath)
+                if let imageData = aPhoto.image {
                     
                     cell.photoImage?.image = UIImage(data: imageData)
-                    if let title = aPlace.title {
+                    if let title = aPhoto.title {
                         cell.title?.text = "\(title)"
                     } else {
                         cell.title?.text = ""
@@ -359,7 +360,7 @@ extension PhotoAlbumViewController: UICollectionViewDelegate, UICollectionViewDa
                     cell.activityIndicatorView.stopAnimating()
                 }
             }
-        }
+//        }
         
         toggleSelectedPhoto(cell, at: indexPath)
         
@@ -379,7 +380,7 @@ extension PhotoAlbumViewController: UICollectionViewDelegate, UICollectionViewDa
         if selectedPhotoCells.count > 0 {
             
 //            newPlacesButton?.isEnabled = false
-            createRemovePhotosButton()
+//            createRemovePhotosButton()
             removePhotosButton?.isEnabled = true
         } else {
             

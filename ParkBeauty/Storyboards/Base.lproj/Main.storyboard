@@ -850,11 +850,18 @@
                                 <action selector="backButtonPressed" destination="bea-cb-bx5" id="8yG-b0-Or2"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="doI-kY-8wM">
-                            <connections>
-                                <action selector="addDiaryPressed" destination="bea-cb-bx5" id="FyY-dH-Dkp"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="doI-kY-8wM">
+                                <connections>
+                                    <action selector="addPhotoPressed" destination="bea-cb-bx5" id="afw-r2-CuW"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="M3f-XC-8aC">
+                                <connections>
+                                    <action selector="removePhotosPressed:" destination="bea-cb-bx5" id="ZAe-GT-VQd"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
@@ -862,6 +869,7 @@
                         <outlet property="parkCodeLabel" destination="bz8-8J-LLP" id="89X-sw-Ffr"/>
                         <outlet property="parkNameLabel" destination="n02-pf-6hT" id="H1Y-eY-zig"/>
                         <outlet property="photoCollectionView" destination="DuU-0g-YwG" id="Sy0-jE-ajO"/>
+                        <outlet property="removePhotosButton" destination="M3f-XC-8aC" id="C0c-tw-qNR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oXN-Kv-jlj" userLabel="First Responder" sceneMemberID="firstResponder"/>

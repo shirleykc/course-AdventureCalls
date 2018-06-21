@@ -30,20 +30,20 @@ extension PhotoAlbumViewController {
     
     // MARK: createRemovePhotosButton - create and set the remove photos button
     
-    func createRemovePhotosButton() {
-        
-        var toolbarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
-        
-        // use empty flexible space bar button to center the remove photos button
-        
-        let flexButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-        
-        removePhotosButton = UIBarButtonItem(title: "Remove Selected Photos", style: .plain, target: self, action: #selector(removePhotosPressed))
-        toolbarButtons.append(flexButton)
-        toolbarButtons.append(removePhotosButton!)
-        toolbarButtons.append(flexButton)
-        self.setToolbarItems(toolbarButtons, animated: true)
-    }
+//    func createRemovePhotosButton() {
+//        
+//        var toolbarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
+//        
+//        // use empty flexible space bar button to center the remove photos button
+//        
+//        let flexButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
+//        
+//        removePhotosButton = UIBarButtonItem(title: "Remove Selected Photos", style: .plain, target: self, action: #selector(removePhotosPressed))
+//        toolbarButtons.append(flexButton)
+//        toolbarButtons.append(removePhotosButton!)
+//        toolbarButtons.append(flexButton)
+//        self.setToolbarItems(toolbarButtons, animated: true)
+//    }
     
     // MARK: createTopBarButtons - create and set the top bar buttons
     
@@ -68,15 +68,15 @@ extension PhotoAlbumViewController {
     
     func setUIActions() {
         
-        if (isLoadingPhotos) {
+//        if (isLoadingPhotos) {
             
 //            newPlacesButton?.isEnabled = false
             removePhotosButton?.isEnabled = false
-        } else {
-            
-//            newPlacesButton?.isEnabled = true
-            removePhotosButton?.isEnabled = false
-        }
+//        } else {
+//
+////            newPlacesButton?.isEnabled = true
+//            removePhotosButton?.isEnabled = false
+//        }
     }
     
     // MARK: setUIForDownloadingPlaces - Set user interface for downloading places
