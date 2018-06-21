@@ -150,22 +150,14 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="130"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="dyv-bn-mvS"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="130" id="dyv-bn-mvS"/>
                                 </constraints>
                             </mapView>
-                            <label multipleTouchEnabled="YES" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axJ-ev-5hR">
-                                <rect key="frame" x="16" y="192" width="343" height="84"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="K7G-7a-V5p">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="K7G-7a-V5p">
                                 <rect key="frame" x="0.0" y="284" width="375" height="339"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="339" id="U3j-eM-BYe"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="339" id="U3j-eM-BYe"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="vc9-Z7-NSa">
                                     <size key="itemSize" width="120" height="131"/>
@@ -225,11 +217,21 @@
                                     <outlet property="delegate" destination="T4T-mo-rKD" id="Nqx-lg-Eel"/>
                                 </connections>
                             </collectionView>
+                            <label clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axJ-ev-5hR">
+                                <rect key="frame" x="16" y="202" width="343" height="74"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="74" id="4VZ-El-1kR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="axJ-ev-5hR" firstAttribute="top" secondItem="cei-uA-HP5" secondAttribute="bottom" constant="-2" id="2Wm-sV-Fnx"/>
-                            <constraint firstItem="K7G-7a-V5p" firstAttribute="top" secondItem="axJ-ev-5hR" secondAttribute="bottom" priority="750" constant="8" symbolic="YES" id="IpW-4k-vsb"/>
+                            <constraint firstItem="cei-uA-HP5" firstAttribute="bottom" secondItem="axJ-ev-5hR" secondAttribute="top" constant="-8" id="2Wm-sV-Fnx"/>
+                            <constraint firstItem="axJ-ev-5hR" firstAttribute="bottom" secondItem="K7G-7a-V5p" secondAttribute="top" constant="-8" id="IpW-4k-vsb"/>
                             <constraint firstItem="Hf3-9v-hK3" firstAttribute="trailing" secondItem="axJ-ev-5hR" secondAttribute="trailing" constant="16" id="Kbt-3z-hec"/>
                             <constraint firstItem="K7G-7a-V5p" firstAttribute="trailing" secondItem="Hf3-9v-hK3" secondAttribute="trailing" id="PUc-Us-eTB"/>
                             <constraint firstItem="K7G-7a-V5p" firstAttribute="bottom" secondItem="Hf3-9v-hK3" secondAttribute="bottom" id="RD2-Pj-v3T"/>
@@ -274,6 +276,7 @@
                     <connections>
                         <outlet property="mapView" destination="cei-uA-HP5" id="fng-PJ-6de"/>
                         <outlet property="parkDescriptionLabel" destination="axJ-ev-5hR" id="ics-z9-kMs"/>
+                        <outlet property="parkDescriptionLabelHeight" destination="axJ-ev-5hR" id="EL9-hl-Rj8"/>
                         <outlet property="placeCollectionView" destination="K7G-7a-V5p" id="Voh-3T-F1v"/>
                     </connections>
                 </viewController>
@@ -304,9 +307,9 @@
                                                     <rect key="frame" x="10" y="0.0" width="40" height="49.5"/>
                                                     <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="lUj-W8-yz8"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="lUj-W8-yz8"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -767,7 +770,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="120" height="131"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SKz-Gp-U4D">
+                                                <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SKz-Gp-U4D">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>

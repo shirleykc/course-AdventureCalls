@@ -44,7 +44,7 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var parkDescriptionLabel: UILabel!
-//    @IBOutlet weak var parkDescriptionLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var parkDescriptionLabelHeight: NSLayoutConstraint!
     @IBOutlet weak var placeCollectionView: UICollectionView!
     
     // MARK: Life Cycle
