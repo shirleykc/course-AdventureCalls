@@ -25,6 +25,8 @@ class PhotoPostingViewController: UIViewController, UIImagePickerControllerDeleg
     var dataController:DataController!
     var fetchedPhotoController: NSFetchedResultsController<Photo>!
     
+    var imageOrientation: UIImageOrientation!
+    
     // A date formatter for the date text
     
     let dateFormatter: DateFormatter = {
@@ -41,6 +43,7 @@ class PhotoPostingViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var albumButton: UIBarButtonItem!
 //    @IBOutlet weak var topNavbar: UINavigationBar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
 //    @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var photoTitleTextField: UITextField!
 //    @IBOutlet weak var bottomTextField: UITextField!
@@ -65,6 +68,7 @@ class PhotoPostingViewController: UIViewController, UIImagePickerControllerDeleg
         // Disable Share Button
         
         shareButton.isEnabled = false
+        saveButton.isEnabled = false
         
         navigationController?.setToolbarHidden(false, animated: true)
     }
@@ -107,8 +111,10 @@ class PhotoPostingViewController: UIViewController, UIImagePickerControllerDeleg
         // If an image is picked, enable Share button and dismiss image picker
         
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            imageOrientation = image.imageOrientation
             imagePickerView.image = image
             shareButton.isEnabled = true
+            saveButton.isEnabled = true
             dismiss(animated: true, completion: nil)
         }
     }
@@ -117,6 +123,7 @@ class PhotoPostingViewController: UIViewController, UIImagePickerControllerDeleg
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         shareButton.isEnabled = false
+        saveButton.isEnabled = false
         dismiss(animated: true, completion: nil)
     }
     
@@ -170,12 +177,19 @@ class PhotoPostingViewController: UIViewController, UIImagePickerControllerDeleg
             photo.title = title
         }
         if let photoImage = imagePickerView.image {
-            if let data:Data = UIImagePNGRepresentation(photoImage) {
-                photo.image = data
-            } else if let data:Data = UIImageJPEGRepresentation(photoImage, 1.0) {
-                photo.image = data
+            var data: Data?
+
+            if let cgImage = photoImage.cgImage {
+                let orientedImage = UIImage(cgImage: cgImage, scale: photoImage.scale, orientation: photoImage.imageOrientation)
+            
+                data = UIImageJPEGRepresentation(orientedImage, 0.8)
             }
+            else {
+                data = UIImagePNGRepresentation(photoImage)
+            }
+            photo.image = data
         }
+
         photo.visit = visit
         photo.creationDate = Date()
     
@@ -200,6 +214,7 @@ class PhotoPostingViewController: UIViewController, UIImagePickerControllerDeleg
 //        configure(textField: bottomTextField, withText: defaultBottomText)
         imagePickerView.image = nil
         shareButton.isEnabled = false
+        saveButton.isEnabled = false
     }
     
     // MARK: generateMemedImage
@@ -265,6 +280,16 @@ class PhotoPostingViewController: UIViewController, UIImagePickerControllerDeleg
                 self.navigationController?.popViewController(animated: true)
             }
         }
+    }
+    
+    // MARK: IBAction savePhotoImage
+    
+    @IBAction func savePhotoImage(_ sender: Any) {
+        
+        photo = self.save()
+        resetPhotoPicker()
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: IBAction cancelPhotoImage

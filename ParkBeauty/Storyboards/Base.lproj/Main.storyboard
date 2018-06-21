@@ -317,7 +317,7 @@
                                                     <rect key="frame" x="53" y="0.0" width="162" height="49.5"/>
                                                     <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="0.18803510273972604" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="162" id="9f2-w6-uGA"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="162" id="9f2-w6-uGA"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -402,7 +402,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="wDT-KL-tDQ" firstAttribute="top" secondItem="Ywj-eY-RYM" secondAttribute="top" id="NDv-MQ-jFH"/>
-                            <constraint firstItem="wDT-KL-tDQ" firstAttribute="bottom" secondItem="Ywj-eY-RYM" secondAttribute="bottom" priority="750" id="RIh-i1-kK3"/>
+                            <constraint firstItem="wDT-KL-tDQ" firstAttribute="bottom" secondItem="Ywj-eY-RYM" secondAttribute="bottom" id="RIh-i1-kK3"/>
                             <constraint firstItem="wDT-KL-tDQ" firstAttribute="leading" secondItem="Ywj-eY-RYM" secondAttribute="leading" id="hpS-9z-VqV"/>
                             <constraint firstItem="wDT-KL-tDQ" firstAttribute="trailing" secondItem="Ywj-eY-RYM" secondAttribute="trailing" id="uXH-BM-ziw"/>
                         </constraints>
@@ -432,7 +432,7 @@
         <!--Parks-->
         <scene sceneID="Jco-qe-H1u">
             <objects>
-                <viewController id="Iae-nx-UrX" customClass="ParkMapViewController" customModule="ParkBeauty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ParkMapViewController" id="Iae-nx-UrX" customClass="ParkMapViewController" customModule="ParkBeauty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fMd-53-y3D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -770,7 +770,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="120" height="131"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SKz-Gp-U4D">
+                                                <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SKz-Gp-U4D">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
@@ -934,11 +934,18 @@
                                 <action selector="cancelPhotoImage:" destination="XnE-Cy-k8k" id="Weh-1E-ygO"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="K5h-bS-DUB">
-                            <connections>
-                                <action selector="sharePhotoImage:" destination="XnE-Cy-k8k" id="Bac-Ls-AtF"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="K5h-bS-DUB">
+                                <connections>
+                                    <action selector="sharePhotoImage:" destination="XnE-Cy-k8k" id="Bac-Ls-AtF"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="save" id="BkV-ro-Spz">
+                                <connections>
+                                    <action selector="savePhotoImage:" destination="XnE-Cy-k8k" id="Pcy-XU-i2k"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
@@ -947,6 +954,7 @@
                         <outlet property="cameraButton" destination="79M-cs-deG" id="MIy-dU-BiS"/>
                         <outlet property="imagePickerView" destination="jI0-Xv-22h" id="bTh-GN-ABl"/>
                         <outlet property="photoTitleTextField" destination="zwC-RV-6bq" id="1oU-2A-bPe"/>
+                        <outlet property="saveButton" destination="BkV-ro-Spz" id="wvo-WT-ttI"/>
                         <outlet property="shareButton" destination="K5h-bS-DUB" id="Kn3-FY-pGE"/>
                     </connections>
                 </viewController>
@@ -994,7 +1002,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owg-xz-3vv">
-                                                    <rect key="frame" x="15" y="0.0" width="327" height="44.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="277" height="44.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="277" id="NmW-IV-2yF"/>
                                                     </constraints>
@@ -1004,8 +1012,8 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Owg-xz-3vv" secondAttribute="trailingMargin" id="8fB-wf-3qf"/>
                                                 <constraint firstItem="Owg-xz-3vv" firstAttribute="leading" secondItem="F0G-WG-jKX" secondAttribute="leadingMargin" id="ErN-gu-g3P"/>
-                                                <constraint firstAttribute="trailing" secondItem="Owg-xz-3vv" secondAttribute="trailingMargin" constant="8" id="R2q-Bz-Ewe"/>
                                                 <constraint firstAttribute="bottom" secondItem="Owg-xz-3vv" secondAttribute="bottom" constant="5" id="T8M-8b-9Qh"/>
                                                 <constraint firstItem="Owg-xz-3vv" firstAttribute="top" secondItem="F0G-WG-jKX" secondAttribute="top" id="aac-cJ-Tii"/>
                                             </constraints>
@@ -1039,7 +1047,11 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem systemItem="flexibleSpace" id="MUD-6v-r6O"/>
-                        <barButtonItem title="Home" image="icon_home" id="q8P-TI-x11"/>
+                        <barButtonItem title="Home" image="icon_home" id="q8P-TI-x11">
+                            <connections>
+                                <action selector="homeButtonPressed" destination="okD-bj-M9K" id="4mM-WE-wVz"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem systemItem="flexibleSpace" id="Ehg-YW-zZT"/>
                         <barButtonItem enabled="NO" title="Diary" image="icon_diaryview-deselected" id="I1l-9V-wWo"/>
                         <barButtonItem systemItem="flexibleSpace" id="NBW-7O-A6a"/>
