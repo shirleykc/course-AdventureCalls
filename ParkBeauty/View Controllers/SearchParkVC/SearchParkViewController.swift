@@ -150,7 +150,7 @@ class SearchParkViewController: UIViewController {
     }
 }
 
-// MARK: - InfoPostingViewController: UITextFieldDelegate
+// MARK: - SearchParkViewController: UITextFieldDelegate
 
 extension SearchParkViewController: UITextFieldDelegate {
     

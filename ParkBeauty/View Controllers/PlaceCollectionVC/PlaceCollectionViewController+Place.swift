@@ -197,7 +197,7 @@ extension PlaceCollectionViewController {
             }
         } else {
             
-            self.appDelegate.presentAlert(self, "No places available")
+            self.appDelegate.presentAlert(self, "No official NPS photos found")
             completionHandlerForDisplayPlaces(true)
         }
     }

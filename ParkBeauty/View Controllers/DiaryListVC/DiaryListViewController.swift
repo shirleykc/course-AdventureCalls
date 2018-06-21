@@ -60,7 +60,7 @@ class DiaryListViewController: UIViewController {
         // Set title to travel date
         
         if let travelDate = visit.travelDate {
-            self.title = "Visit on \(dateFormatter.string(from: travelDate))"
+            self.title = "Visit Diary \(dateFormatter.string(from: travelDate))"
         } else if let name = park.fullName {
             self.title = "\(name) Visit Diary"
         } else {
@@ -153,6 +153,13 @@ class DiaryListViewController: UIViewController {
     @IBAction func backButtonPressed() {
         
         navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: homeButtonPressed - back button is pressed
+    
+    @IBAction func homeButtonPressed() {
+        
+        navigationController?.popToRootViewController(animated: true)
     }
     
     // MARK: photoAlbumPressed - photo album button is pressed

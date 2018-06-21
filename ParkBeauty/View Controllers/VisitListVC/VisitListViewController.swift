@@ -105,6 +105,13 @@ class VisitListViewController: UIViewController {
     
     // MARK: - Actions
     
+    // MARK: homeButtonPressed - back button is pressed
+    
+    @IBAction func homeButtonPressed() {
+        
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
 //    @IBAction func addTapped(sender: Any) {
 //        presentNewNotebookAlert()
 //    }

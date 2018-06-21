@@ -67,7 +67,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         // Set title to travel date
         
         if let travelDate = visit.travelDate {
-            self.title = "Visit on \(dateFormatter.string(from: travelDate))"
+            self.title = "Visit Photos \(dateFormatter.string(from: travelDate))"
         } else if let name = park.fullName {
             self.title = "\(name) Visit Photos"
         } else {
@@ -155,10 +155,55 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         
         fetchedPhotoController = nil
         
-        self.navigationController?.setToolbarHidden(true, animated: true)
+//        self.navigationController?.setToolbarHidden(true, animated: true)
     }
     
     // MARK: Actions
+    
+    // MARK: backButtonPressed - back button is pressed
+    
+    @IBAction func backButtonPressed() {
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: homeButtonPressed - home button is pressed
+    
+    @IBAction func homeButtonPressed() {
+        
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    // MARK: diaryButtonPressed - diary button is pressed
+    
+    @IBAction func diaryButtonPressed() {
+        
+        print("photoAlbumPressed")
+        
+        //        setUIEnabled(true)
+        
+        // go to next view
+        let controller = storyboard!.instantiateViewController(withIdentifier: "DiaryListViewController") as! DiaryListViewController
+        controller.park = park
+        controller.visit = visit
+        controller.dataController = dataController
+        navigationController!.pushViewController(controller, animated: true)
+    }
+    
+    // MARK: addPhotoPressed - Add Photo
+    
+    @IBAction func addDiaryPressed() {
+        
+//        presentNewDiaryAlert()
+
+        let photoPostingViewController = storyboard!.instantiateViewController(withIdentifier: "PhotoPostingViewController") as! PhotoPostingViewController
+
+        photoPostingViewController.dataController = dataController
+        photoPostingViewController.park = park
+        photoPostingViewController.visit = visit
+
+        navigationController!.pushViewController(photoPostingViewController, animated: true)
+    }
     
     // MARK: newCollectionPressed - new collection button is pressed
     
@@ -172,6 +217,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
 //
 //        //        downloadNPSPlacesFor(park)
 //    }
+    
     
     // MARK: removePhotosPressed - remove selected photos button is pressed
     
@@ -213,13 +259,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
  //           self.newPlacesButton?.isEnabled = true
             self.resetSelectedPhotoCells()
         }
-    }
-    
-    // MARK: backButtonPressed - back button is pressed
-    
-    @objc func backButtonPressed() {
-        
-        navigationController?.popViewController(animated: true)
     }
     
     // MARK: postVisit - post visit button is pressed

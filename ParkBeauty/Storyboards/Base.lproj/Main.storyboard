@@ -138,7 +138,7 @@
             </objects>
             <point key="canvasLocation" x="1888.8" y="511.39430284857576"/>
         </scene>
-        <!--National Parks-->
+        <!--Place Collection View Controller-->
         <scene sceneID="mOv-Ja-hJd">
             <objects>
                 <viewController storyboardIdentifier="PlaceCollectionViewController" id="T4T-mo-rKD" customClass="PlaceCollectionViewController" customModule="ParkBeauty" customModuleProvider="target" sceneMemberID="viewController">
@@ -242,23 +242,27 @@
                         <viewLayoutGuide key="safeArea" id="Hf3-9v-hK3"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Home" image="icon_home" id="KL2-ib-JqH"/>
                         <barButtonItem systemItem="flexibleSpace" id="oQA-aq-m90"/>
+                        <barButtonItem title="Home" image="icon_home" id="KL2-ib-JqH">
+                            <connections>
+                                <action selector="homeButtonPressed" destination="T4T-mo-rKD" id="3dD-15-Kan"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem systemItem="flexibleSpace" id="kdD-DC-4OM"/>
                         <barButtonItem title="Visits" image="icon_plane" id="Swa-Se-5qq">
                             <connections>
                                 <action selector="postVisit" destination="T4T-mo-rKD" id="eMh-Y1-Phf"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem systemItem="flexibleSpace" id="vkf-ut-RlR"/>
+                        <barButtonItem systemItem="flexibleSpace" id="x26-H3-RE1"/>
                         <barButtonItem title="Info" image="icon_info" id="2Xy-Mx-YqJ">
                             <connections>
                                 <action selector="infoButtonPressed:" destination="T4T-mo-rKD" id="hVG-40-crg"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem systemItem="flexibleSpace" id="x26-H3-RE1"/>
+                        <barButtonItem systemItem="flexibleSpace" id="vkf-ut-RlR"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="National Parks" id="PKt-Q4-ROg">
+                    <navigationItem key="navigationItem" id="PKt-Q4-ROg">
                         <barButtonItem key="leftBarButtonItem" title="Back" image="icon_back-arrow" id="yFP-6G-9rZ">
                             <connections>
                                 <action selector="backButtonPressed" destination="T4T-mo-rKD" id="o4a-tl-8Pl"/>
@@ -401,8 +405,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ywj-eY-RYM"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <toolbarItems>
+                        <barButtonItem systemItem="flexibleSpace" id="ofd-5S-DiU"/>
+                        <barButtonItem title="Home" image="icon_home" id="DIT-Y6-Z6Y">
+                            <connections>
+                                <action selector="homeButtonPressed" destination="7bB-vy-ngz" id="JNT-Mh-7oM"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem systemItem="flexibleSpace" id="Lfh-hw-c7d"/>
                         <barButtonItem enabled="NO" title="Visits" image="icon_plane" id="zg7-Rj-82I"/>
                         <barButtonItem systemItem="flexibleSpace" id="yr3-91-ZPw"/>
@@ -819,15 +828,33 @@
                         <viewLayoutGuide key="safeArea" id="oq8-Ho-OBC"/>
                     </view>
                     <toolbarItems>
+                        <barButtonItem systemItem="flexibleSpace" id="evd-ms-4hL"/>
+                        <barButtonItem title="Home" image="icon_home" id="Fp7-0N-Me9">
+                            <connections>
+                                <action selector="homeButtonPressed" destination="bea-cb-bx5" id="TTl-tr-Od8"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem systemItem="flexibleSpace" id="s7f-WX-y4c"/>
-                        <barButtonItem title="Diary" image="icon_diaryview-deselected" id="wfo-wJ-e6y"/>
+                        <barButtonItem title="Diary" image="icon_diaryview-deselected" id="wfo-wJ-e6y">
+                            <connections>
+                                <action selector="diaryButtonPressed" destination="bea-cb-bx5" id="WVZ-Ce-JTl"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem systemItem="flexibleSpace" id="IEQ-Wf-0MN"/>
-                        <barButtonItem enabled="NO" title="Photos" image="icon_camera-deselected" id="Xc2-RB-atO"/>
+                        <barButtonItem enabled="NO" systemItem="camera" id="Xc2-RB-atO"/>
                         <barButtonItem systemItem="flexibleSpace" id="vUT-jA-qhO"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Photo Album" id="jw3-dn-Cx4">
-                        <barButtonItem key="leftBarButtonItem" image="icon_back-arrow" id="jJt-KK-KUz"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="doI-kY-8wM"/>
+                        <barButtonItem key="leftBarButtonItem" image="icon_back-arrow" id="jJt-KK-KUz">
+                            <connections>
+                                <action selector="backButtonPressed" destination="bea-cb-bx5" id="8yG-b0-Or2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="doI-kY-8wM">
+                            <connections>
+                                <action selector="addDiaryPressed" destination="bea-cb-bx5" id="FyY-dH-Dkp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
@@ -840,6 +867,81 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oXN-Kv-jlj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4488.8000000000002" y="2149.4752623688159"/>
+        </scene>
+        <!--PhotoPostingViewController-->
+        <scene sceneID="9qh-uS-RxK">
+            <objects>
+                <viewController storyboardIdentifier="PhotoPostingViewController" title="PhotoPostingViewController" id="XnE-Cy-k8k" customClass="PhotoPostingViewController" customModule="ParkBeauty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0VW-5o-c2c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Photo Title" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="zwC-RV-6bq">
+                                <rect key="frame" x="16" y="10" width="343" height="24"/>
+                                <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="0.37590967465753422" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XnE-Cy-k8k" id="fJ6-3u-GNc"/>
+                                </connections>
+                            </textField>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jI0-Xv-22h">
+                                <rect key="frame" x="0.0" y="42" width="375" height="517"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zwC-RV-6bq" firstAttribute="top" secondItem="jBh-Il-xlm" secondAttribute="top" constant="10" id="BbU-iV-mvy"/>
+                            <constraint firstItem="jI0-Xv-22h" firstAttribute="leading" secondItem="jBh-Il-xlm" secondAttribute="leading" id="UXp-12-mpi"/>
+                            <constraint firstItem="jI0-Xv-22h" firstAttribute="bottom" secondItem="jBh-Il-xlm" secondAttribute="bottom" id="XP0-1K-neN"/>
+                            <constraint firstItem="jI0-Xv-22h" firstAttribute="top" secondItem="zwC-RV-6bq" secondAttribute="bottom" constant="8" id="YQQ-Hp-piQ"/>
+                            <constraint firstItem="jBh-Il-xlm" firstAttribute="trailing" secondItem="zwC-RV-6bq" secondAttribute="trailing" constant="16" id="hAN-0Z-SFg"/>
+                            <constraint firstItem="zwC-RV-6bq" firstAttribute="leading" secondItem="jBh-Il-xlm" secondAttribute="leading" constant="16" id="ori-YP-v8A"/>
+                            <constraint firstItem="jI0-Xv-22h" firstAttribute="trailing" secondItem="jBh-Il-xlm" secondAttribute="trailing" id="pB1-9E-c0c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jBh-Il-xlm"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="flexibleSpace" id="3VU-O3-DRI"/>
+                        <barButtonItem systemItem="camera" id="79M-cs-deG">
+                            <connections>
+                                <action selector="pickPhotoFromCamera:" destination="XnE-Cy-k8k" id="GwZ-hU-bIC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="flexibleSpace" id="k2y-hz-Um7"/>
+                        <barButtonItem title="Photos" image="icon_images" id="ZIx-8j-Dvd">
+                            <connections>
+                                <action selector="pickPhotoFromAlbum:" destination="XnE-Cy-k8k" id="P3v-rp-Otr"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="flexibleSpace" id="cNu-eY-V4b"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="zfu-fb-wXV">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Nb2-bT-mdo">
+                            <connections>
+                                <action selector="cancelPhotoImage:" destination="XnE-Cy-k8k" id="Weh-1E-ygO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="K5h-bS-DUB">
+                            <connections>
+                                <action selector="sharePhotoImage:" destination="XnE-Cy-k8k" id="Bac-Ls-AtF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="albumButton" destination="ZIx-8j-Dvd" id="EiX-wC-lAH"/>
+                        <outlet property="cameraButton" destination="79M-cs-deG" id="MIy-dU-BiS"/>
+                        <outlet property="imagePickerView" destination="jI0-Xv-22h" id="bTh-GN-ABl"/>
+                        <outlet property="photoTitleTextField" destination="zwC-RV-6bq" id="1oU-2A-bPe"/>
+                        <outlet property="shareButton" destination="K5h-bS-DUB" id="Kn3-FY-pGE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gPq-Qf-q4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5372" y="2148.5757121439283"/>
         </scene>
         <!--DiaryListViewController-->
         <scene sceneID="JWC-dy-ijI">
@@ -925,10 +1027,12 @@
                         <viewLayoutGuide key="safeArea" id="hwX-MG-R2H"/>
                     </view>
                     <toolbarItems>
+                        <barButtonItem systemItem="flexibleSpace" id="MUD-6v-r6O"/>
+                        <barButtonItem title="Home" image="icon_home" id="q8P-TI-x11"/>
                         <barButtonItem systemItem="flexibleSpace" id="Ehg-YW-zZT"/>
                         <barButtonItem enabled="NO" title="Diary" image="icon_diaryview-deselected" id="I1l-9V-wWo"/>
                         <barButtonItem systemItem="flexibleSpace" id="NBW-7O-A6a"/>
-                        <barButtonItem title="Photo" image="icon_camera" id="Zf3-jt-KJp">
+                        <barButtonItem systemItem="camera" id="Zf3-jt-KJp">
                             <connections>
                                 <action selector="photoAlbumPressed" destination="okD-bj-M9K" id="7QT-wQ-gyM"/>
                             </connections>
@@ -1014,11 +1118,10 @@
     <resources>
         <image name="icon_b_plane" width="128" height="128"/>
         <image name="icon_back-arrow" width="24" height="24"/>
-        <image name="icon_camera" width="32" height="32"/>
-        <image name="icon_camera-deselected" width="32" height="32"/>
         <image name="icon_diaryview-deselected" width="24" height="24"/>
         <image name="icon_footprint" width="200" height="200"/>
         <image name="icon_home" width="32" height="32"/>
+        <image name="icon_images" width="32" height="32"/>
         <image name="icon_info" width="24" height="24"/>
         <image name="icon_listview-selected" width="75" height="50"/>
         <image name="icon_mapview-selected" width="75" height="50"/>

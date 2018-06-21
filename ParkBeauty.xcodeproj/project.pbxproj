@@ -10,6 +10,7 @@
 		E411DC6F20D9DFD10053323F /* PhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411DC6E20D9DFD10053323F /* PhotoCollectionCell.swift */; };
 		E411DC7120D9E2760053323F /* PhotoAlbumViewController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411DC7020D9E2760053323F /* PhotoAlbumViewController+Photo.swift */; };
 		E411DC7420DA2E950053323F /* PhotoAlbumViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411DC7320DA2E950053323F /* PhotoAlbumViewController+Helper.swift */; };
+		E411DC7620DB00CD0053323F /* PhotoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411DC7520DB00CD0053323F /* PhotoPostingViewController.swift */; };
 		E43F95FD20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F95FC20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift */; };
 		E43F95FF20CCD11B007DA0F8 /* Diary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F95FE20CCD11B007DA0F8 /* Diary+Extensions.swift */; };
 		E43F960120CD28B8007DA0F8 /* VisitTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F960020CD28B8007DA0F8 /* VisitTableCell.swift */; };
@@ -70,6 +71,7 @@
 		E411DC6E20D9DFD10053323F /* PhotoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCell.swift; sourceTree = "<group>"; };
 		E411DC7020D9E2760053323F /* PhotoAlbumViewController+Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoAlbumViewController+Photo.swift"; sourceTree = "<group>"; };
 		E411DC7320DA2E950053323F /* PhotoAlbumViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoAlbumViewController+Helper.swift"; sourceTree = "<group>"; };
+		E411DC7520DB00CD0053323F /* PhotoPostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPostingViewController.swift; sourceTree = "<group>"; };
 		E43F95FC20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitInfoPostingViewController.swift; sourceTree = "<group>"; };
 		E43F95FE20CCD11B007DA0F8 /* Diary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diary+Extensions.swift"; sourceTree = "<group>"; };
 		E43F960020CD28B8007DA0F8 /* VisitTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitTableCell.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				E46FAA6E20CF9E5B008CC06D /* PhotoAlbumViewController.swift */,
 				E411DC7020D9E2760053323F /* PhotoAlbumViewController+Photo.swift */,
 				E411DC7320DA2E950053323F /* PhotoAlbumViewController+Helper.swift */,
+				E411DC7520DB00CD0053323F /* PhotoPostingViewController.swift */,
 			);
 			path = PhotoAlbumVC;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				E46F74B720BF749E009C3452 /* Photo+Extensions.swift in Sources */,
 				E43F95FF20CCD11B007DA0F8 /* Diary+Extensions.swift in Sources */,
 				E46E7B1E20D3683D0072FCD7 /* DiaryTableCell.swift in Sources */,
+				E411DC7620DB00CD0053323F /* PhotoPostingViewController.swift in Sources */,
 				E4A9938D20D6ACA200117BC5 /* VisitListViewController+Visit.swift in Sources */,
 				E4F225B020D758FD00F0D066 /* DiaryDetailViewController.swift in Sources */,
 				E4EED3AC20C667B4007617DC /* ParkTableCell.swift in Sources */,
@@ -655,6 +659,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LLY57VUBW4;
 				INFOPLIST_FILE = ParkBeauty/Info.plist;
+				"INFOPLIST_FILE[sdk=*]" = ParkBeauty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

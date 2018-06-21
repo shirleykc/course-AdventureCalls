@@ -288,6 +288,13 @@ class PlaceCollectionViewController: UIViewController, UICollectionViewDelegateF
         navigationController?.popViewController(animated: true)
     }
     
+    // MARK: homeButtonPressed - back button is pressed
+    
+    @IBAction func homeButtonPressed() {
+        
+        navigationController?.popToRootViewController(animated: true) 
+    }
+    
     // MARK: postVisit - post visit button is pressed
     
     @IBAction func postVisit() {
