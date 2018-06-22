@@ -110,23 +110,4 @@ extension NPSClient {
             }
         }
     }
-    
-    // MARK: getPhotoImageFrom - get photo image data from URL
-    
-//    func getPhotoImageFrom(_ mediumURL: String, completionHandlerForPhotoImage: @escaping (_ data: Data?, _ error: NSError?) -> Void) {
-//        
-//        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
-//        
-//        /* 2. Make the request */
-//        
-//        let _ = taskForURL(mediumURL: mediumURL) { (results, error) in
-//            
-//            /* 3. Send the desired value(s) to completion handler */
-//            if let error = error {
-//                completionHandlerForPhotoImage(nil, error)
-//            } else {
-//                completionHandlerForPhotoImage(results, nil)
-//            }
-//        }
-//    }
 }

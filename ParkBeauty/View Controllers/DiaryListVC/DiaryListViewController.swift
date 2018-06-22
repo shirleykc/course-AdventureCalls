@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import MapKit
 
 // MARK: - DiaryListViewController: UIViewController
 
@@ -78,9 +77,7 @@ class DiaryListViewController: UIViewController {
         } else {
             parkNameLabel?.text = ""
         }
- 
- //       createTopBarButtons(navigationItem)
-        
+         
         if let rightButtons = navigationItem.rightBarButtonItems,
             rightButtons.count >= 2 {
             navigationItem.rightBarButtonItems?.remove(at: 1)

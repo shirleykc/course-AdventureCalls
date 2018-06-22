@@ -29,16 +29,19 @@ class BorderedButton: UIButton {
     // MARK: Initialization
     
     required init(coder aDecoder: NSCoder) {
+        
         super.init(coder: aDecoder)!
         themeBorderedButton()
     }
     
     override init(frame: CGRect) {
+        
         super.init(frame: frame)
         themeBorderedButton()
     }
     
     private func themeBorderedButton() {
+        
         layer.masksToBounds = true
         layer.cornerRadius = borderedButtonCornerRadius
         highlightedBackingColor = darkerBlue
@@ -51,13 +54,16 @@ class BorderedButton: UIButton {
     // MARK: Setters
     
     private func setBackingColor(_ newBackingColor: UIColor) {
+        
         if let _ = backingColor {
+            
             backingColor = newBackingColor
             backgroundColor = newBackingColor
         }
     }
     
     private func setHighlightedBackingColor(_ newHighlightedBackingColor: UIColor) {
+        
         highlightedBackingColor = newHighlightedBackingColor
         backingColor = highlightedBackingColor
     }
@@ -65,21 +71,25 @@ class BorderedButton: UIButton {
     // MARK: Tracking
     
     override func beginTracking(_ touch: UITouch, with withEvent: UIEvent?) -> Bool {
+        
         backgroundColor = highlightedBackingColor
         return true
     }
     
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+        
         backgroundColor = backingColor
     }
     
     override func cancelTracking(with event: UIEvent?) {
+        
         backgroundColor = backingColor
     }
     
     // MARK: Layout
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
+        
         let extraButtonPadding : CGFloat = phoneBorderedButtonExtraPadding
         var sizeThatFits = CGSize.zero
         sizeThatFits.width = super.sizeThatFits(size).width + extraButtonPadding

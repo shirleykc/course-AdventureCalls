@@ -6,7 +6,6 @@
 //  Copyright © 2018 Udacity. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 // MARK: - SearchParkViewController+Helper (Configure UI)
@@ -65,4 +64,3 @@ extension SearchParkViewController {
         textField.delegate = self
     }
 }
-

@@ -6,7 +6,6 @@
 //  Copyright © 2018 Udacity. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import MapKit
 import CoreData
@@ -216,7 +215,7 @@ extension ParkInfoPostingViewController: MKMapViewDelegate {
         return pinView
     }
     
-    // MARK: mapView - calloutAccessoryControlTapped - delete the selected park from callout
+    // MARK: mapView - calloutAccessoryControlTapped - delete the selected park from left callout
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         

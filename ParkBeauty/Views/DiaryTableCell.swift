@@ -15,11 +15,9 @@ class DiaryTableCell: UITableViewCell {
     // MARK: Outlets
     
     @IBOutlet weak var diaryTitleLabel: UILabel!
-//    @IBOutlet weak var pageCountLabel: UILabel!
     
     override func prepareForReuse() {
         super.prepareForReuse()
         diaryTitleLabel.text = nil
-//        pageCountLabel.text = nil
     }
 }

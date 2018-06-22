@@ -6,10 +6,9 @@
 //  Copyright © 2018 Udacity. All rights reserved.
 //
 
-import Foundation
 import MapKit
 
-// MARK: Annotation
+// MARK: Annotation - annotation for the map view
 
 class Annotation: NSObject, MKAnnotation {
     
@@ -28,22 +27,26 @@ class Annotation: NSObject, MKAnnotation {
     // MARK: Initializers
     
     init(park: Park) {
+        
         self.park = park
         self.locationCoordinate = CLLocationCoordinate2D(latitude: park.latitude, longitude: park.longitude)
         self.title = park.fullName ?? (park.name ?? "")
     }
     
     init(npsPark: NPSPark) {
+        
         self.npsPark = npsPark
         self.locationCoordinate = CLLocationCoordinate2D(latitude: npsPark.latitude!, longitude: npsPark.longitude!)
         self.title = npsPark.fullName ?? (npsPark.name ?? "")
     }
     
     init(locationCoordinate: CLLocationCoordinate2D) {
+        
         self.locationCoordinate = locationCoordinate
     }
     
     // MARK: Class Functions
+    
     public func updateCoordinate(newLocationCoordinate: CLLocationCoordinate2D) -> Void {
         
         // Update location coordinate from old to new

@@ -6,12 +6,6 @@
 //  Copyright © 2018 Udacity. All rights reserved.
 //
 
-import Foundation
-import UIKit
-import MapKit
-import CoreData
-
-import Foundation
 import UIKit
 import MapKit
 import CoreData
@@ -19,7 +13,7 @@ import CoreData
 // MARK: - ParkMapViewController : UIViewController, MKMapViewDelegate
 
 /**
- * This view controller demonstrates the objects involved in displaying pins on a map.
+ * This view controller presents the pins of national parks on a map.
  *
  * The map is a MKMapView.
  * The pins are represented by MKPointAnnotation instances.
@@ -38,17 +32,9 @@ class ParkMapViewController : UIViewController {
     
     var fetchedParkController: NSFetchedResultsController<Park>!
     var fetchedRegionController: NSFetchedResultsController<Region>!
-    //    var fetchedPhotosController: NSFetchedResultsController<Photo>!
     
     var annotation: Annotation?
     var region: Region?
-    
-    // action buttons
-//    var removeParkBanner: UIBarButtonItem?
-//    var editButton: UIBarButtonItem?
-//    var doneButton: UIBarButtonItem?
-    
-//    var doDeletePark: Bool = false
     
     // MARK: Outlets
     
@@ -106,9 +92,6 @@ class ParkMapViewController : UIViewController {
         fetchedParkController = nil
         fetchedRegionController = nil
     }
-    
-    // MARK: Actions
-    
 }
 
 // MARK: MKMapViewDelegate

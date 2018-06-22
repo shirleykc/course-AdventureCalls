@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: - NPSPlace
+// MARK: - NPSPlace - Places in a National Park
 
 struct NPSPlace {
     

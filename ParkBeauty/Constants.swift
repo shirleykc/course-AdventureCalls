@@ -6,8 +6,9 @@
 //  Copyright © 2018 Udacity. All rights reserved.
 //
 
-import Foundation
 import MapKit
+
+// MARK: AppDelegate
 
 extension AppDelegate {
     
@@ -27,6 +28,10 @@ extension AppDelegate {
         
         static let ButtonFrameWidth: CGFloat = 44
         static let ButtonFrameHeight: CGFloat = 44
+        
+        // MARK: image picker
+        
+        static let ImagePickerOriginalImageInfoTag = "UIImagePickerControllerOriginalImage"
     }
     
     // MARK: UI

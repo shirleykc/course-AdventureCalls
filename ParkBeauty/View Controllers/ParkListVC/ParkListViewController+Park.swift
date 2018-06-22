@@ -6,7 +6,6 @@
 //  Copyright © 2018 Udacity. All rights reserved.
 //
 
-import Foundation
 import CoreData
 
 // MARK: ParkListViewController+Park
@@ -25,7 +24,10 @@ extension ParkListViewController {
         do {
             
             try fetchedParkController.performFetch()
-            print("ParkListViewController - performFetch")
+            if let results = fetchedParkController?.fetchedObjects {
+                
+                self.parks = results
+            }
         } catch {
             
             fatalError("The fetch parks could not be performed: \(error.localizedDescription)")

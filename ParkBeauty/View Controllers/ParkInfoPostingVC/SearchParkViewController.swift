@@ -21,7 +21,7 @@ class SearchParkViewController: UIViewController {
     // MARK: Properties
     
     var appDelegate: AppDelegate!
-    var session: URLSession!
+    
     var dataController: DataController!
     
     var parkCollection: [NPSPark]!
@@ -71,13 +71,6 @@ class SearchParkViewController: UIViewController {
     
     // MARK: Actions
     
-    // MARK: cancelAdd - Cancel Add parks
-    
-    @objc func cancelAdd() {
-        
-        navigationController?.popViewController(animated: true)
-    }
-    
     // MARK: findParkPressed - Find Park
     
     @IBAction func findParkPressed(_ sender: AnyObject) {
@@ -108,6 +101,13 @@ class SearchParkViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    // MARK: cancelAdd - Cancel Add parks
+    
+    @objc func cancelAdd() {
+        
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: searchParksFor - search NPS parks for parkCode, stateCode and/or keyword

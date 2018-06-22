@@ -6,7 +6,6 @@
 //  Copyright © 2018 Udacity. All rights reserved.
 //
 
-import Foundation
 import CoreData
 
 // MARK: PlaceCollectionViewController+Place
@@ -43,6 +42,7 @@ extension PlaceCollectionViewController {
     func savePlacesFor(_ park: Park, from newCollection: [NPSPlace], completionHandlerForPlaceSave: @escaping (_ success: Bool) -> Void) {
         
         // Save place urls and titles for park
+        
         for newPlace in newCollection {
             
             if let imageUrl = newPlace.imageUrl {
@@ -97,22 +97,6 @@ extension PlaceCollectionViewController {
             }
         }
         completionHandlerForPlaceImageSave(true, nil)
-    }
-    
-    // MARK: deleteAllPlaces - Delete all places for the park from data store
-    
-    func deleteAllPlaces() {
-        
-        for aPlace in self.places {
-            
-            dataController.viewContext.delete(aPlace)
-        }
-        
-        try? dataController.viewContext.save()
-        
-        // Reset
-        
-        self.places.removeAll()
     }
     
     // MARK: searchPlaceCollectionFor - search NPS place collection for park

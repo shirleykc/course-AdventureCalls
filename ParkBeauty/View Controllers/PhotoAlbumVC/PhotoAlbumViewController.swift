@@ -17,23 +17,15 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     
     var appDelegate: AppDelegate!
     
-    // action buttons
-//    var newPlacesButton: UIBarButtonItem?
-//    var removePhotosButton: UIBarButtonItem?
-    
     // The park visit whose photos are being displayed
     var park: Park!
     var visit: Visit!
     var photos = [Photo]()
- //   var photoCollection: [NPSPlace]!
     
     var dataController:DataController!
     var fetchedPhotoController:NSFetchedResultsController<Photo>!
     
     var selectedPhotoCells = [IndexPath]()
-    
-//    var isLoadingPhotos: Bool = false
-//    var isLabelExpanded: Bool = false
     
     static var hasPhotos: Bool = false
     
@@ -63,7 +55,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         // Grab the app delegate
         
         appDelegate = UIApplication.shared.delegate as! AppDelegate
-        //        dataController = appDelegate.dataController
         
         // Set title to travel date
         
@@ -88,39 +79,19 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         }
         
         self.navigationController?.setToolbarHidden(false, animated: true)
-        
-//        createTopBarButtons()
-        
+                
         photoCollectionView.delegate = self
-        
-        addGestureRecognizer()
         
         // Grab the photos
         
         setUpFetchedPhotoController(doRemoveAll: false)
-        
-//        isLoadingPhotos = (photos.count == 0) ? true : false
         
         // Implement flowLayout here.
         
         let photoFlowLayout = photoCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         configure(flowLayout: photoFlowLayout!, withSpace: 1, withColumns: 3, withRows: 3)
         
-        // Initialize new collection button
-        
-//        createNewPlacesButton()
-        setUIActions()
-        
-        // If empty places collection, then download new set of places
-        
-//        if (isLoadingNPSPlaces) {
-//
-//            setUIForDownloadingPlaces()
-//            downloadNPSPlacesFor(park)
-//        } else {
-//
-//            newPlacesButton?.isEnabled = true
-//        }
+        removePhotosButton?.isEnabled = false
     }
     
     // MARK: viewWillAppear
@@ -129,7 +100,8 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         
         super.viewWillAppear(animated)
         
-        // Grab the places
+        // Grab the photos
+        
         setUpFetchedPhotoController(doRemoveAll: false)
         
         self.navigationController?.setToolbarHidden(false, animated: true)
@@ -155,8 +127,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         super.viewDidDisappear(animated)
         
         fetchedPhotoController = nil
-        
-//        self.navigationController?.setToolbarHidden(true, animated: true)
     }
     
     // MARK: Actions
@@ -179,15 +149,12 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     
     @IBAction func diaryButtonPressed() {
         
-        print("photoAlbumPressed")
-        
-        //        setUIEnabled(true)
-        
         // go to next view
         let controller = storyboard!.instantiateViewController(withIdentifier: "DiaryListViewController") as! DiaryListViewController
         controller.park = park
         controller.visit = visit
         controller.dataController = dataController
+        
         navigationController!.pushViewController(controller, animated: true)
     }
     
@@ -195,8 +162,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     
     @IBAction func addPhotoPressed() {
         
-//        presentNewDiaryAlert()
-
         let photoPostingViewController = storyboard!.instantiateViewController(withIdentifier: "PhotoPostingViewController") as! PhotoPostingViewController
 
         photoPostingViewController.dataController = dataController
@@ -206,20 +171,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         navigationController!.pushViewController(photoPostingViewController, animated: true)
     }
     
-    // MARK: newCollectionPressed - new collection button is pressed
-    
-//    @objc func newCollectionPressed() {
-//
-//        // Initialize
-//        isLoadingNPSPlaces = true
-//
-//        setUIForDownloadingPlaces()
-//        //        deleteAllPlaces()
-//
-//        //        downloadNPSPlacesFor(park)
-//    }
-    
-    
     // MARK: removePhotosPressed - remove selected photos button is pressed
     
     @IBAction func removePhotosPressed(_ sender: Any?) {
@@ -228,22 +179,28 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         selectedPhotoCells = selectedPhotoCells.sorted(by: {$0.item > $1.item})
         
         // Delete selected photos and perform batch update
+        
         photoCollectionView.performBatchUpdates({
             
             // Delete photos from collectioView and collection
+            
             for indexPath in self.selectedPhotoCells {
+                
                 self.photoCollectionView.deleteItems(at: [indexPath])
                 self.photos.remove(at: indexPath.item)
             }
             
             // Delete photos from data store
+            
             for indexPath in self.selectedPhotoCells {
+                
                 let aPlace = fetchedPhotoController.object(at: indexPath)
                 selectedPhotos.append(aPlace)
             }
             
             performUIUpdatesOnMain {
                 for aPhoto in selectedPhotos {
+                    
                     self.dataController.viewContext.delete(aPhoto)
                 }
                 
@@ -256,35 +213,8 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
             
             // Reset
             self.removePhotosButton?.isEnabled = false
- //           self.createNewPlacesButton()
- //           self.newPlacesButton?.isEnabled = true
             self.resetSelectedPhotoCells()
         }
-    }
-    
-    // MARK: postVisit - post visit button is pressed
-    
-//    @objc func postVisit() {
-//
-//        print("postVisit")
-//
-//        //        setUIEnabled(true)
-//
-//        // go to next view
-//        let controller = storyboard!.instantiateViewController(withIdentifier: "VisitListViewController") as! VisitListViewController
-//        controller.park = park
-//        controller.dataController = dataController
-//        navigationController!.pushViewController(controller, animated: true)
-//    }
-    
-    // MARK: addGestureRecognizer - configure tap and hold recognizer
-    
-    func addGestureRecognizer() {
-        
-//        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapLabel(_:)))
-        
-//        parkDescriptionLabel.isUserInteractionEnabled = true
-//        parkDescriptionLabel.addGestureRecognizer(tapRecognizer)
     }
     
     // MARK: configure - configure the photos collection view flowLayout
@@ -315,16 +245,6 @@ extension PhotoAlbumViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        // Set number of photos to display
-//        var photoCount: Int
-//        if (isLoadingPhotos) {
-//
-//            placeCount = Int(NPSClient.ParameterValues.PerPage)!
-//        } else {
-//
-//            placeCount = places.count
-//        }
-        
         return photos.count
     }
     
@@ -344,23 +264,21 @@ extension PhotoAlbumViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         
         // Display photo
-//        if (!isLoadingPhotos) {
+        
+        if indexPath.item < photos.count {
             
-            if indexPath.item < photos.count {
+            let aPhoto = fetchedPhotoController.object(at: indexPath)
+            if let imageData = aPhoto.image {
                 
-                let aPhoto = fetchedPhotoController.object(at: indexPath)
-                if let imageData = aPhoto.image {
-                    
-                    cell.photoImage?.image = UIImage(data: imageData)
-                    if let title = aPhoto.title {
-                        cell.title?.text = "\(title)"
-                    } else {
-                        cell.title?.text = ""
-                    }
-                    cell.activityIndicatorView.stopAnimating()
+                cell.photoImage?.image = UIImage(data: imageData)
+                if let title = aPhoto.title {
+                    cell.title?.text = "\(title)"
+                } else {
+                    cell.title?.text = ""
                 }
+                cell.activityIndicatorView.stopAnimating()
             }
-//        }
+        }
         
         toggleSelectedPhoto(cell, at: indexPath)
         
@@ -372,21 +290,19 @@ extension PhotoAlbumViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
         
         // Add or remove the highlighted cells to the list
+        
         let cell = collectionView.cellForItem(at: indexPath) as! PhotoCollectionCell
         
         setSelectedPhoto(cell, at: indexPath)
         
         // create and set action button
+        
         if selectedPhotoCells.count > 0 {
             
-//            newPlacesButton?.isEnabled = false
-//            createRemovePhotosButton()
             removePhotosButton?.isEnabled = true
         } else {
             
             removePhotosButton?.isEnabled = false
-//            createNewPlacesButton()
-//            newPlacesButton?.isEnabled = true
         }
     }
 }

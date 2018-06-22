@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-//import MapKit
 
 // MARK: - ParkListViewController: UIViewController
 
@@ -43,10 +42,6 @@ class ParkListViewController: UIViewController {
         
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         dataController = appDelegate.dataController
-        
-        /* Grab the park data store */
-        
-//        setUpFetchParkController()
     }
     
     // MARK: viewWillAppear
@@ -80,17 +75,6 @@ class ParkListViewController: UIViewController {
         fetchedParkController = nil
     }
     
-    // MARK: addPark - Adds a new park to the end of the `parks` array
-    
-//    func addPark(name: String) {
-//
-//        let park = Park(context: dataController.viewContext)
-//        park.name = name
-//        park.creationDate = Date()
-//
-//        try? dataController.viewContext.save()
-//    }
-    
     // MARK: deletePark - Deletes the park at the specified index path
     
     func deletePark(at indexPath: IndexPath) {
@@ -110,40 +94,6 @@ class ParkListViewController: UIViewController {
 //    override func setEditing(_ editing: Bool, animated: Bool) {
 //        super.setEditing(editing, animated: animated)
 //        parkTableView.setEditing(editing, animated: animated)
-//    }
-
-    // -------------------------------------------------------------------------
-    // MARK: - Navigation
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        // If this is a ParkListViewController, we'll configure its Places
-//        if let vc = segue.destination as? PlaceCollectionViewController {
-//            if let indexPath = parkTableView.indexPathForSelectedRow {
-//                vc.park = fetchedParkController.object(at: indexPath)
-//                vc.dataController = dataController
-//                print("prepare")
-//                //                vc.onDelete = { [weak self] in
-//                //                    if let indexPath = self?.tableView.indexPathForSelectedRow {
-//                //                        self?.deleteNote(at: indexPath)
-//                //                        self?.navigationController?.popViewController(animated: true)
-//                //                    }
-//                //                }
-//            }
-//        }
-//    }
-    
-    // -------------------------------------------------------------------------
-    // MARK: - Navigation
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // If this is a NotesListViewController, we'll configure its `Notebook`
-//        if let vc = segue.destination as? NotesListViewController {
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//                vc.notebook = fetchedResultsController.object(at: indexPath)
-//                vc.dataController = dataController
-//            }
-//        }
 //    }
 }
 
@@ -219,7 +169,6 @@ extension ParkListViewController: UITableViewDelegate, UITableViewDataSource {
         controller.annotation = Annotation(park: aPark)
         controller.dataController = dataController
         
-        print("didSelectRowAt")
         navigationController!.pushViewController(controller, animated: true)
     }
 }

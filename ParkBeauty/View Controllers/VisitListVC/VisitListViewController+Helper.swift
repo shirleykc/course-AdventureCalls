@@ -6,7 +6,6 @@
 //  Copyright © 2018 Udacity. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 // MARK: VisitListViewController+Helper
@@ -26,22 +25,6 @@ extension VisitListViewController {
         let backButton = UIBarButtonItem(image: UIImage(named: "icon_back-arrow"), style: .plain, target: self, action: #selector(backButtonPressed))
         leftBarButtons.append(backButton)
         navigationItem.setLeftBarButtonItems(leftBarButtons, animated: true)
-    }
-    
-    // MARK: createBottomBarButton - create and set the bottom tool bar buttons
-    
-    func createBottomBarButton() {
-        
-        var toolbarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
-        
-        // use empty flexible space bar button to center the remove places button
-        let flexButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-        
-        let visitButton = UIBarButtonItem(image: UIImage(named: "icon_plane"), style: .plain, target: self, action: nil)
-        toolbarButtons.append(flexButton)
-        toolbarButtons.append(visitButton)
-        toolbarButtons.append(flexButton)
-        self.setToolbarItems(toolbarButtons, animated: true)
     }
     
     // MARK: getRatingStarImage - return star for rating

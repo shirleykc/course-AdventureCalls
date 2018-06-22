@@ -24,7 +24,6 @@
 		E46B22F720C194E70099AF1C /* SearchParkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22F620C194E70099AF1C /* SearchParkViewController.swift */; };
 		E46B22F920C19C940099AF1C /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22F820C19C940099AF1C /* BorderedButton.swift */; };
 		E46E7B1920D3647F0072FCD7 /* ParkInfoPostingViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E7B1720D3647E0072FCD7 /* ParkInfoPostingViewController+Helper.swift */; };
-		E46E7B1A20D3647F0072FCD7 /* ParkMapViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E7B1820D3647E0072FCD7 /* ParkMapViewController+Helper.swift */; };
 		E46E7B1C20D3668E0072FCD7 /* DiaryListViewController+Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E7B1B20D3668E0072FCD7 /* DiaryListViewController+Diary.swift */; };
 		E46E7B1E20D3683D0072FCD7 /* DiaryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E7B1D20D3683D0072FCD7 /* DiaryTableCell.swift */; };
 		E46F749420BF6269009C3452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F749320BF6269009C3452 /* AppDelegate.swift */; };
@@ -40,7 +39,6 @@
 		E46F74B720BF749E009C3452 /* Photo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74B620BF749E009C3452 /* Photo+Extensions.swift */; };
 		E46F74BB20BF77BB009C3452 /* NPSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74BA20BF77BB009C3452 /* NPSConstants.swift */; };
 		E46F74BD20BF9150009C3452 /* NPSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74BC20BF9150009C3452 /* NPSClient.swift */; };
-		E46FAA6B20CF9E0E008CC06D /* VisitTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA6A20CF9E0E008CC06D /* VisitTabBarController.swift */; };
 		E46FAA6D20CF9E3F008CC06D /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA6C20CF9E3F008CC06D /* DiaryListViewController.swift */; };
 		E46FAA6F20CF9E5B008CC06D /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA6E20CF9E5B008CC06D /* PhotoAlbumViewController.swift */; };
 		E4A9937E20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9937D20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift */; };
@@ -62,7 +60,6 @@
 		E4EED3AA20C63ED3007617DC /* ParkMapViewController+Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EED3A920C63ED3007617DC /* ParkMapViewController+Park.swift */; };
 		E4EED3AC20C667B4007617DC /* ParkTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EED3AB20C667B4007617DC /* ParkTableCell.swift */; };
 		E4EED3AE20C66960007617DC /* ParkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EED3AD20C66960007617DC /* ParkListViewController.swift */; };
-		E4F225AE20D7386800F0D066 /* DiaryListViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F225AD20D7386800F0D066 /* DiaryListViewController+Helper.swift */; };
 		E4F225B020D758FD00F0D066 /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F225AF20D758FD00F0D066 /* DiaryDetailViewController.swift */; };
 		E4F225B220D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F225B120D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift */; };
 /* End PBXBuildFile section */
@@ -85,7 +82,6 @@
 		E46B22F620C194E70099AF1C /* SearchParkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchParkViewController.swift; sourceTree = "<group>"; };
 		E46B22F820C19C940099AF1C /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		E46E7B1720D3647E0072FCD7 /* ParkInfoPostingViewController+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ParkInfoPostingViewController+Helper.swift"; sourceTree = "<group>"; };
-		E46E7B1820D3647E0072FCD7 /* ParkMapViewController+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ParkMapViewController+Helper.swift"; sourceTree = "<group>"; };
 		E46E7B1B20D3668E0072FCD7 /* DiaryListViewController+Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryListViewController+Diary.swift"; sourceTree = "<group>"; };
 		E46E7B1D20D3683D0072FCD7 /* DiaryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTableCell.swift; sourceTree = "<group>"; };
 		E46F749020BF6269009C3452 /* ParkBeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkBeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +99,6 @@
 		E46F74B620BF749E009C3452 /* Photo+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Extensions.swift"; sourceTree = "<group>"; };
 		E46F74BA20BF77BB009C3452 /* NPSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSConstants.swift; sourceTree = "<group>"; };
 		E46F74BC20BF9150009C3452 /* NPSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSClient.swift; sourceTree = "<group>"; };
-		E46FAA6A20CF9E0E008CC06D /* VisitTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitTabBarController.swift; sourceTree = "<group>"; };
 		E46FAA6C20CF9E3F008CC06D /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
 		E46FAA6E20CF9E5B008CC06D /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		E4A9937D20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParkInfoPostingViewController+Park.swift"; sourceTree = "<group>"; };
@@ -125,7 +120,6 @@
 		E4EED3A920C63ED3007617DC /* ParkMapViewController+Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParkMapViewController+Park.swift"; sourceTree = "<group>"; };
 		E4EED3AB20C667B4007617DC /* ParkTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkTableCell.swift; sourceTree = "<group>"; };
 		E4EED3AD20C66960007617DC /* ParkListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkListViewController.swift; sourceTree = "<group>"; };
-		E4F225AD20D7386800F0D066 /* DiaryListViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryListViewController+Helper.swift"; sourceTree = "<group>"; };
 		E4F225AF20D758FD00F0D066 /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
 		E4F225B120D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryDetailViewController+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,15 +151,11 @@
 			children = (
 				E46B22F020C13AEF0099AF1C /* ParkTabBarController.swift */,
 				E4A9937920D421D900117BC5 /* ParkMapVC */,
-				E4A9938120D5F4F200117BC5 /* SearchParkVC */,
 				E4A9937A20D4222600117BC5 /* ParkInfoPostingVC */,
 				E4A9938420D6038200117BC5 /* ParkListVC */,
 				E4A9937B20D4224F00117BC5 /* PlaceCollectionVC */,
-				E4A9938920D654D700117BC5 /* VisitInfoPostingVC */,
 				E4A9938E20D6AD9A00117BC5 /* VisitListVC */,
-				E46FAA6A20CF9E0E008CC06D /* VisitTabBarController.swift */,
 				E4A9937C20D4227F00117BC5 /* DiaryListVC */,
-				E4F225B320D78B7E00F0D066 /* DiaryDetailVC */,
 				E411DC7220D9E5C20053323F /* PhotoAlbumVC */,
 			);
 			path = "View Controllers";
@@ -283,7 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				E46B22F220C192390099AF1C /* ParkMapViewController.swift */,
-				E46E7B1820D3647E0072FCD7 /* ParkMapViewController+Helper.swift */,
 				E4EED3A920C63ED3007617DC /* ParkMapViewController+Park.swift */,
 				E4EED3A720C63A79007617DC /* ParkMapViewController+Region.swift */,
 			);
@@ -293,6 +282,8 @@
 		E4A9937A20D4222600117BC5 /* ParkInfoPostingVC */ = {
 			isa = PBXGroup;
 			children = (
+				E46B22F620C194E70099AF1C /* SearchParkViewController.swift */,
+				E4A9937F20D5F4DA00117BC5 /* SearchParkViewController+Helper.swift */,
 				E4CE8D6220C4C06B00AC3E27 /* ParkInfoPostingViewController.swift */,
 				E46E7B1720D3647E0072FCD7 /* ParkInfoPostingViewController+Helper.swift */,
 				E4A9937D20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift */,
@@ -315,18 +306,10 @@
 			children = (
 				E46FAA6C20CF9E3F008CC06D /* DiaryListViewController.swift */,
 				E46E7B1B20D3668E0072FCD7 /* DiaryListViewController+Diary.swift */,
-				E4F225AD20D7386800F0D066 /* DiaryListViewController+Helper.swift */,
+				E4F225AF20D758FD00F0D066 /* DiaryDetailViewController.swift */,
+				E4F225B120D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift */,
 			);
 			path = DiaryListVC;
-			sourceTree = "<group>";
-		};
-		E4A9938120D5F4F200117BC5 /* SearchParkVC */ = {
-			isa = PBXGroup;
-			children = (
-				E46B22F620C194E70099AF1C /* SearchParkViewController.swift */,
-				E4A9937F20D5F4DA00117BC5 /* SearchParkViewController+Helper.swift */,
-			);
-			path = SearchParkVC;
 			sourceTree = "<group>";
 		};
 		E4A9938420D6038200117BC5 /* ParkListVC */ = {
@@ -338,33 +321,17 @@
 			path = ParkListVC;
 			sourceTree = "<group>";
 		};
-		E4A9938920D654D700117BC5 /* VisitInfoPostingVC */ = {
+		E4A9938E20D6AD9A00117BC5 /* VisitListVC */ = {
 			isa = PBXGroup;
 			children = (
 				E43F95FC20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift */,
 				E4A9938720D654C400117BC5 /* VisitInfoPostingViewController+Visit.swift */,
 				E4A9938A20D6582700117BC5 /* VisitInfoPostingViewController+Helper.swift */,
-			);
-			path = VisitInfoPostingVC;
-			sourceTree = "<group>";
-		};
-		E4A9938E20D6AD9A00117BC5 /* VisitListVC */ = {
-			isa = PBXGroup;
-			children = (
 				E43F960220CD6C74007DA0F8 /* VisitListViewController.swift */,
 				E4A9938C20D6ACA200117BC5 /* VisitListViewController+Visit.swift */,
 				E4A9938F20D6C20600117BC5 /* VisitListViewController+Helper.swift */,
 			);
 			path = VisitListVC;
-			sourceTree = "<group>";
-		};
-		E4F225B320D78B7E00F0D066 /* DiaryDetailVC */ = {
-			isa = PBXGroup;
-			children = (
-				E4F225AF20D758FD00F0D066 /* DiaryDetailViewController.swift */,
-				E4F225B120D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift */,
-			);
-			path = DiaryDetailVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,7 +415,6 @@
 				E4A9938020D5F4DA00117BC5 /* SearchParkViewController+Helper.swift in Sources */,
 				E46E7B1920D3647F0072FCD7 /* ParkInfoPostingViewController+Helper.swift in Sources */,
 				E46F74BB20BF77BB009C3452 /* NPSConstants.swift in Sources */,
-				E4F225AE20D7386800F0D066 /* DiaryListViewController+Helper.swift in Sources */,
 				E46F74B520BF7486009C3452 /* Visit+Extensions.swift in Sources */,
 				E43F960120CD28B8007DA0F8 /* VisitTableCell.swift in Sources */,
 				E4EED3AA20C63ED3007617DC /* ParkMapViewController+Park.swift in Sources */,
@@ -472,7 +438,6 @@
 				E4F225B220D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift in Sources */,
 				E46B22E620C0FB430099AF1C /* DataController.swift in Sources */,
 				E4EED3AE20C66960007617DC /* ParkListViewController.swift in Sources */,
-				E46E7B1A20D3647F0072FCD7 /* ParkMapViewController+Helper.swift in Sources */,
 				E46F749420BF6269009C3452 /* AppDelegate.swift in Sources */,
 				E43F95FD20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift in Sources */,
 				E411DC7420DA2E950053323F /* PhotoAlbumViewController+Helper.swift in Sources */,
@@ -490,7 +455,6 @@
 				E46F74AF20BF741B009C3452 /* Region+Extensions.swift in Sources */,
 				E46B22F120C13AEF0099AF1C /* ParkTabBarController.swift in Sources */,
 				E4A9937E20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift in Sources */,
-				E46FAA6B20CF9E0E008CC06D /* VisitTabBarController.swift in Sources */,
 				E4EDD27120C8ECF400BD3D90 /* NPSPlace.swift in Sources */,
 				E4EDD27520C912B700BD3D90 /* PlaceCollectionCell.swift in Sources */,
 			);

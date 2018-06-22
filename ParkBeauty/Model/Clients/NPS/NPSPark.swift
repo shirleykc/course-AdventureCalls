@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: - NPSPark
+// MARK: - NPSPark - National Parks
 
 struct NPSPark {
     
@@ -68,7 +68,7 @@ struct NPSPark {
         
         for result in results {
             
-            // extract latitude and longitude
+            // extract latitude and longitude from key 'latLong'
             
             var latitude: Double?
             var longitude: Double?

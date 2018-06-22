@@ -19,7 +19,6 @@ class ParkTabBarController: UITabBarController {
     
     // MARK: Properties
     
-    var refreshButton: UIBarButtonItem?
     var addpinButton: UIBarButtonItem?
     
     // MARK: Life Cycle
@@ -51,6 +50,7 @@ class ParkTabBarController: UITabBarController {
         // go to search park view
         
         let searchParkViewController = storyboard!.instantiateViewController(withIdentifier: "SearchParkViewController") as! SearchParkViewController
+        
         navigationController!.pushViewController(searchParkViewController, animated: true)
     }
     
@@ -61,6 +61,7 @@ class ParkTabBarController: UITabBarController {
         var rightButtons: [UIBarButtonItem] = [UIBarButtonItem]()
         addpinButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addpin))
         rightButtons.append(addpinButton!)  // 1st button from the right
+        
         navigationItem.setRightBarButtonItems(rightButtons, animated: true)
     }
 }

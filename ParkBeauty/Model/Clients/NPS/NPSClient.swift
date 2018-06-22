@@ -14,7 +14,7 @@ class NPSClient : NSObject {
     
     // MARK: Properties
     
-    // Search page for NPS photos, default to 1, otherwise a random page number generated from previous search
+    // Search start record for NPS photos, default to 1
     
     static var startRecord: Int?
     
@@ -251,4 +251,3 @@ class NPSClient : NSObject {
         return Singleton.sharedInstance
     }
 }
-

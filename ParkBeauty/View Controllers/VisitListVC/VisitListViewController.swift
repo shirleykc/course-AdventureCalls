@@ -68,11 +68,8 @@ class VisitListViewController: UIViewController {
             self.title = "National Park Visits"
         }
         
-//        setupFetchedVisitController()
-
         createTopBarButtons(navigationItem)
         navigationController?.setToolbarHidden(false, animated: true)
-//        createBottomBarButton()
     }
     
     // MARK: viewWillAppear
@@ -112,10 +109,6 @@ class VisitListViewController: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
-//    @IBAction func addTapped(sender: Any) {
-//        presentNewNotebookAlert()
-//    }
-    
     // MARK: addVisitPressed - Add Visit
     
     @objc func addVisitPressed() {
@@ -137,52 +130,18 @@ class VisitListViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    // -------------------------------------------------------------------------
-    // MARK: - Editing
-    
-    /// Display an alert prompting the user to name a new vist. Calls
-    /// `addVisit(name:)`.
-//    func presentNewNotebookAlert() {
-//        let alert = UIAlertController(title: "New Visit", message: "Enter a name for this visit", preferredStyle: .alert)
-//
-//        // Create actions
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] action in
-//            if let name = alert.textFields?.first?.text {
-//                //                self?.addVisit(name: <#T##String#>)(name: name)
-//            }
-//        }
-//        saveAction.isEnabled = false
-//
-//        // Add a text field
-//        alert.addTextField { textField in
-//            textField.placeholder = "Name"
-//            NotificationCenter.default.addObserver(forName: .UITextFieldTextDidChange, object: textField, queue: .main) { notif in
-//                if let text = textField.text, !text.isEmpty {
-//                    saveAction.isEnabled = true
-//                } else {
-//                    saveAction.isEnabled = false
-//                }
-//            }
-//        }
-//
-//        alert.addAction(cancelAction)
-//        alert.addAction(saveAction)
-//        present(alert, animated: true, completion: nil)
-//    }
-    
     // MARK: addVisit - Adds a new visit to the data store
     
-    func addVisit(title: String) {
-        
-        print("VisitListViewController - addVisit: \(title)")
-        let visit = Visit(context: dataController.viewContext)
-        visit.title = title
-        visit.creationDate = Date()
-        visit.park = park
-        
-        try? dataController.viewContext.save()
-    }
+//    func addVisit(title: String) {
+//
+//        print("VisitListViewController - addVisit: \(title)")
+//        let visit = Visit(context: dataController.viewContext)
+//        visit.title = title
+//        visit.creationDate = Date()
+//        visit.park = park
+//
+//        try? dataController.viewContext.save()
+//    }
     
     // MARK: deleteVisit - Deletes the visit at the specified index path
     
@@ -256,17 +215,13 @@ extension VisitListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let rating = aVisit.rating
         if rating >= 0 {
+            
             cell.ratingStar1Image.image = getRatingStarImage(starNumber: 1, forRating: rating)
             cell.ratingStar2Image.image = getRatingStarImage(starNumber: 2, forRating: rating)
             cell.ratingStar3Image.image = getRatingStarImage(starNumber: 3, forRating: rating)
             cell.ratingStar4Image.image = getRatingStarImage(starNumber: 4, forRating: rating)
             cell.ratingStar5Image.image = getRatingStarImage(starNumber: 5, forRating: rating)
-        }        
-
-//        if let count = aNotebook.notes?.count {
-//            let pageString = count == 1 ? "page" : "pages"
-//            cell.pageCountLabel.text = "\(count) \(pageString)"
-//        }
+        }
         
         return cell
     }
@@ -297,19 +252,6 @@ extension VisitListViewController: UITableViewDelegate, UITableViewDataSource {
         default: () // Unsupported
         }
     }
-    
-    // -------------------------------------------------------------------------
-    // MARK: - Navigation
-    
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        // If this is a NotesListViewController, we'll configure its `Notebook`
-    //        if let vc = segue.destination as? NotesListViewController {
-    //            if let indexPath = tableView.indexPathForSelectedRow {
-    //                vc.notebook = fetchedResultsController.object(at: indexPath)
-    //                vc.dataController = dataController
-    //            }
-    //        }
-    //    }
 }
 
 // MARK: VisitListViewController:NSFetchedResultsControllerDelegate
@@ -319,6 +261,7 @@ extension VisitListViewController:NSFetchedResultsControllerDelegate {
     // MARK: controller - didChange an object
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
         switch type {
             
         case .insert:

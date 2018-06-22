@@ -6,7 +6,6 @@
 //  Copyright © 2018 Udacity. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 // MARK: VisitInfoPostingViewController+Helper
@@ -21,11 +20,6 @@ extension VisitInfoPostingViewController {
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonPressed))
         leftBarButtons.append(cancelButton)
         navigationItem.setLeftBarButtonItems(leftBarButtons, animated: true)
-        //
-        //        var rightBarButtons: [UIBarButtonItem] = [UIBarButtonItem]()
-        //        let visitButton = UIBarButtonItem(image: UIImage(named: "icon_travel"), style: .plain, target: self, action: #selector(postVisit))
-        //        rightBarButtons.append(visitButton)
-        //        navigationItem.setRightBarButtonItems(rightBarButtons, animated: true)
     }
     
     // MARK: setUIEnabled - Enable or disable UI
@@ -39,10 +33,28 @@ extension VisitInfoPostingViewController {
         alertTextLabel.isEnabled = enabled
         
         // post visit button alpha
+        
         if enabled {
             postVisitButton.alpha = 1.0
         } else {
             postVisitButton.alpha = 0.5
         }
+    }
+    
+    // MARK: configureUI - Configure UI
+    
+    func configureUI() {
+        
+        appDelegate.configureBackgroundGradient(view)
+        configureTextField(visitTitleTextField)
+        configureTextField(visitDateTextField)
+    }
+    
+    // MARK: configureTextField - Configure text field
+    
+    func configureTextField(_ textField: UITextField) {
+        
+        appDelegate.configureTextField(textField)
+        textField.delegate = self
     }
 }
