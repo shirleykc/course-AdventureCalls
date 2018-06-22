@@ -24,10 +24,7 @@ extension ParkListViewController {
         do {
             
             try fetchedParkController.performFetch()
-            if let results = fetchedParkController?.fetchedObjects {
-                
-                self.parks = results
-            }
+ 
         } catch {
             
             fatalError("The fetch parks could not be performed: \(error.localizedDescription)")

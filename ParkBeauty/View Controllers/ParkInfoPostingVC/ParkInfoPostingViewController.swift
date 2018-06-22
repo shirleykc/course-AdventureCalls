@@ -142,7 +142,6 @@ class ParkInfoPostingViewController: UIViewController {
                         continue
                     } else {
                         
-                        print("Park \(npsPark.parkCode) not in data store")
                         let park = Park(context: self.dataController.viewContext)
                         park.creationDate = Date()
                         park.parkCode = npsPark.parkCode
