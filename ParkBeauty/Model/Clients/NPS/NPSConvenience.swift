@@ -46,7 +46,6 @@ extension NPSClient {
                 }
                 
                 let parkCollection = NPSPark.parksFromResults(parkArray)
-                print("parkCollection: \(parkCollection)")
                 completionHandlerForPhotos(parkCollection, start, nil)
             }
         }

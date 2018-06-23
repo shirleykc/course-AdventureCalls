@@ -869,6 +869,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
+                        <outlet property="addPhotoButton" destination="doI-kY-8wM" id="sRX-Vk-0Py"/>
                         <outlet property="parkCodeLabel" destination="bz8-8J-LLP" id="89X-sw-Ffr"/>
                         <outlet property="parkNameLabel" destination="n02-pf-6hT" id="H1Y-eY-zig"/>
                         <outlet property="photoCollectionView" destination="DuU-0g-YwG" id="Sy0-jE-ajO"/>
@@ -1080,6 +1081,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
+                        <outlet property="addButton" destination="iXd-sd-i3e" id="6Me-Yb-8SK"/>
                         <outlet property="diaryTableView" destination="16y-4J-LWf" id="6wr-fd-xwa"/>
                         <outlet property="editButton" destination="M8T-ZI-fa5" id="rfe-zB-juF"/>
                         <outlet property="parkCodeLabel" destination="BFn-Df-BKM" id="qg9-Kq-X9g"/>

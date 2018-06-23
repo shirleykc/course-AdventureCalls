@@ -21,8 +21,6 @@ class ParkListViewController: UIViewController {
     
     var appDelegate: AppDelegate!
     var dataController: DataController!
-
-//    var parks = [Park]()
     
     var fetchedParkController: NSFetchedResultsController<Park>!
 
@@ -88,17 +86,6 @@ class ParkListViewController: UIViewController {
 
         try? dataController.viewContext.save()
     }
-
-//    func updateEditButtonState() {
-//        if let sections = fetchedParkController.sections {
-//            navigationItem.rightBarButtonItem?.isEnabled = sections[0].numberOfObjects > 0
-//        }
-//    }
-//
-//    override func setEditing(_ editing: Bool, animated: Bool) {
-//        super.setEditing(editing, animated: animated)
-//        parkTableView.setEditing(editing, animated: animated)
-//    }
 }
 
 // MARK: ParkListViewController: UITableViewDelegate, UITableViewDataSource

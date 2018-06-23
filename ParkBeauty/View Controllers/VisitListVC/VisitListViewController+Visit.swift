@@ -19,15 +19,14 @@ extension VisitListViewController {
         let fetchRequest:NSFetchRequest<Visit> = Visit.fetchRequest()
         let predicate = NSPredicate(format: "park == %@", argumentArray: [park!])
         fetchRequest.predicate = predicate
-        fetchRequest.sortDescriptors = []
+        let sortDescriptor = NSSortDescriptor(key: "travelDate", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
         fetchedVisitController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedVisitController.delegate = self
         do {
+            
             try fetchedVisitController.performFetch()
-            if let results = fetchedVisitController?.fetchedObjects {
-                self.visits = results
-            }
         } catch {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }

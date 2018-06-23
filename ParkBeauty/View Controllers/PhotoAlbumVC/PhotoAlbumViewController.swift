@@ -43,6 +43,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
     @IBOutlet weak var parkNameLabel: UILabel!
     @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet weak var removePhotosButton: UIBarButtonItem!
+    @IBOutlet weak var addPhotoButton: UIBarButtonItem!
     
     // MARK: Life Cycle
     
@@ -91,6 +92,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         let photoFlowLayout = photoCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         configure(flowLayout: photoFlowLayout!, withSpace: 1, withColumns: 3, withRows: 3)
         
+        addPhotoButton?.isEnabled = true
         removePhotosButton?.isEnabled = false
     }
     
@@ -104,6 +106,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         
         setUpFetchedPhotoController(doRemoveAll: false)
         
+        addPhotoButton?.isEnabled = true
         self.navigationController?.setToolbarHidden(false, animated: true)
         
         photoCollectionView.reloadData()
@@ -115,6 +118,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         
         super.viewDidAppear(animated)
         
+        addPhotoButton?.isEnabled = true
         self.navigationController?.setToolbarHidden(false, animated: true)
         
         photoCollectionView.reloadData()
@@ -299,9 +303,11 @@ extension PhotoAlbumViewController: UICollectionViewDelegate, UICollectionViewDa
         
         if selectedPhotoCells.count > 0 {
             
+            addPhotoButton?.isEnabled = false
             removePhotosButton?.isEnabled = true
         } else {
             
+            addPhotoButton?.isEnabled = true
             removePhotosButton?.isEnabled = false
         }
     }

@@ -23,7 +23,6 @@ class DiaryListViewController: UIViewController {
     
     var visit: Visit!
     var park: Park!
-    var diaries: [Diary]!
     
     var dataController: DataController!
     
@@ -43,7 +42,7 @@ class DiaryListViewController: UIViewController {
     @IBOutlet weak var parkNameLabel: UILabel!
     @IBOutlet weak var diaryTableView: UITableView!
     @IBOutlet weak var editButton: UIBarButtonItem!
-    @IBOutlet weak var photoAlbumButton: UIBarButtonItem!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     // MARK: Life Cycle
     
@@ -89,6 +88,7 @@ class DiaryListViewController: UIViewController {
         /* Grab the park data store */
         setUpFetchDiaryController()
 
+        addButton.isEnabled = true
         updateEditButtonState()
         
         self.navigationController?.setToolbarHidden(false, animated: true)
@@ -99,7 +99,6 @@ class DiaryListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        print("DiaryListViewController viewWillAppear")
 
         setUpFetchDiaryController()
         if let indexPath = diaryTableView.indexPathForSelectedRow {
@@ -108,10 +107,10 @@ class DiaryListViewController: UIViewController {
             diaryTableView.reloadRows(at: [indexPath], with: .fade)
         }
         
+        addButton.isEnabled = true
         updateEditButtonState()
 
         // Hide the toolbar
-//        self.navigationController?.setToolbarHidden(true, animated: true)
         self.navigationController?.setToolbarHidden(false, animated: true)
     }
     
@@ -120,35 +119,21 @@ class DiaryListViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         
         super.viewDidDisappear(animated)
-        
-//        fetchedDiaryController = nil
     }
     
     // MARK: Actions
     
     // MARK: addDiaryPressed - Add Diary
     
-//    @objc func addDiaryPressed() {
     @IBAction func addDiaryPressed() {
         
         presentNewDiaryAlert()
         
-//        let diaryDetailViewController = storyboard!.instantiateViewController(withIdentifier: "DiaryDetailViewController") as! DiaryDetailViewController
-//
-//        diaryDetailViewController.dataController = dataController
-//        diaryDetailViewController.fetchedDiaryController = fetchedDiaryController
-//        diaryDetailViewController.park = park
-//        diaryDetailViewController.visit = visit
-//
-//        let diary = Diary(context: dataController.viewContext)
-//        diaryDetailViewController.diary = diary
-//
-//        navigationController!.pushViewController(diaryDetailViewController, animated: true)
+        updateEditButtonState()
     }
     
     // MARK: backButtonPressed - back button is pressed
     
-//    @objc func backButtonPressed() {
     @IBAction func backButtonPressed() {
         
         navigationController?.popViewController(animated: true)
@@ -165,11 +150,8 @@ class DiaryListViewController: UIViewController {
     
     @IBAction func photoAlbumPressed() {
         
-        print("photoAlbumPressed")
-        
-        //        setUIEnabled(true)
-        
         // go to next view
+        
         let controller = storyboard!.instantiateViewController(withIdentifier: "PhotoAlbumViewController") as! PhotoAlbumViewController
         controller.park = park
         controller.visit = visit
@@ -177,7 +159,8 @@ class DiaryListViewController: UIViewController {
         navigationController!.pushViewController(controller, animated: true)
     }
     
-    /// Adds a new diary to the data store
+    // MARK: addDiary - Adds a new diary to the data store
+    
     func addDiary(title: String) {
         let diary = Diary(context: dataController.viewContext)
         diary.title = title
@@ -217,6 +200,7 @@ class DiaryListViewController: UIViewController {
         
         super.setEditing(editing, animated: animated)
         
+        addButton.isEnabled = (editing == false)
         diaryTableView.setEditing(editing, animated: animated)
     }
     
@@ -237,7 +221,6 @@ class DiaryListViewController: UIViewController {
                 
                 vc.onDelete = { [weak self] in
                     if let indexPath = self?.diaryTableView.indexPathForSelectedRow {
- //                       self?.fetchedDiaryController = vc.fetchedDiaryController
                         self?.deleteDiary(at: indexPath)
                         self?.navigationController?.popViewController(animated: true)
                     }
@@ -246,8 +229,8 @@ class DiaryListViewController: UIViewController {
         }
     }
     
-    /// Display an alert prompting the user to name a new notebook. Calls
-    /// `addNotebook(name:)`.
+    // MARK: presentNewDiaryAlert - Display an alert prompting the user to name a new diary.
+    
     func presentNewDiaryAlert() {
         let alert = UIAlertController(title: "New Diary", message: "Enter a title for this diary", preferredStyle: .alert)
         
@@ -276,40 +259,6 @@ class DiaryListViewController: UIViewController {
         alert.addAction(saveAction)
         present(alert, animated: true, completion: nil)
     }
-    
-    // -------------------------------------------------------------------------
-    // MARK: - Navigation
-    
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //
-    //        // If this is a ParkListViewController, we'll configure its Places
-    //        if let vc = segue.destination as? PlaceCollectionViewController {
-    //            if let indexPath = parkTableView.indexPathForSelectedRow {
-    //                vc.park = fetchedParkController.object(at: indexPath)
-    //                vc.dataController = dataController
-    //                print("prepare")
-    //                //                vc.onDelete = { [weak self] in
-    //                //                    if let indexPath = self?.tableView.indexPathForSelectedRow {
-    //                //                        self?.deleteNote(at: indexPath)
-    //                //                        self?.navigationController?.popViewController(animated: true)
-    //                //                    }
-    //                //                }
-    //            }
-    //        }
-    //    }
-    
-    // -------------------------------------------------------------------------
-    // MARK: - Navigation
-    
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        // If this is a NotesListViewController, we'll configure its `Notebook`
-    //        if let vc = segue.destination as? NotesListViewController {
-    //            if let indexPath = tableView.indexPathForSelectedRow {
-    //                vc.notebook = fetchedResultsController.object(at: indexPath)
-    //                vc.dataController = dataController
-    //            }
-    //        }
-    //    }
 }
 
 // MARK: DiaryListViewController: UITableViewDelegate, UITableViewDataSource
@@ -335,7 +284,6 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let aDiary = fetchedDiaryController.object(at: indexPath)
-        print("aDiary: \(indexPath) - \(aDiary)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "DiaryTableCell", for: indexPath) as! DiaryTableCell
         
         // Configure cell
@@ -346,41 +294,8 @@ extension DiaryListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.diaryTitleLabel.text = ""
         }
         
-//        if let count = visit.diaries?.count {
-//            let pageString = count == 1 ? "page" : "pages"
-//            cell.pageCountLabel.text = "\(count) \(pageString)"
-//        }
-        
-//        let aNote = fetchedResultsController.object(at: indexPath)
-//        let cell = tableView.dequeueReusableCell(withIdentifier: NoteCell.defaultReuseIdentifier, for: indexPath) as! NoteCell
-//
-//        // Configure cell
-//        cell.textPreviewLabel.attributedText = aNote.attributedText
-//
-//        if let creationDate = aNote.creationDate {
-//            cell.dateLabel.text = dateFormatter.string(from: creationDate)
-//        }
-//
-//        return cell
-        
         return cell
     }
-    
-//    // MARK: tableView - didSelectRowAt
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        let controller = storyboard!.instantiateViewController(withIdentifier: "DiaryDetailViewController") as! DiaryDetailViewController
-//
-//        let aDiary = fetchedDiaryController.object(at: indexPath)
-//        controller.visit = visit
-//        controller.park = park
-//        controller.diary = aDiary
-//        controller.dataController = dataController
-//
-//        print("DiaryListViewController didSelectRowAt")
-//        navigationController!.pushViewController(controller, animated: true)
-//    }
     
     // MARK: tableView - commit
     
@@ -412,11 +327,9 @@ extension DiaryListViewController:NSFetchedResultsControllerDelegate {
             
         case .insert:
             diaryTableView.insertRows(at: [newIndexPath!], with: .fade)
-            break
             
         case .delete:
             diaryTableView.deleteRows(at: [indexPath!], with: .fade)
-            break
             
         case .update:
             diaryTableView.reloadRows(at: [indexPath!], with: .fade)

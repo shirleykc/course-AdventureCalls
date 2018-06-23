@@ -28,10 +28,6 @@ extension DiaryListViewController {
         do {
             
             try fetchedDiaryController.performFetch()
-            if let results = fetchedDiaryController?.fetchedObjects {
-                
-                self.diaries = results
-            }
         } catch {
             
             fatalError("The fetch region could not be performed: \(error.localizedDescription)")

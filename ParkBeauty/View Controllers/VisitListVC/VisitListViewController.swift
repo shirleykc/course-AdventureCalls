@@ -25,7 +25,6 @@ class VisitListViewController: UIViewController {
     // The park whose visits are being displayed
     
     var park: Park!
-    var visits = [Visit]()
     
     var fetchedVisitController:NSFetchedResultsController<Visit>!
     
@@ -130,19 +129,6 @@ class VisitListViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    // MARK: addVisit - Adds a new visit to the data store
-    
-//    func addVisit(title: String) {
-//
-//        print("VisitListViewController - addVisit: \(title)")
-//        let visit = Visit(context: dataController.viewContext)
-//        visit.title = title
-//        visit.creationDate = Date()
-//        visit.park = park
-//
-//        try? dataController.viewContext.save()
-//    }
-    
     // MARK: deleteVisit - Deletes the visit at the specified index path
     
     func deleteVisit(at indexPath: IndexPath) {
@@ -151,25 +137,6 @@ class VisitListViewController: UIViewController {
         dataController.viewContext.delete(visitToDelete)
         
         try? dataController.viewContext.save()
-    }
-    
-    // MARK: updateEditButtonState - enable or disable edit button
-    
-    func updateEditButtonState() {
-        
-        if let sections = fetchedVisitController.sections {
-            
-            navigationItem.rightBarButtonItem?.isEnabled = sections[0].numberOfObjects > 0
-        }
-    }
-    
-    // MARK: setEditing - set the table view edit state
-    
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        
-        super.setEditing(editing, animated: animated)
-        
-        visitTableView.setEditing(editing, animated: animated)
     }
 }
 
@@ -196,7 +163,6 @@ extension VisitListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let aVisit = fetchedVisitController.object(at: indexPath)
-        print("aVisit: \(indexPath) - \(aVisit)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "VisitTableCell", for: indexPath) as! VisitTableCell
         
         // Configure cell
@@ -237,7 +203,6 @@ extension VisitListViewController: UITableViewDelegate, UITableViewDataSource {
         controller.park = park
         controller.dataController = dataController
         
-        print("VisitListViewController didSelectRowAt")
         navigationController!.pushViewController(controller, animated: true)
     }
     
