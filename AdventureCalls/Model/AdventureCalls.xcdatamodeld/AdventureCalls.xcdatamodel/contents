@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Diary" representedClassName="Diary" syncable="YES" codeGenerationType="class">
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="visit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Visit" inverseName="diaries" inverseEntity="Visit" syncable="YES"/>
+    </entity>
+    <entity name="Park" representedClassName="Park" syncable="YES" codeGenerationType="class">
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parkCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stateCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="places" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Place" inverseName="park" inverseEntity="Place" syncable="YES"/>
+        <relationship name="vistis" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Visit" inverseName="park" inverseEntity="Visit" syncable="YES"/>
+    </entity>
+    <entity name="Photo" representedClassName="Photo" syncable="YES" codeGenerationType="class">
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="visit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Visit" inverseName="photos" inverseEntity="Visit" syncable="YES"/>
+    </entity>
+    <entity name="Place" representedClassName="Place" syncable="YES" codeGenerationType="class">
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="imageAltText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="park" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Park" inverseName="places" inverseEntity="Park" syncable="YES"/>
+    </entity>
+    <entity name="Region" representedClassName="Region" syncable="YES" codeGenerationType="class">
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="latitudeDelta" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitudeDelta" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Visit" representedClassName="Visit" syncable="YES" codeGenerationType="class">
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="travelDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="diaries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Diary" inverseName="visit" inverseEntity="Diary" syncable="YES"/>
+        <relationship name="park" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Park" inverseName="vistis" inverseEntity="Park" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Photo" inverseName="visit" inverseEntity="Photo" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Diary" positionX="540" positionY="-162" width="128" height="105"/>
+        <element name="Park" positionX="-20" positionY="-126" width="128" height="210"/>
+        <element name="Photo" positionX="594" positionY="255" width="128" height="105"/>
+        <element name="Place" positionX="-38" positionY="207" width="128" height="195"/>
+        <element name="Region" positionX="178" positionY="261" width="128" height="120"/>
+        <element name="Visit" positionX="295" positionY="-9" width="128" height="150"/>
+    </elements>
+</model>

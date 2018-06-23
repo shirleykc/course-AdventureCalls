@@ -1,0 +1,675 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E411DC6F20D9DFD10053323F /* PhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411DC6E20D9DFD10053323F /* PhotoCollectionCell.swift */; };
+		E411DC7120D9E2760053323F /* PhotoAlbumViewController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411DC7020D9E2760053323F /* PhotoAlbumViewController+Photo.swift */; };
+		E411DC7420DA2E950053323F /* PhotoAlbumViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411DC7320DA2E950053323F /* PhotoAlbumViewController+Helper.swift */; };
+		E411DC7620DB00CD0053323F /* PhotoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411DC7520DB00CD0053323F /* PhotoPostingViewController.swift */; };
+		E43F95FD20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F95FC20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift */; };
+		E43F95FF20CCD11B007DA0F8 /* Diary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F95FE20CCD11B007DA0F8 /* Diary+Extensions.swift */; };
+		E43F960120CD28B8007DA0F8 /* VisitTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F960020CD28B8007DA0F8 /* VisitTableCell.swift */; };
+		E43F960320CD6C74007DA0F8 /* VisitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F960220CD6C74007DA0F8 /* VisitListViewController.swift */; };
+		E46B22E420C0FAC50099AF1C /* NPSPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22E320C0FAC50099AF1C /* NPSPark.swift */; };
+		E46B22E620C0FB430099AF1C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22E520C0FB430099AF1C /* DataController.swift */; };
+		E46B22EF20C11C170099AF1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46B22EE20C11C170099AF1C /* Assets.xcassets */; };
+		E46B22F120C13AEF0099AF1C /* ParkTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22F020C13AEF0099AF1C /* ParkTabBarController.swift */; };
+		E46B22F320C192390099AF1C /* ParkMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22F220C192390099AF1C /* ParkMapViewController.swift */; };
+		E46B22F520C193500099AF1C /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22F420C193500099AF1C /* Annotation.swift */; };
+		E46B22F720C194E70099AF1C /* SearchParkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22F620C194E70099AF1C /* SearchParkViewController.swift */; };
+		E46B22F920C19C940099AF1C /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B22F820C19C940099AF1C /* BorderedButton.swift */; };
+		E46E7B1920D3647F0072FCD7 /* ParkInfoPostingViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E7B1720D3647E0072FCD7 /* ParkInfoPostingViewController+Helper.swift */; };
+		E46E7B1C20D3668E0072FCD7 /* DiaryListViewController+Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E7B1B20D3668E0072FCD7 /* DiaryListViewController+Diary.swift */; };
+		E46E7B1E20D3683D0072FCD7 /* DiaryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E7B1D20D3683D0072FCD7 /* DiaryTableCell.swift */; };
+		E46F749420BF6269009C3452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F749320BF6269009C3452 /* AppDelegate.swift */; };
+		E46F749920BF626A009C3452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46F749720BF626A009C3452 /* Main.storyboard */; };
+		E46F74A120BF6272009C3452 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46F749F20BF6272009C3452 /* LaunchScreen.storyboard */; };
+		E46F74A920BF6E3E009C3452 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74A820BF6E3E009C3452 /* Constants.swift */; };
+		E46F74AB20BF6E9C009C3452 /* GDCBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74AA20BF6E9C009C3452 /* GDCBlackBox.swift */; };
+		E46F74AF20BF741B009C3452 /* Region+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74AE20BF741B009C3452 /* Region+Extensions.swift */; };
+		E46F74B120BF743A009C3452 /* Park+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74B020BF743A009C3452 /* Park+Extensions.swift */; };
+		E46F74B320BF7468009C3452 /* Place+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74B220BF7468009C3452 /* Place+Extensions.swift */; };
+		E46F74B520BF7486009C3452 /* Visit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74B420BF7486009C3452 /* Visit+Extensions.swift */; };
+		E46F74B720BF749E009C3452 /* Photo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74B620BF749E009C3452 /* Photo+Extensions.swift */; };
+		E46F74BB20BF77BB009C3452 /* NPSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74BA20BF77BB009C3452 /* NPSConstants.swift */; };
+		E46F74BD20BF9150009C3452 /* NPSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74BC20BF9150009C3452 /* NPSClient.swift */; };
+		E46FAA6D20CF9E3F008CC06D /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA6C20CF9E3F008CC06D /* DiaryListViewController.swift */; };
+		E46FAA6F20CF9E5B008CC06D /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA6E20CF9E5B008CC06D /* PhotoAlbumViewController.swift */; };
+		E4A9937E20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9937D20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift */; };
+		E4A9938020D5F4DA00117BC5 /* SearchParkViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9937F20D5F4DA00117BC5 /* SearchParkViewController+Helper.swift */; };
+		E4A9938320D6036700117BC5 /* ParkListViewController+Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9938220D6036700117BC5 /* ParkListViewController+Park.swift */; };
+		E4A9938620D64CC300117BC5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9938520D64CC300117BC5 /* Helpers.swift */; };
+		E4A9938820D654C400117BC5 /* VisitInfoPostingViewController+Visit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9938720D654C400117BC5 /* VisitInfoPostingViewController+Visit.swift */; };
+		E4A9938B20D6582700117BC5 /* VisitInfoPostingViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9938A20D6582700117BC5 /* VisitInfoPostingViewController+Helper.swift */; };
+		E4A9938D20D6ACA200117BC5 /* VisitListViewController+Visit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9938C20D6ACA200117BC5 /* VisitListViewController+Visit.swift */; };
+		E4A9939020D6C20600117BC5 /* VisitListViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9938F20D6C20600117BC5 /* VisitListViewController+Helper.swift */; };
+		E4CE8D6320C4C06B00AC3E27 /* ParkInfoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CE8D6220C4C06B00AC3E27 /* ParkInfoPostingViewController.swift */; };
+		E4EAB67B20CB203C00D80B37 /* PlaceCollectionViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EAB67A20CB203C00D80B37 /* PlaceCollectionViewController+Helper.swift */; };
+		E4EAB67D20CB306F00D80B37 /* PlaceCollectionViewController+Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EAB67C20CB306F00D80B37 /* PlaceCollectionViewController+Place.swift */; };
+		E4EDD26F20C8DDC800BD3D90 /* PlaceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EDD26E20C8DDC800BD3D90 /* PlaceCollectionViewController.swift */; };
+		E4EDD27120C8ECF400BD3D90 /* NPSPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EDD27020C8ECF400BD3D90 /* NPSPlace.swift */; };
+		E4EDD27320C900AC00BD3D90 /* NPSConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EDD27220C900AC00BD3D90 /* NPSConvenience.swift */; };
+		E4EDD27520C912B700BD3D90 /* PlaceCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EDD27420C912B700BD3D90 /* PlaceCollectionCell.swift */; };
+		E4EED3A820C63A79007617DC /* ParkMapViewController+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EED3A720C63A79007617DC /* ParkMapViewController+Region.swift */; };
+		E4EED3AA20C63ED3007617DC /* ParkMapViewController+Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EED3A920C63ED3007617DC /* ParkMapViewController+Park.swift */; };
+		E4EED3AC20C667B4007617DC /* ParkTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EED3AB20C667B4007617DC /* ParkTableCell.swift */; };
+		E4EED3AE20C66960007617DC /* ParkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EED3AD20C66960007617DC /* ParkListViewController.swift */; };
+		E4F225B020D758FD00F0D066 /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F225AF20D758FD00F0D066 /* DiaryDetailViewController.swift */; };
+		E4F225B220D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F225B120D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift */; };
+		E4F8A20B20DE82400077E4CF /* AdventureCalls.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4F8A20920DE82400077E4CF /* AdventureCalls.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E411DC6E20D9DFD10053323F /* PhotoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCell.swift; sourceTree = "<group>"; };
+		E411DC7020D9E2760053323F /* PhotoAlbumViewController+Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoAlbumViewController+Photo.swift"; sourceTree = "<group>"; };
+		E411DC7320DA2E950053323F /* PhotoAlbumViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoAlbumViewController+Helper.swift"; sourceTree = "<group>"; };
+		E411DC7520DB00CD0053323F /* PhotoPostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPostingViewController.swift; sourceTree = "<group>"; };
+		E43F95FC20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitInfoPostingViewController.swift; sourceTree = "<group>"; };
+		E43F95FE20CCD11B007DA0F8 /* Diary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diary+Extensions.swift"; sourceTree = "<group>"; };
+		E43F960020CD28B8007DA0F8 /* VisitTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitTableCell.swift; sourceTree = "<group>"; };
+		E43F960220CD6C74007DA0F8 /* VisitListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitListViewController.swift; sourceTree = "<group>"; };
+		E46B22E320C0FAC50099AF1C /* NPSPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSPark.swift; sourceTree = "<group>"; };
+		E46B22E520C0FB430099AF1C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		E46B22EE20C11C170099AF1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E46B22F020C13AEF0099AF1C /* ParkTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkTabBarController.swift; sourceTree = "<group>"; };
+		E46B22F220C192390099AF1C /* ParkMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkMapViewController.swift; sourceTree = "<group>"; };
+		E46B22F420C193500099AF1C /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		E46B22F620C194E70099AF1C /* SearchParkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchParkViewController.swift; sourceTree = "<group>"; };
+		E46B22F820C19C940099AF1C /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		E46E7B1720D3647E0072FCD7 /* ParkInfoPostingViewController+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ParkInfoPostingViewController+Helper.swift"; sourceTree = "<group>"; };
+		E46E7B1B20D3668E0072FCD7 /* DiaryListViewController+Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryListViewController+Diary.swift"; sourceTree = "<group>"; };
+		E46E7B1D20D3683D0072FCD7 /* DiaryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTableCell.swift; sourceTree = "<group>"; };
+		E46F749020BF6269009C3452 /* AdventureCalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdventureCalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E46F749320BF6269009C3452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E46F749820BF626A009C3452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E46F74A020BF6272009C3452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E46F74A220BF6272009C3452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E46F74A820BF6E3E009C3452 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E46F74AA20BF6E9C009C3452 /* GDCBlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDCBlackBox.swift; sourceTree = "<group>"; };
+		E46F74AE20BF741B009C3452 /* Region+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Region+Extensions.swift"; sourceTree = "<group>"; };
+		E46F74B020BF743A009C3452 /* Park+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Park+Extensions.swift"; sourceTree = "<group>"; };
+		E46F74B220BF7468009C3452 /* Place+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+Extensions.swift"; sourceTree = "<group>"; };
+		E46F74B420BF7486009C3452 /* Visit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Visit+Extensions.swift"; sourceTree = "<group>"; };
+		E46F74B620BF749E009C3452 /* Photo+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Extensions.swift"; sourceTree = "<group>"; };
+		E46F74BA20BF77BB009C3452 /* NPSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSConstants.swift; sourceTree = "<group>"; };
+		E46F74BC20BF9150009C3452 /* NPSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSClient.swift; sourceTree = "<group>"; };
+		E46FAA6C20CF9E3F008CC06D /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
+		E46FAA6E20CF9E5B008CC06D /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
+		E4A9937D20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParkInfoPostingViewController+Park.swift"; sourceTree = "<group>"; };
+		E4A9937F20D5F4DA00117BC5 /* SearchParkViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchParkViewController+Helper.swift"; sourceTree = "<group>"; };
+		E4A9938220D6036700117BC5 /* ParkListViewController+Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParkListViewController+Park.swift"; sourceTree = "<group>"; };
+		E4A9938520D64CC300117BC5 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		E4A9938720D654C400117BC5 /* VisitInfoPostingViewController+Visit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisitInfoPostingViewController+Visit.swift"; sourceTree = "<group>"; };
+		E4A9938A20D6582700117BC5 /* VisitInfoPostingViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisitInfoPostingViewController+Helper.swift"; sourceTree = "<group>"; };
+		E4A9938C20D6ACA200117BC5 /* VisitListViewController+Visit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisitListViewController+Visit.swift"; sourceTree = "<group>"; };
+		E4A9938F20D6C20600117BC5 /* VisitListViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisitListViewController+Helper.swift"; sourceTree = "<group>"; };
+		E4CE8D6220C4C06B00AC3E27 /* ParkInfoPostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkInfoPostingViewController.swift; sourceTree = "<group>"; };
+		E4EAB67A20CB203C00D80B37 /* PlaceCollectionViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceCollectionViewController+Helper.swift"; sourceTree = "<group>"; };
+		E4EAB67C20CB306F00D80B37 /* PlaceCollectionViewController+Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceCollectionViewController+Place.swift"; sourceTree = "<group>"; };
+		E4EDD26E20C8DDC800BD3D90 /* PlaceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCollectionViewController.swift; sourceTree = "<group>"; };
+		E4EDD27020C8ECF400BD3D90 /* NPSPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSPlace.swift; sourceTree = "<group>"; };
+		E4EDD27220C900AC00BD3D90 /* NPSConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSConvenience.swift; sourceTree = "<group>"; };
+		E4EDD27420C912B700BD3D90 /* PlaceCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCollectionCell.swift; sourceTree = "<group>"; };
+		E4EED3A720C63A79007617DC /* ParkMapViewController+Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParkMapViewController+Region.swift"; sourceTree = "<group>"; };
+		E4EED3A920C63ED3007617DC /* ParkMapViewController+Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParkMapViewController+Park.swift"; sourceTree = "<group>"; };
+		E4EED3AB20C667B4007617DC /* ParkTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkTableCell.swift; sourceTree = "<group>"; };
+		E4EED3AD20C66960007617DC /* ParkListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkListViewController.swift; sourceTree = "<group>"; };
+		E4F225AF20D758FD00F0D066 /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
+		E4F225B120D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryDetailViewController+Helper.swift"; sourceTree = "<group>"; };
+		E4F8A20A20DE82400077E4CF /* AdventureCalls.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AdventureCalls.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E46F748D20BF6269009C3452 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E411DC7220D9E5C20053323F /* PhotoAlbumVC */ = {
+			isa = PBXGroup;
+			children = (
+				E46FAA6E20CF9E5B008CC06D /* PhotoAlbumViewController.swift */,
+				E411DC7020D9E2760053323F /* PhotoAlbumViewController+Photo.swift */,
+				E411DC7320DA2E950053323F /* PhotoAlbumViewController+Helper.swift */,
+				E411DC7520DB00CD0053323F /* PhotoPostingViewController.swift */,
+			);
+			path = PhotoAlbumVC;
+			sourceTree = "<group>";
+		};
+		E46B22E720C0FBCE0099AF1C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E46B22F020C13AEF0099AF1C /* ParkTabBarController.swift */,
+				E4A9937920D421D900117BC5 /* ParkMapVC */,
+				E4A9937A20D4222600117BC5 /* ParkInfoPostingVC */,
+				E4A9938420D6038200117BC5 /* ParkListVC */,
+				E4A9937B20D4224F00117BC5 /* PlaceCollectionVC */,
+				E4A9938E20D6AD9A00117BC5 /* VisitListVC */,
+				E4A9937C20D4227F00117BC5 /* DiaryListVC */,
+				E411DC7220D9E5C20053323F /* PhotoAlbumVC */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E46B22E820C0FC260099AF1C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E46B22EE20C11C170099AF1C /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E46B22E920C0FC380099AF1C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E46F749F20BF6272009C3452 /* LaunchScreen.storyboard */,
+				E46F749720BF626A009C3452 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E46B22EA20C0FC500099AF1C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E46B22F420C193500099AF1C /* Annotation.swift */,
+				E46B22F820C19C940099AF1C /* BorderedButton.swift */,
+				E4EED3AB20C667B4007617DC /* ParkTableCell.swift */,
+				E4EDD27420C912B700BD3D90 /* PlaceCollectionCell.swift */,
+				E43F960020CD28B8007DA0F8 /* VisitTableCell.swift */,
+				E46E7B1D20D3683D0072FCD7 /* DiaryTableCell.swift */,
+				E411DC6E20D9DFD10053323F /* PhotoCollectionCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E46F748720BF6269009C3452 = {
+			isa = PBXGroup;
+			children = (
+				E46F749220BF6269009C3452 /* AdventureCalls */,
+				E46F749120BF6269009C3452 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E46F749120BF6269009C3452 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E46F749020BF6269009C3452 /* AdventureCalls.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E46F749220BF6269009C3452 /* AdventureCalls */ = {
+			isa = PBXGroup;
+			children = (
+				E46F749320BF6269009C3452 /* AppDelegate.swift */,
+				E46F74A820BF6E3E009C3452 /* Constants.swift */,
+				E4A9938520D64CC300117BC5 /* Helpers.swift */,
+				E46F74AA20BF6E9C009C3452 /* GDCBlackBox.swift */,
+				E46F74AC20BF6ED3009C3452 /* Model */,
+				E46B22E720C0FBCE0099AF1C /* View Controllers */,
+				E46B22EA20C0FC500099AF1C /* Views */,
+				E46B22E820C0FC260099AF1C /* Assets */,
+				E46B22E920C0FC380099AF1C /* Storyboards */,
+				E46F74A220BF6272009C3452 /* Info.plist */,
+			);
+			path = AdventureCalls;
+			sourceTree = "<group>";
+		};
+		E46F74AC20BF6ED3009C3452 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E4F8A20920DE82400077E4CF /* AdventureCalls.xcdatamodeld */,
+				E46F74AD20BF6EE5009C3452 /* Managed Object Extensions */,
+				E46F74B820BF7606009C3452 /* Clients */,
+				E46B22E520C0FB430099AF1C /* DataController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E46F74AD20BF6EE5009C3452 /* Managed Object Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E46F74AE20BF741B009C3452 /* Region+Extensions.swift */,
+				E46F74B020BF743A009C3452 /* Park+Extensions.swift */,
+				E46F74B220BF7468009C3452 /* Place+Extensions.swift */,
+				E46F74B420BF7486009C3452 /* Visit+Extensions.swift */,
+				E46F74B620BF749E009C3452 /* Photo+Extensions.swift */,
+				E43F95FE20CCD11B007DA0F8 /* Diary+Extensions.swift */,
+			);
+			path = "Managed Object Extensions";
+			sourceTree = "<group>";
+		};
+		E46F74B820BF7606009C3452 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				E46F74B920BF7637009C3452 /* NPS */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		E46F74B920BF7637009C3452 /* NPS */ = {
+			isa = PBXGroup;
+			children = (
+				E46F74BA20BF77BB009C3452 /* NPSConstants.swift */,
+				E46F74BC20BF9150009C3452 /* NPSClient.swift */,
+				E46B22E320C0FAC50099AF1C /* NPSPark.swift */,
+				E4EDD27020C8ECF400BD3D90 /* NPSPlace.swift */,
+				E4EDD27220C900AC00BD3D90 /* NPSConvenience.swift */,
+			);
+			path = NPS;
+			sourceTree = "<group>";
+		};
+		E4A9937920D421D900117BC5 /* ParkMapVC */ = {
+			isa = PBXGroup;
+			children = (
+				E46B22F220C192390099AF1C /* ParkMapViewController.swift */,
+				E4EED3A920C63ED3007617DC /* ParkMapViewController+Park.swift */,
+				E4EED3A720C63A79007617DC /* ParkMapViewController+Region.swift */,
+			);
+			path = ParkMapVC;
+			sourceTree = "<group>";
+		};
+		E4A9937A20D4222600117BC5 /* ParkInfoPostingVC */ = {
+			isa = PBXGroup;
+			children = (
+				E46B22F620C194E70099AF1C /* SearchParkViewController.swift */,
+				E4A9937F20D5F4DA00117BC5 /* SearchParkViewController+Helper.swift */,
+				E4CE8D6220C4C06B00AC3E27 /* ParkInfoPostingViewController.swift */,
+				E46E7B1720D3647E0072FCD7 /* ParkInfoPostingViewController+Helper.swift */,
+				E4A9937D20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift */,
+			);
+			path = ParkInfoPostingVC;
+			sourceTree = "<group>";
+		};
+		E4A9937B20D4224F00117BC5 /* PlaceCollectionVC */ = {
+			isa = PBXGroup;
+			children = (
+				E4EDD26E20C8DDC800BD3D90 /* PlaceCollectionViewController.swift */,
+				E4EAB67A20CB203C00D80B37 /* PlaceCollectionViewController+Helper.swift */,
+				E4EAB67C20CB306F00D80B37 /* PlaceCollectionViewController+Place.swift */,
+			);
+			path = PlaceCollectionVC;
+			sourceTree = "<group>";
+		};
+		E4A9937C20D4227F00117BC5 /* DiaryListVC */ = {
+			isa = PBXGroup;
+			children = (
+				E46FAA6C20CF9E3F008CC06D /* DiaryListViewController.swift */,
+				E46E7B1B20D3668E0072FCD7 /* DiaryListViewController+Diary.swift */,
+				E4F225AF20D758FD00F0D066 /* DiaryDetailViewController.swift */,
+				E4F225B120D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift */,
+			);
+			path = DiaryListVC;
+			sourceTree = "<group>";
+		};
+		E4A9938420D6038200117BC5 /* ParkListVC */ = {
+			isa = PBXGroup;
+			children = (
+				E4EED3AD20C66960007617DC /* ParkListViewController.swift */,
+				E4A9938220D6036700117BC5 /* ParkListViewController+Park.swift */,
+			);
+			path = ParkListVC;
+			sourceTree = "<group>";
+		};
+		E4A9938E20D6AD9A00117BC5 /* VisitListVC */ = {
+			isa = PBXGroup;
+			children = (
+				E43F95FC20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift */,
+				E4A9938720D654C400117BC5 /* VisitInfoPostingViewController+Visit.swift */,
+				E4A9938A20D6582700117BC5 /* VisitInfoPostingViewController+Helper.swift */,
+				E43F960220CD6C74007DA0F8 /* VisitListViewController.swift */,
+				E4A9938C20D6ACA200117BC5 /* VisitListViewController+Visit.swift */,
+				E4A9938F20D6C20600117BC5 /* VisitListViewController+Helper.swift */,
+			);
+			path = VisitListVC;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E46F748F20BF6269009C3452 /* AdventureCalls */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E46F74A520BF6272009C3452 /* Build configuration list for PBXNativeTarget "AdventureCalls" */;
+			buildPhases = (
+				E46F748C20BF6269009C3452 /* Sources */,
+				E46F748D20BF6269009C3452 /* Frameworks */,
+				E46F748E20BF6269009C3452 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdventureCalls;
+			productName = ParkBeauty;
+			productReference = E46F749020BF6269009C3452 /* AdventureCalls.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E46F748820BF6269009C3452 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Udacity;
+				TargetAttributes = {
+					E46F748F20BF6269009C3452 = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+				};
+			};
+			buildConfigurationList = E46F748B20BF6269009C3452 /* Build configuration list for PBXProject "AdventureCalls" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E46F748720BF6269009C3452;
+			productRefGroup = E46F749120BF6269009C3452 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E46F748F20BF6269009C3452 /* AdventureCalls */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E46F748E20BF6269009C3452 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E46F74A120BF6272009C3452 /* LaunchScreen.storyboard in Resources */,
+				E46B22EF20C11C170099AF1C /* Assets.xcassets in Resources */,
+				E46F749920BF626A009C3452 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E46F748C20BF6269009C3452 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E46B22F320C192390099AF1C /* ParkMapViewController.swift in Sources */,
+				E46B22F720C194E70099AF1C /* SearchParkViewController.swift in Sources */,
+				E46B22F920C19C940099AF1C /* BorderedButton.swift in Sources */,
+				E411DC7120D9E2760053323F /* PhotoAlbumViewController+Photo.swift in Sources */,
+				E4CE8D6320C4C06B00AC3E27 /* ParkInfoPostingViewController.swift in Sources */,
+				E4A9939020D6C20600117BC5 /* VisitListViewController+Helper.swift in Sources */,
+				E4A9938320D6036700117BC5 /* ParkListViewController+Park.swift in Sources */,
+				E4A9938020D5F4DA00117BC5 /* SearchParkViewController+Helper.swift in Sources */,
+				E46E7B1920D3647F0072FCD7 /* ParkInfoPostingViewController+Helper.swift in Sources */,
+				E46F74BB20BF77BB009C3452 /* NPSConstants.swift in Sources */,
+				E46F74B520BF7486009C3452 /* Visit+Extensions.swift in Sources */,
+				E43F960120CD28B8007DA0F8 /* VisitTableCell.swift in Sources */,
+				E4EED3AA20C63ED3007617DC /* ParkMapViewController+Park.swift in Sources */,
+				E4EDD27320C900AC00BD3D90 /* NPSConvenience.swift in Sources */,
+				E46E7B1C20D3668E0072FCD7 /* DiaryListViewController+Diary.swift in Sources */,
+				E4EAB67B20CB203C00D80B37 /* PlaceCollectionViewController+Helper.swift in Sources */,
+				E46F74B320BF7468009C3452 /* Place+Extensions.swift in Sources */,
+				E4A9938620D64CC300117BC5 /* Helpers.swift in Sources */,
+				E411DC6F20D9DFD10053323F /* PhotoCollectionCell.swift in Sources */,
+				E46FAA6F20CF9E5B008CC06D /* PhotoAlbumViewController.swift in Sources */,
+				E4A9938B20D6582700117BC5 /* VisitInfoPostingViewController+Helper.swift in Sources */,
+				E4EED3A820C63A79007617DC /* ParkMapViewController+Region.swift in Sources */,
+				E46B22E420C0FAC50099AF1C /* NPSPark.swift in Sources */,
+				E46FAA6D20CF9E3F008CC06D /* DiaryListViewController.swift in Sources */,
+				E4EAB67D20CB306F00D80B37 /* PlaceCollectionViewController+Place.swift in Sources */,
+				E43F960320CD6C74007DA0F8 /* VisitListViewController.swift in Sources */,
+				E4A9938820D654C400117BC5 /* VisitInfoPostingViewController+Visit.swift in Sources */,
+				E46B22F520C193500099AF1C /* Annotation.swift in Sources */,
+				E46F74B120BF743A009C3452 /* Park+Extensions.swift in Sources */,
+				E4F225B220D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift in Sources */,
+				E46B22E620C0FB430099AF1C /* DataController.swift in Sources */,
+				E4EED3AE20C66960007617DC /* ParkListViewController.swift in Sources */,
+				E46F749420BF6269009C3452 /* AppDelegate.swift in Sources */,
+				E43F95FD20CCC3FB007DA0F8 /* VisitInfoPostingViewController.swift in Sources */,
+				E411DC7420DA2E950053323F /* PhotoAlbumViewController+Helper.swift in Sources */,
+				E4EDD26F20C8DDC800BD3D90 /* PlaceCollectionViewController.swift in Sources */,
+				E46F74A920BF6E3E009C3452 /* Constants.swift in Sources */,
+				E46F74AB20BF6E9C009C3452 /* GDCBlackBox.swift in Sources */,
+				E46F74B720BF749E009C3452 /* Photo+Extensions.swift in Sources */,
+				E43F95FF20CCD11B007DA0F8 /* Diary+Extensions.swift in Sources */,
+				E46E7B1E20D3683D0072FCD7 /* DiaryTableCell.swift in Sources */,
+				E411DC7620DB00CD0053323F /* PhotoPostingViewController.swift in Sources */,
+				E4A9938D20D6ACA200117BC5 /* VisitListViewController+Visit.swift in Sources */,
+				E4F225B020D758FD00F0D066 /* DiaryDetailViewController.swift in Sources */,
+				E4F8A20B20DE82400077E4CF /* AdventureCalls.xcdatamodeld in Sources */,
+				E4EED3AC20C667B4007617DC /* ParkTableCell.swift in Sources */,
+				E46F74BD20BF9150009C3452 /* NPSClient.swift in Sources */,
+				E46F74AF20BF741B009C3452 /* Region+Extensions.swift in Sources */,
+				E46B22F120C13AEF0099AF1C /* ParkTabBarController.swift in Sources */,
+				E4A9937E20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift in Sources */,
+				E4EDD27120C8ECF400BD3D90 /* NPSPlace.swift in Sources */,
+				E4EDD27520C912B700BD3D90 /* PlaceCollectionCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E46F749720BF626A009C3452 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E46F749820BF626A009C3452 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E46F749F20BF6272009C3452 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E46F74A020BF6272009C3452 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E46F74A320BF6272009C3452 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E46F74A420BF6272009C3452 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E46F74A620BF6272009C3452 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LLY57VUBW4;
+				INFOPLIST_FILE = AdventureCalls/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.shirleyc.AdventureCalls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E46F74A720BF6272009C3452 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LLY57VUBW4;
+				INFOPLIST_FILE = AdventureCalls/Info.plist;
+				"INFOPLIST_FILE[sdk=*]" = AdventureCalls/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.shirleyc.AdventureCalls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E46F748B20BF6269009C3452 /* Build configuration list for PBXProject "AdventureCalls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E46F74A320BF6272009C3452 /* Debug */,
+				E46F74A420BF6272009C3452 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E46F74A520BF6272009C3452 /* Build configuration list for PBXNativeTarget "AdventureCalls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E46F74A620BF6272009C3452 /* Debug */,
+				E46F74A720BF6272009C3452 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E4F8A20920DE82400077E4CF /* AdventureCalls.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E4F8A20A20DE82400077E4CF /* AdventureCalls.xcdatamodel */,
+			);
+			currentVersion = E4F8A20A20DE82400077E4CF /* AdventureCalls.xcdatamodel */;
+			path = AdventureCalls.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E46F748820BF6269009C3452 /* Project object */;
+}
