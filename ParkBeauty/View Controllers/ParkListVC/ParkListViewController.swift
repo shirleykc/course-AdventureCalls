@@ -22,7 +22,7 @@ class ParkListViewController: UIViewController {
     var appDelegate: AppDelegate!
     var dataController: DataController!
 
-    var parks = [Park]()
+//    var parks = [Park]()
     
     var fetchedParkController: NSFetchedResultsController<Park>!
 
@@ -42,6 +42,10 @@ class ParkListViewController: UIViewController {
         
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         dataController = appDelegate.dataController
+        
+        /* Grab the park data store */
+        
+        setUpFetchParkController()
     }
     
     // MARK: viewWillAppear

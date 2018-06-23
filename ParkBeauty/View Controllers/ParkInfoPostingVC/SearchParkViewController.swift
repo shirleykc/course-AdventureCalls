@@ -55,11 +55,26 @@ class SearchParkViewController: UIViewController {
         configureUI()
     }
     
+    // MARK: viewWillAppear
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        // Subscribe to keyboard notifications
+        
+        subscribeToKeyboardNotifications()
+    }
+    
     // MARK: viewDidDisappear
     
     override func viewDidDisappear(_ animated: Bool) {
         
         super.viewDidDisappear(animated)
+        
+        // Unsubscribe from keyboard notifications
+        
+        unsubscribeFromKeyboardNotifications()
         
         parkCodeTextField.text = ""
         stateCodeTextField.text = ""
@@ -107,6 +122,50 @@ class SearchParkViewController: UIViewController {
     @objc func cancelAdd() {
         
         navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: keyboardWillShow
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        
+        // If keyboard will show for bottom text field entry, move the view frame up
+        
+        view.frame.origin.y -= getKeyboardHeight(notification) / 2
+    }
+    
+    // MARK: keyboardWillHide
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        
+        // Reset the view frame
+        
+        view.frame.origin.y = 0
+    }
+    
+    // MARK: subscribeToKeyboardNotifications
+    
+    func subscribeToKeyboardNotifications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    // MARK: unsubscribeFromKeyboardNotifications
+    
+    func unsubscribeFromKeyboardNotifications() {
+        
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    // MARK: getKeyboardHeight
+    
+    func getKeyboardHeight(_ notification: Notification) -> CGFloat {
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        
+        return keyboardSize.cgRectValue.height
     }
     
     // MARK: searchParksFor - search NPS parks for parkCode, stateCode and/or keyword

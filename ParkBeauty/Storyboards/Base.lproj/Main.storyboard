@@ -9,6 +9,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -467,17 +468,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Wl7-c4-7xU">
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Wl7-c4-7xU">
                                 <rect key="frame" x="47" y="70" width="281" height="547"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_footprint" translatesAutoresizingMaskIntoConstraints="NO" id="yek-ys-5Mg">
-                                        <rect key="frame" x="0.0" y="0.0" width="281" height="179"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="281" height="177"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="H83-j7-TS0">
-                                        <rect key="frame" x="0.0" y="184" width="281" height="179"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="H83-j7-TS0">
+                                        <rect key="frame" x="0.0" y="185" width="281" height="177"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="left" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Park Code" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rYR-9u-kxi">
-                                                <rect key="frame" x="0.0" y="0.0" width="281" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="281" height="38.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -486,7 +487,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="left" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="State" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="dez-b6-36B">
-                                                <rect key="frame" x="0.0" y="48.5" width="281" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="46.5" width="281" height="38"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -495,7 +496,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="left" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Keywords" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="c6S-Ut-XbS">
-                                                <rect key="frame" x="0.0" y="97" width="281" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="92.5" width="281" height="38.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -504,7 +505,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdZ-zn-pUy">
-                                                <rect key="frame" x="0.0" y="145.5" width="281" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="139" width="281" height="38"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="FIND PARKS">
@@ -517,22 +518,21 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cO4-Er-Lq8">
-                                        <rect key="frame" x="0.0" y="368" width="281" height="179"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="VAO-8b-vus">
+                                        <rect key="frame" x="0.0" y="370" width="281" height="177"/>
                                         <subviews>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XS1-H2-15U">
-                                                <rect key="frame" x="0.0" y="0.0" width="281" height="37"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="281" height="177"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </activityIndicatorView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCo-bN-mPW">
-                                                <rect key="frame" x="0.0" y="37" width="281" height="142"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCo-bN-mPW">
+                                                <rect key="frame" x="0.0" y="177" width="281" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

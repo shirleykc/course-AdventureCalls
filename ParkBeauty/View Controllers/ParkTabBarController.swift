@@ -6,7 +6,7 @@
 //  Copyright © 2018 Udacity. All rights reserved.
 //
 
-import Foundation
+import CoreData
 import UIKit
 
 // MARK: - ParkTabBarController: UITabBarController
@@ -18,6 +18,10 @@ import UIKit
 class ParkTabBarController: UITabBarController {
     
     // MARK: Properties
+    var appDelegate: AppDelegate!
+    var dataController: DataController!
+    
+    var fetchedParkController: NSFetchedResultsController<Park>!
     
     var addpinButton: UIBarButtonItem?
     
@@ -26,6 +30,11 @@ class ParkTabBarController: UITabBarController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        // Grab the app delegate
+        
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
+        dataController = appDelegate.dataController
         
         // create and set the bar buttons
         
@@ -36,6 +45,10 @@ class ParkTabBarController: UITabBarController {
         
         super.viewWillAppear(animated)
         
+        // Grab the parks
+        
+        setUpFetchParkController()
+
         // create and set the bar buttons
         
         createTopBarButtons(navigationItem)
@@ -63,5 +76,28 @@ class ParkTabBarController: UITabBarController {
         rightButtons.append(addpinButton!)  // 1st button from the right
         
         navigationItem.setRightBarButtonItems(rightButtons, animated: true)
+    }
+}
+
+// MARK: ParkTabBarController+Park
+
+extension ParkTabBarController {
+    
+    // MARK: setUpFetchParkController - fetch parks data controller
+    
+    func setUpFetchParkController() {
+        
+        let fetchRequest: NSFetchRequest<Park> = Park.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedParkController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        do {
+            
+            try fetchedParkController.performFetch()
+        } catch {
+            
+            fatalError("The fetch pins could not be performed: \(error.localizedDescription)")
+        }
     }
 }

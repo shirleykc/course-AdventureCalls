@@ -97,7 +97,10 @@ class ParkInfoPostingViewController: UIViewController {
             if mapView.annotations.count > 1 {
                 
                 mapView.showAnnotations(mapView.annotations, animated: true)
-            }            
+                let currentMapRect = mapView.visibleMapRect
+                let padding = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
+                mapView.setVisibleMapRect(currentMapRect, edgePadding: padding, animated: true)
+            }
         } else {
             
             appDelegate.presentAlert(self, "Unable to create annotation")
@@ -129,6 +132,7 @@ class ParkInfoPostingViewController: UIViewController {
     @objc func addParks() {
         
         // Save parks from collection
+        
         if let annotations = mapView.annotations as? [Annotation],
             annotations.count > 0 {
             
