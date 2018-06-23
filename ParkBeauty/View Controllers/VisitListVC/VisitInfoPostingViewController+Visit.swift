@@ -23,11 +23,8 @@ extension VisitInfoPostingViewController {
         
         fetchedVisitController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         do {
+            
             try fetchedVisitController.performFetch()
-            if let results = fetchedVisitController?.fetchedObjects {
-                
-                self.visits = results
-            }
         } catch {
             
             fatalError("The fetch could not be performed: \(error.localizedDescription)")

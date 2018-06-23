@@ -19,7 +19,6 @@ class VisitInfoPostingViewController: UIViewController {
     
     // The park whose visits are being displayed
     var park: Park!
-    var visits = [Visit]()
     
     var dataController:DataController!
     
@@ -81,6 +80,10 @@ class VisitInfoPostingViewController: UIViewController {
         super.viewWillAppear(animated)
         
         setupFetchedVisitController()
+        
+        // Subscribe to keyboard notifications
+        
+        subscribeToKeyboardNotifications()
     }
     
     // MARK: viewDidDisappear
@@ -88,6 +91,10 @@ class VisitInfoPostingViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         
         super.viewDidDisappear(animated)
+        
+        // Unsubscribe from keyboard notifications
+        
+        unsubscribeFromKeyboardNotifications()
         
         visitTitleTextField.text = ""
         setUIEnabled(true)
@@ -164,6 +171,7 @@ class VisitInfoPostingViewController: UIViewController {
         
         visitDateTextField.text = dateFormatter.string(from: sender.date)
         
+        sender.inputView?.resignFirstResponder()
     }
     
     // MARK: handleTap - tap to end editing
@@ -181,6 +189,52 @@ class VisitInfoPostingViewController: UIViewController {
     @objc func cancelButtonPressed() {
             
         navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: keyboardWillShow
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        
+        // If keyboard will show for bottom text field entry, move the view frame up
+        
+        if view.frame.origin.y == 0 {
+            view.frame.origin.y -= getKeyboardHeight(notification) / 2
+        }
+    }
+    
+    // MARK: keyboardWillHide
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        
+        // Reset the view frame
+        
+        view.frame.origin.y = 0
+    }
+    
+    // MARK: subscribeToKeyboardNotifications
+    
+    func subscribeToKeyboardNotifications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    // MARK: unsubscribeFromKeyboardNotifications
+    
+    func unsubscribeFromKeyboardNotifications() {
+        
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    // MARK: getKeyboardHeight
+    
+    func getKeyboardHeight(_ notification: Notification) -> CGFloat {
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        
+        return keyboardSize.cgRectValue.height
     }
     
     // MARK: addGestureRecognizer - configure tap and hold recognizer
@@ -202,7 +256,7 @@ class VisitInfoPostingViewController: UIViewController {
         visit.rating = rating
         visit.creationDate = Date()
         visit.park = park
-        print("before save visit: \(visit)")
+
         try? dataController.viewContext.save()
     }
 }
@@ -217,5 +271,11 @@ extension VisitInfoPostingViewController: UITextFieldDelegate {
         
         textField.resignFirstResponder()
         return true
-    }    
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        textField.resignFirstResponder()
+        return
+    }
 }
