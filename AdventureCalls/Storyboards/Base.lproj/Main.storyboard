@@ -572,9 +572,8 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5Dm-jf-cpU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                             </mapView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="IQn-Nm-trR">
+                            <activityIndicatorView opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="IQn-Nm-trR">
                                 <rect key="frame" x="169" y="261" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -583,7 +582,9 @@
                             <constraint firstItem="5Dm-jf-cpU" firstAttribute="trailing" secondItem="wHC-FK-wM6" secondAttribute="trailing" id="4bO-fI-MH2"/>
                             <constraint firstItem="5Dm-jf-cpU" firstAttribute="leading" secondItem="wHC-FK-wM6" secondAttribute="leading" id="LWl-vB-b5w"/>
                             <constraint firstItem="5Dm-jf-cpU" firstAttribute="bottom" secondItem="wHC-FK-wM6" secondAttribute="bottom" id="jBV-gv-M6a"/>
+                            <constraint firstItem="IQn-Nm-trR" firstAttribute="centerX" secondItem="5Dm-jf-cpU" secondAttribute="centerX" id="mNm-Jt-54y"/>
                             <constraint firstItem="5Dm-jf-cpU" firstAttribute="top" secondItem="wHC-FK-wM6" secondAttribute="top" id="s2H-Wt-pZt"/>
+                            <constraint firstItem="IQn-Nm-trR" firstAttribute="centerY" secondItem="5Dm-jf-cpU" secondAttribute="centerY" id="ueE-hu-E5w"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wHC-FK-wM6"/>
                     </view>
