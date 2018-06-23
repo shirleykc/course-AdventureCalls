@@ -45,12 +45,9 @@ class NPSClient : NSObject {
         let request = NSMutableURLRequest(url: NPSURLFromParameters(parametersWithApiKey, withPathExtension: getMethod))
         request.addValue(NPSClient.HTTPHeaderValues.ApplicationJson, forHTTPHeaderField: NPSClient.HTTPHeaderKeys.Accept)
         request.addValue(NPSClient.HTTPHeaderValues.ApplicationJson, forHTTPHeaderField: NPSClient.HTTPHeaderKeys.ContentType)
-        print("request: \(request)")
         
         /* 4. Make the request */
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
-            
-            print("response: \(response)")
             
             func sendError(_ error: String) {
  
@@ -129,7 +126,6 @@ class NPSClient : NSObject {
             completionHandlerForConvertData(nil, nil, NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
             return
         }
-        print("parsedResult: \(parsedResult)")
 
         /* GUARD: Is "total" key in the result? */
         
@@ -138,7 +134,6 @@ class NPSClient : NSObject {
             completionHandlerForConvertData(nil, nil, NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
             return
         }
-        print("totalResults: \(totalResults)")
         
         /* GUARD: Is "limit" key in the result? */
         
@@ -148,7 +143,6 @@ class NPSClient : NSObject {
             completionHandlerForConvertData(nil, nil, NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
             return
         }
-        print("limit: \(limit)")
         
         /* GUARD: Is "start" key in the result? */
         
@@ -169,8 +163,6 @@ class NPSClient : NSObject {
             return
         }
         
-        print("parsedResultArray: \(parsedResultArray)")
-
         let nextStart = start + limit
         if nextStart < totalResults {  // more pages
             

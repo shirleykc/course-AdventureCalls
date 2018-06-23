@@ -40,7 +40,7 @@ extension NPSClient {
                 
                 guard let parkArray = results else {
                     
-                    let userInfo = [NSLocalizedDescriptionKey : "Cannot parse result '\(NPSClient.ResponseKeys.Data)' in \(results)"]
+                    let userInfo = [NSLocalizedDescriptionKey : "Cannot parse result '\(NPSClient.ResponseKeys.Data)' in \(results!)"]
                     completionHandlerForPhotos(nil, nil, NSError(domain: "getParksFor", code: 1, userInfo: userInfo))
                     return
                 }
@@ -79,13 +79,12 @@ extension NPSClient {
                 
                 guard let placeArray = results else {
                     
-                    let userInfo = [NSLocalizedDescriptionKey : "Cannot parse result '\(NPSClient.ResponseKeys.Data)' in \(results)"]
+                    let userInfo = [NSLocalizedDescriptionKey : "Cannot parse result '\(NPSClient.ResponseKeys.Data)' in \(results!)"]
                     completionHandlerForPhotos(nil, nil, NSError(domain: "getParksFor", code: 1, userInfo: userInfo))
                     return
                 }
                 
                 let placeCollection = NPSPlace.placesFromResults(placeArray)
-                print("placeCollection: \(placeCollection)")
                 completionHandlerForPhotos(placeCollection, start, nil)
             }
         }

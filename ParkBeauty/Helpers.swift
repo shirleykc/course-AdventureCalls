@@ -66,4 +66,22 @@ extension AppDelegate {
             return
         }
     }
+    
+    // MARK: filterName
+    
+    func filterName(_ name: String?) -> String {
+        
+        if let name = name {
+            
+            let aName: NSMutableString = NSMutableString(string: name)
+            let pattern = "(&#)(\\d{3,})(;)"
+            let regex = try? NSRegularExpression(pattern: pattern)
+            regex?.replaceMatches(in: aName , options: .reportProgress , range: NSRange(location: 0,length: aName.length), withTemplate: "")
+            
+            return String(aName)
+        } else {
+            
+            return ""
+        }
+    }
 }

@@ -61,7 +61,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         if let travelDate = visit.travelDate {
             self.title = "Visit Photos \(dateFormatter.string(from: travelDate))"
         } else if let name = park.fullName {
-            self.title = "\(name) Visit Photos"
+            self.title = "\(appDelegate.filterName(name)) Visit Photos"
         } else {
             self.title = "National Park Visit Photos"
         }
@@ -73,7 +73,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegateFlowLa
         }
         
         if let parkName = park.fullName {
-            parkNameLabel?.text = parkName
+            parkNameLabel?.text = appDelegate.filterName(parkName)
         } else {
             parkNameLabel?.text = ""
         }

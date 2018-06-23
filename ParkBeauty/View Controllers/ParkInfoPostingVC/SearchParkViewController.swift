@@ -86,7 +86,6 @@ class SearchParkViewController: UIViewController {
                 self.activityIndicatorView.stopAnimating()
                 if success {
                     
-                    print("results: \(results)")
                     if let results = results,
                         results.count > 0 {
                         

@@ -50,9 +50,11 @@ class DiaryListViewController: UIViewController {
     // MARK: viewDidLoad
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        print("DiaryListViewController viewDidLoad")
+
         /* Grab the app delegate */
+        
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         dataController = appDelegate.dataController
 
@@ -61,7 +63,7 @@ class DiaryListViewController: UIViewController {
         if let travelDate = visit.travelDate {
             self.title = "Visit Diary \(dateFormatter.string(from: travelDate))"
         } else if let name = park.fullName {
-            self.title = "\(name) Visit Diary"
+            self.title = "\(appDelegate.filterName(name)) Visit Diary"
         } else {
             self.title = "National Park Visit Diary"
         }
@@ -73,7 +75,7 @@ class DiaryListViewController: UIViewController {
         }
         
         if let parkName = park.fullName {
-            parkNameLabel?.text = parkName
+            parkNameLabel?.text = appDelegate.filterName(parkName)
         } else {
             parkNameLabel?.text = ""
         }

@@ -106,7 +106,7 @@ struct NPSPlace {
             
             // extract listing images
             
-            if let listingImage = result[NPSClient.ResponseKeys.ListingImage] as? AnyObject {
+            if let listingImage = result[NPSClient.ResponseKeys.ListingImage] as? [String:AnyObject] {
                 
                 aPlace.imageAltText = listingImage[NPSClient.ResponseKeys.AltText] as? String
                 aPlace.imageUrl = listingImage[NPSClient.ResponseKeys.Url] as? String

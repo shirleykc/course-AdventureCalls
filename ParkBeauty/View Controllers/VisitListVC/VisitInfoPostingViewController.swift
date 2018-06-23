@@ -60,7 +60,7 @@ class VisitInfoPostingViewController: UIViewController {
         // Set title to park name
         
         if let name = park.fullName {
-            self.title = name
+            self.title = appDelegate.filterName(name)
         } else {
             self.title = "National Park Visit"
         }

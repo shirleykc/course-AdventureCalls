@@ -123,10 +123,13 @@ extension ParkListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ParkTableCell", for: indexPath) as! ParkTableCell
         
         // Configure cell
+        
         var name = aPark.fullName ?? aPark.name
         if name == nil {
             name = ""
         }
+        name = appDelegate.filterName(name)
+        
         cell.parkNameLabel?.text = "\(name!)"
         
         var stateCode = aPark.stateCode

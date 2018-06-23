@@ -24,20 +24,26 @@ class Annotation: NSObject, MKAnnotation {
     var title: String?
     var npsPark: NPSPark?
     
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     // MARK: Initializers
     
     init(park: Park) {
         
         self.park = park
         self.locationCoordinate = CLLocationCoordinate2D(latitude: park.latitude, longitude: park.longitude)
-        self.title = park.fullName ?? (park.name ?? "")
+        
+        let title = park.fullName ?? (park.name ?? "")
+        self.title = appDelegate.filterName(title)
     }
     
     init(npsPark: NPSPark) {
         
         self.npsPark = npsPark
         self.locationCoordinate = CLLocationCoordinate2D(latitude: npsPark.latitude!, longitude: npsPark.longitude!)
-        self.title = npsPark.fullName ?? (npsPark.name ?? "")
+        
+        let title = npsPark.fullName ?? (npsPark.name ?? "")
+        self.title = appDelegate.filterName(title)
     }
     
     init(locationCoordinate: CLLocationCoordinate2D) {
