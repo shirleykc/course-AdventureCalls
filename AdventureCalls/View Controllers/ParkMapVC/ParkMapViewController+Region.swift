@@ -3,7 +3,7 @@
 //  AdventureCalls
 //
 //  Created by Admin on 6/13/18.
-//  Copyright © 2018 Udacity. All rights reserved.
+//  Copyright © 2018 Shirley Chan. All rights reserved.
 //
 
 import MapKit

@@ -40,6 +40,72 @@
 		E46F74BD20BF9150009C3452 /* NPSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F74BC20BF9150009C3452 /* NPSClient.swift */; };
 		E46FAA6D20CF9E3F008CC06D /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA6C20CF9E3F008CC06D /* DiaryListViewController.swift */; };
 		E46FAA6F20CF9E5B008CC06D /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46FAA6E20CF9E5B008CC06D /* PhotoAlbumViewController.swift */; };
+		E48080D220E00ADB00D21067 /* AdventureCalls_40_60r.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809020E00AD800D21067 /* AdventureCalls_40_60r.png */; };
+		E48080D320E00ADB00D21067 /* LaunchImage_1242.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809120E00AD800D21067 /* LaunchImage_1242.png */; };
+		E48080D420E00ADB00D21067 /* icon_wolf_footprint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809220E00AD800D21067 /* icon_wolf_footprint@2x.png */; };
+		E48080D520E00ADB00D21067 /* AdventureCalls_58.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809320E00AD800D21067 /* AdventureCalls_58.png */; };
+		E48080D620E00ADB00D21067 /* AdventureCalls_80_120r.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809420E00AD800D21067 /* AdventureCalls_80_120r.png */; };
+		E48080D720E00ADB00D21067 /* icon_mapview-deselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809520E00AD800D21067 /* icon_mapview-deselected@3x.png */; };
+		E48080D820E00ADB00D21067 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809620E00AD900D21067 /* LaunchImage.png */; };
+		E48080D920E00ADB00D21067 /* AdventureCalls_58_87r.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809720E00AD900D21067 /* AdventureCalls_58_87r.png */; };
+		E48080DA20E00ADB00D21067 /* AdventureCalls_120.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809820E00AD900D21067 /* AdventureCalls_120.png */; };
+		E48080DB20E00ADB00D21067 /* icon_back-arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809920E00AD900D21067 /* icon_back-arrow@3x.png */; };
+		E48080DC20E00ADB00D21067 /* LaunchImage_750.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809A20E00AD900D21067 /* LaunchImage_750.png */; };
+		E48080DD20E00ADB00D21067 /* icon_addpin.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809B20E00AD900D21067 /* icon_addpin.png */; };
+		E48080DE20E00ADB00D21067 /* AdventureCalls_84.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809C20E00AD900D21067 /* AdventureCalls_84.png */; };
+		E48080DF20E00ADB00D21067 /* icon_listview-deselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809D20E00AD900D21067 /* icon_listview-deselected@2x.png */; };
+		E48080E020E00ADB00D21067 /* icon_listview-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809E20E00AD900D21067 /* icon_listview-selected.png */; };
+		E48080E120E00ADB00D21067 /* icon_mapview-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E480809F20E00AD900D21067 /* icon_mapview-selected@2x.png */; };
+		E48080E220E00ADB00D21067 /* icon_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080A020E00AD900D21067 /* icon_pin.png */; };
+		E48080E320E00ADB00D21067 /* icon_listview-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080A120E00AD900D21067 /* icon_listview-selected@2x.png */; };
+		E48080E420E00ADB00D21067 /* icon_mapview-selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080A220E00AD900D21067 /* icon_mapview-selected@3x.png */; };
+		E48080E520E00ADB00D21067 /* icon_pin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080A320E00AD900D21067 /* icon_pin@3x.png */; };
+		E48080E620E00ADB00D21067 /* LaunchImage_2048_1536.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080A420E00AD900D21067 /* LaunchImage_2048_1536.png */; };
+		E48080E720E00ADB00D21067 /* LaunchImage_1536_2008.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080A520E00AD900D21067 /* LaunchImage_1536_2008.png */; };
+		E48080E820E00ADB00D21067 /* icon_back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080A620E00AD900D21067 /* icon_back-arrow.png */; };
+		E48080E920E00ADB00D21067 /* LaunchImage_768_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080A720E00AD900D21067 /* LaunchImage_768_1024.png */; };
+		E48080EA20E00ADB00D21067 /* LaunchImage_768.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080A820E00AD900D21067 /* LaunchImage_768.png */; };
+		E48080EB20E00ADB00D21067 /* LaunchImage_2208.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080A920E00AD900D21067 /* LaunchImage_2208.png */; };
+		E48080EC20E00ADB00D21067 /* AdventureCalls_20_40r.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080AA20E00AD900D21067 /* AdventureCalls_20_40r.png */; };
+		E48080ED20E00ADB00D21067 /* LaunchImage_1536.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080AB20E00AD900D21067 /* LaunchImage_1536.png */; };
+		E48080EE20E00ADB00D21067 /* AdventureCalls_60.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080AC20E00AD900D21067 /* AdventureCalls_60.png */; };
+		E48080EF20E00ADB00D21067 /* icon_addpin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080AD20E00AD900D21067 /* icon_addpin@3x.png */; };
+		E48080F020E00ADB00D21067 /* icon_listview-selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080AE20E00AD900D21067 /* icon_listview-selected@3x.png */; };
+		E48080F120E00ADB00D21067 /* AdventureCalls_76.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080AF20E00AD900D21067 /* AdventureCalls_76.png */; };
+		E48080F220E00ADB00D21067 /* icon_footprint@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080B020E00AD900D21067 /* icon_footprint@3x.png */; };
+		E48080F320E00ADB00D21067 /* LaunchImage_1024_768.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080B120E00AD900D21067 /* LaunchImage_1024_768.png */; };
+		E48080F420E00ADB00D21067 /* AdventureCalls_29.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080B220E00ADA00D21067 /* AdventureCalls_29.png */; };
+		E48080F520E00ADB00D21067 /* AdventureCalls_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080B320E00ADA00D21067 /* AdventureCalls_1024.png */; };
+		E48080F620E00ADB00D21067 /* icon_listview-deselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080B420E00ADA00D21067 /* icon_listview-deselected@3x.png */; };
+		E48080F720E00ADB00D21067 /* icon_addpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080B520E00ADA00D21067 /* icon_addpin@2x.png */; };
+		E48080F820E00ADB00D21067 /* LaunchImage_1536_2048.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080B620E00ADA00D21067 /* LaunchImage_1536_2048.png */; };
+		E48080F920E00ADB00D21067 /* AdventureCalls_80.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080B720E00ADA00D21067 /* AdventureCalls_80.png */; };
+		E48080FA20E00ADB00D21067 /* LaunchImage_768_1004.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080B820E00ADA00D21067 /* LaunchImage_768_1004.png */; };
+		E48080FB20E00ADB00D21067 /* icon_mapview-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080B920E00ADA00D21067 /* icon_mapview-selected.png */; };
+		E48080FC20E00ADB00D21067 /* LaunchImage_1125.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080BA20E00ADA00D21067 /* LaunchImage_1125.png */; };
+		E48080FD20E00ADB00D21067 /* AdventureCalls_60_60r.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080BB20E00ADA00D21067 /* AdventureCalls_60_60r.png */; };
+		E48080FE20E00ADB00D21067 /* AdventureCalls_167.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080BC20E00ADA00D21067 /* AdventureCalls_167.png */; };
+		E48080FF20E00ADB00D21067 /* icon_pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080BD20E00ADA00D21067 /* icon_pin@2x.png */; };
+		E480810020E00ADB00D21067 /* AdventureCalls_40_40r.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080BE20E00ADA00D21067 /* AdventureCalls_40_40r.png */; };
+		E480810120E00ADB00D21067 /* icon_footprint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080BF20E00ADA00D21067 /* icon_footprint@2x.png */; };
+		E480810220E00ADB00D21067 /* LaunchImage_320.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080C020E00ADA00D21067 /* LaunchImage_320.png */; };
+		E480810320E00ADB00D21067 /* LaunchImage_2436.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080C120E00ADA00D21067 /* LaunchImage_2436.png */; };
+		E480810420E00ADB00D21067 /* icon_back-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080C220E00ADA00D21067 /* icon_back-arrow@2x.png */; };
+		E480810520E00ADB00D21067 /* icon_listview-deselected.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080C320E00ADA00D21067 /* icon_listview-deselected.png */; };
+		E480810620E00ADB00D21067 /* AdventureCalls_120_120r.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080C420E00ADA00D21067 /* AdventureCalls_120_120r.png */; };
+		E480810720E00ADB00D21067 /* AdventureCalls_87.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080C520E00ADA00D21067 /* AdventureCalls_87.png */; };
+		E480810820E00ADB00D21067 /* LaunchImage_2048_1496.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080C620E00ADA00D21067 /* LaunchImage_2048_1496.png */; };
+		E480810920E00ADB00D21067 /* icon_wolf_footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080C720E00ADA00D21067 /* icon_wolf_footprint.png */; };
+		E480810A20E00ADB00D21067 /* icon_mapview-deselected.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080C820E00ADA00D21067 /* icon_mapview-deselected.png */; };
+		E480810B20E00ADB00D21067 /* LaunchImage_640.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080C920E00ADA00D21067 /* LaunchImage_640.png */; };
+		E480810C20E00ADB00D21067 /* AdventureCalls_180.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080CA20E00ADA00D21067 /* AdventureCalls_180.png */; };
+		E480810D20E00ADB00D21067 /* LaunchImage_640_1136.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080CB20E00ADA00D21067 /* LaunchImage_640_1136.png */; };
+		E480810E20E00ADB00D21067 /* AdventureCalls_152.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080CC20E00ADB00D21067 /* AdventureCalls_152.png */; };
+		E480810F20E00ADB00D21067 /* icon_footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080CD20E00ADB00D21067 /* icon_footprint.png */; };
+		E480811020E00ADB00D21067 /* AdventureCalls_40.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080CE20E00ADB00D21067 /* AdventureCalls_40.png */; };
+		E480811120E00ADB00D21067 /* icon_wolf_footprint@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080CF20E00ADB00D21067 /* icon_wolf_footprint@3x.png */; };
+		E480811220E00ADB00D21067 /* icon_mapview-deselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080D020E00ADB00D21067 /* icon_mapview-deselected@2x.png */; };
+		E480811320E00ADB00D21067 /* LaunchImage_1024_748.png in Resources */ = {isa = PBXBuildFile; fileRef = E48080D120E00ADB00D21067 /* LaunchImage_1024_748.png */; };
 		E4A9937E20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9937D20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift */; };
 		E4A9938020D5F4DA00117BC5 /* SearchParkViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9937F20D5F4DA00117BC5 /* SearchParkViewController+Helper.swift */; };
 		E4A9938320D6036700117BC5 /* ParkListViewController+Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9938220D6036700117BC5 /* ParkListViewController+Park.swift */; };
@@ -62,6 +128,7 @@
 		E4F225B020D758FD00F0D066 /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F225AF20D758FD00F0D066 /* DiaryDetailViewController.swift */; };
 		E4F225B220D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F225B120D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift */; };
 		E4F8A20B20DE82400077E4CF /* AdventureCalls.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4F8A20920DE82400077E4CF /* AdventureCalls.xcdatamodeld */; };
+		E4F8A20E20DEE6E50077E4CF /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E4F8A20D20DEE6E50077E4CF /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +167,72 @@
 		E46F74BC20BF9150009C3452 /* NPSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSClient.swift; sourceTree = "<group>"; };
 		E46FAA6C20CF9E3F008CC06D /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
 		E46FAA6E20CF9E5B008CC06D /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
+		E480809020E00AD800D21067 /* AdventureCalls_40_60r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_40_60r.png; sourceTree = "<group>"; };
+		E480809120E00AD800D21067 /* LaunchImage_1242.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_1242.png; sourceTree = "<group>"; };
+		E480809220E00AD800D21067 /* icon_wolf_footprint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_wolf_footprint@2x.png"; sourceTree = "<group>"; };
+		E480809320E00AD800D21067 /* AdventureCalls_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_58.png; sourceTree = "<group>"; };
+		E480809420E00AD800D21067 /* AdventureCalls_80_120r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_80_120r.png; sourceTree = "<group>"; };
+		E480809520E00AD800D21067 /* icon_mapview-deselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_mapview-deselected@3x.png"; sourceTree = "<group>"; };
+		E480809620E00AD900D21067 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
+		E480809720E00AD900D21067 /* AdventureCalls_58_87r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_58_87r.png; sourceTree = "<group>"; };
+		E480809820E00AD900D21067 /* AdventureCalls_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_120.png; sourceTree = "<group>"; };
+		E480809920E00AD900D21067 /* icon_back-arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back-arrow@3x.png"; sourceTree = "<group>"; };
+		E480809A20E00AD900D21067 /* LaunchImage_750.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_750.png; sourceTree = "<group>"; };
+		E480809B20E00AD900D21067 /* icon_addpin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_addpin.png; sourceTree = "<group>"; };
+		E480809C20E00AD900D21067 /* AdventureCalls_84.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_84.png; sourceTree = "<group>"; };
+		E480809D20E00AD900D21067 /* icon_listview-deselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_listview-deselected@2x.png"; sourceTree = "<group>"; };
+		E480809E20E00AD900D21067 /* icon_listview-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_listview-selected.png"; sourceTree = "<group>"; };
+		E480809F20E00AD900D21067 /* icon_mapview-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_mapview-selected@2x.png"; sourceTree = "<group>"; };
+		E48080A020E00AD900D21067 /* icon_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_pin.png; sourceTree = "<group>"; };
+		E48080A120E00AD900D21067 /* icon_listview-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_listview-selected@2x.png"; sourceTree = "<group>"; };
+		E48080A220E00AD900D21067 /* icon_mapview-selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_mapview-selected@3x.png"; sourceTree = "<group>"; };
+		E48080A320E00AD900D21067 /* icon_pin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_pin@3x.png"; sourceTree = "<group>"; };
+		E48080A420E00AD900D21067 /* LaunchImage_2048_1536.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_2048_1536.png; sourceTree = "<group>"; };
+		E48080A520E00AD900D21067 /* LaunchImage_1536_2008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_1536_2008.png; sourceTree = "<group>"; };
+		E48080A620E00AD900D21067 /* icon_back-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back-arrow.png"; sourceTree = "<group>"; };
+		E48080A720E00AD900D21067 /* LaunchImage_768_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_768_1024.png; sourceTree = "<group>"; };
+		E48080A820E00AD900D21067 /* LaunchImage_768.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_768.png; sourceTree = "<group>"; };
+		E48080A920E00AD900D21067 /* LaunchImage_2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_2208.png; sourceTree = "<group>"; };
+		E48080AA20E00AD900D21067 /* AdventureCalls_20_40r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_20_40r.png; sourceTree = "<group>"; };
+		E48080AB20E00AD900D21067 /* LaunchImage_1536.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_1536.png; sourceTree = "<group>"; };
+		E48080AC20E00AD900D21067 /* AdventureCalls_60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_60.png; sourceTree = "<group>"; };
+		E48080AD20E00AD900D21067 /* icon_addpin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_addpin@3x.png"; sourceTree = "<group>"; };
+		E48080AE20E00AD900D21067 /* icon_listview-selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_listview-selected@3x.png"; sourceTree = "<group>"; };
+		E48080AF20E00AD900D21067 /* AdventureCalls_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_76.png; sourceTree = "<group>"; };
+		E48080B020E00AD900D21067 /* icon_footprint@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_footprint@3x.png"; sourceTree = "<group>"; };
+		E48080B120E00AD900D21067 /* LaunchImage_1024_768.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_1024_768.png; sourceTree = "<group>"; };
+		E48080B220E00ADA00D21067 /* AdventureCalls_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_29.png; sourceTree = "<group>"; };
+		E48080B320E00ADA00D21067 /* AdventureCalls_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_1024.png; sourceTree = "<group>"; };
+		E48080B420E00ADA00D21067 /* icon_listview-deselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_listview-deselected@3x.png"; sourceTree = "<group>"; };
+		E48080B520E00ADA00D21067 /* icon_addpin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_addpin@2x.png"; sourceTree = "<group>"; };
+		E48080B620E00ADA00D21067 /* LaunchImage_1536_2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_1536_2048.png; sourceTree = "<group>"; };
+		E48080B720E00ADA00D21067 /* AdventureCalls_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_80.png; sourceTree = "<group>"; };
+		E48080B820E00ADA00D21067 /* LaunchImage_768_1004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_768_1004.png; sourceTree = "<group>"; };
+		E48080B920E00ADA00D21067 /* icon_mapview-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_mapview-selected.png"; sourceTree = "<group>"; };
+		E48080BA20E00ADA00D21067 /* LaunchImage_1125.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_1125.png; sourceTree = "<group>"; };
+		E48080BB20E00ADA00D21067 /* AdventureCalls_60_60r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_60_60r.png; sourceTree = "<group>"; };
+		E48080BC20E00ADA00D21067 /* AdventureCalls_167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_167.png; sourceTree = "<group>"; };
+		E48080BD20E00ADA00D21067 /* icon_pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_pin@2x.png"; sourceTree = "<group>"; };
+		E48080BE20E00ADA00D21067 /* AdventureCalls_40_40r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_40_40r.png; sourceTree = "<group>"; };
+		E48080BF20E00ADA00D21067 /* icon_footprint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_footprint@2x.png"; sourceTree = "<group>"; };
+		E48080C020E00ADA00D21067 /* LaunchImage_320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_320.png; sourceTree = "<group>"; };
+		E48080C120E00ADA00D21067 /* LaunchImage_2436.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_2436.png; sourceTree = "<group>"; };
+		E48080C220E00ADA00D21067 /* icon_back-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back-arrow@2x.png"; sourceTree = "<group>"; };
+		E48080C320E00ADA00D21067 /* icon_listview-deselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_listview-deselected.png"; sourceTree = "<group>"; };
+		E48080C420E00ADA00D21067 /* AdventureCalls_120_120r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_120_120r.png; sourceTree = "<group>"; };
+		E48080C520E00ADA00D21067 /* AdventureCalls_87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_87.png; sourceTree = "<group>"; };
+		E48080C620E00ADA00D21067 /* LaunchImage_2048_1496.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_2048_1496.png; sourceTree = "<group>"; };
+		E48080C720E00ADA00D21067 /* icon_wolf_footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_wolf_footprint.png; sourceTree = "<group>"; };
+		E48080C820E00ADA00D21067 /* icon_mapview-deselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_mapview-deselected.png"; sourceTree = "<group>"; };
+		E48080C920E00ADA00D21067 /* LaunchImage_640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_640.png; sourceTree = "<group>"; };
+		E48080CA20E00ADA00D21067 /* AdventureCalls_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_180.png; sourceTree = "<group>"; };
+		E48080CB20E00ADA00D21067 /* LaunchImage_640_1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_640_1136.png; sourceTree = "<group>"; };
+		E48080CC20E00ADB00D21067 /* AdventureCalls_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_152.png; sourceTree = "<group>"; };
+		E48080CD20E00ADB00D21067 /* icon_footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_footprint.png; sourceTree = "<group>"; };
+		E48080CE20E00ADB00D21067 /* AdventureCalls_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdventureCalls_40.png; sourceTree = "<group>"; };
+		E48080CF20E00ADB00D21067 /* icon_wolf_footprint@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_wolf_footprint@3x.png"; sourceTree = "<group>"; };
+		E48080D020E00ADB00D21067 /* icon_mapview-deselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_mapview-deselected@2x.png"; sourceTree = "<group>"; };
+		E48080D120E00ADB00D21067 /* LaunchImage_1024_748.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage_1024_748.png; sourceTree = "<group>"; };
 		E4A9937D20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParkInfoPostingViewController+Park.swift"; sourceTree = "<group>"; };
 		E4A9937F20D5F4DA00117BC5 /* SearchParkViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchParkViewController+Helper.swift"; sourceTree = "<group>"; };
 		E4A9938220D6036700117BC5 /* ParkListViewController+Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParkListViewController+Park.swift"; sourceTree = "<group>"; };
@@ -122,6 +255,8 @@
 		E4F225AF20D758FD00F0D066 /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
 		E4F225B120D78B6D00F0D066 /* DiaryDetailViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryDetailViewController+Helper.swift"; sourceTree = "<group>"; };
 		E4F8A20A20DE82400077E4CF /* AdventureCalls.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AdventureCalls.xcdatamodel; sourceTree = "<group>"; };
+		E4F8A20C20DEE4290077E4CF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
+		E4F8A20D20DEE6E50077E4CF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +330,10 @@
 		E46F748720BF6269009C3452 = {
 			isa = PBXGroup;
 			children = (
+				E4F8A20D20DEE6E50077E4CF /* LICENSE */,
+				E4F8A20C20DEE4290077E4CF /* README.md */,
 				E46F749220BF6269009C3452 /* AdventureCalls */,
+				E4F8A31D20E007490077E4CF /* AdventureCalls_assets */,
 				E46F749120BF6269009C3452 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -334,6 +472,79 @@
 			path = VisitListVC;
 			sourceTree = "<group>";
 		};
+		E4F8A31D20E007490077E4CF /* AdventureCalls_assets */ = {
+			isa = PBXGroup;
+			children = (
+				E48080AA20E00AD900D21067 /* AdventureCalls_20_40r.png */,
+				E48080B220E00ADA00D21067 /* AdventureCalls_29.png */,
+				E48080BE20E00ADA00D21067 /* AdventureCalls_40_40r.png */,
+				E480809020E00AD800D21067 /* AdventureCalls_40_60r.png */,
+				E48080CE20E00ADB00D21067 /* AdventureCalls_40.png */,
+				E480809720E00AD900D21067 /* AdventureCalls_58_87r.png */,
+				E480809320E00AD800D21067 /* AdventureCalls_58.png */,
+				E48080BB20E00ADA00D21067 /* AdventureCalls_60_60r.png */,
+				E48080AC20E00AD900D21067 /* AdventureCalls_60.png */,
+				E48080AF20E00AD900D21067 /* AdventureCalls_76.png */,
+				E480809420E00AD800D21067 /* AdventureCalls_80_120r.png */,
+				E48080B720E00ADA00D21067 /* AdventureCalls_80.png */,
+				E480809C20E00AD900D21067 /* AdventureCalls_84.png */,
+				E48080C520E00ADA00D21067 /* AdventureCalls_87.png */,
+				E48080C420E00ADA00D21067 /* AdventureCalls_120_120r.png */,
+				E480809820E00AD900D21067 /* AdventureCalls_120.png */,
+				E48080CC20E00ADB00D21067 /* AdventureCalls_152.png */,
+				E48080BC20E00ADA00D21067 /* AdventureCalls_167.png */,
+				E48080CA20E00ADA00D21067 /* AdventureCalls_180.png */,
+				E48080B320E00ADA00D21067 /* AdventureCalls_1024.png */,
+				E480809B20E00AD900D21067 /* icon_addpin.png */,
+				E48080B520E00ADA00D21067 /* icon_addpin@2x.png */,
+				E48080AD20E00AD900D21067 /* icon_addpin@3x.png */,
+				E48080A620E00AD900D21067 /* icon_back-arrow.png */,
+				E48080C220E00ADA00D21067 /* icon_back-arrow@2x.png */,
+				E480809920E00AD900D21067 /* icon_back-arrow@3x.png */,
+				E48080CD20E00ADB00D21067 /* icon_footprint.png */,
+				E48080BF20E00ADA00D21067 /* icon_footprint@2x.png */,
+				E48080B020E00AD900D21067 /* icon_footprint@3x.png */,
+				E48080C320E00ADA00D21067 /* icon_listview-deselected.png */,
+				E480809D20E00AD900D21067 /* icon_listview-deselected@2x.png */,
+				E48080B420E00ADA00D21067 /* icon_listview-deselected@3x.png */,
+				E480809E20E00AD900D21067 /* icon_listview-selected.png */,
+				E48080A120E00AD900D21067 /* icon_listview-selected@2x.png */,
+				E48080AE20E00AD900D21067 /* icon_listview-selected@3x.png */,
+				E48080C820E00ADA00D21067 /* icon_mapview-deselected.png */,
+				E48080D020E00ADB00D21067 /* icon_mapview-deselected@2x.png */,
+				E480809520E00AD800D21067 /* icon_mapview-deselected@3x.png */,
+				E48080B920E00ADA00D21067 /* icon_mapview-selected.png */,
+				E480809F20E00AD900D21067 /* icon_mapview-selected@2x.png */,
+				E48080A220E00AD900D21067 /* icon_mapview-selected@3x.png */,
+				E48080A020E00AD900D21067 /* icon_pin.png */,
+				E48080BD20E00ADA00D21067 /* icon_pin@2x.png */,
+				E48080A320E00AD900D21067 /* icon_pin@3x.png */,
+				E48080C720E00ADA00D21067 /* icon_wolf_footprint.png */,
+				E480809220E00AD800D21067 /* icon_wolf_footprint@2x.png */,
+				E48080CF20E00ADB00D21067 /* icon_wolf_footprint@3x.png */,
+				E48080C020E00ADA00D21067 /* LaunchImage_320.png */,
+				E48080CB20E00ADA00D21067 /* LaunchImage_640_1136.png */,
+				E48080C920E00ADA00D21067 /* LaunchImage_640.png */,
+				E480809A20E00AD900D21067 /* LaunchImage_750.png */,
+				E48080B820E00ADA00D21067 /* LaunchImage_768_1004.png */,
+				E48080A720E00AD900D21067 /* LaunchImage_768_1024.png */,
+				E48080A820E00AD900D21067 /* LaunchImage_768.png */,
+				E48080D120E00ADB00D21067 /* LaunchImage_1024_748.png */,
+				E48080B120E00AD900D21067 /* LaunchImage_1024_768.png */,
+				E48080BA20E00ADA00D21067 /* LaunchImage_1125.png */,
+				E480809120E00AD800D21067 /* LaunchImage_1242.png */,
+				E48080A520E00AD900D21067 /* LaunchImage_1536_2008.png */,
+				E48080B620E00ADA00D21067 /* LaunchImage_1536_2048.png */,
+				E48080AB20E00AD900D21067 /* LaunchImage_1536.png */,
+				E48080C620E00ADA00D21067 /* LaunchImage_2048_1496.png */,
+				E48080A420E00AD900D21067 /* LaunchImage_2048_1536.png */,
+				E48080A920E00AD900D21067 /* LaunchImage_2208.png */,
+				E48080C120E00ADA00D21067 /* LaunchImage_2436.png */,
+				E480809620E00AD900D21067 /* LaunchImage.png */,
+			);
+			path = AdventureCalls_assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -392,9 +603,76 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E48080EF20E00ADB00D21067 /* icon_addpin@3x.png in Resources */,
+				E48080F720E00ADB00D21067 /* icon_addpin@2x.png in Resources */,
+				E48080E820E00ADB00D21067 /* icon_back-arrow.png in Resources */,
+				E480810420E00ADB00D21067 /* icon_back-arrow@2x.png in Resources */,
+				E48080E120E00ADB00D21067 /* icon_mapview-selected@2x.png in Resources */,
+				E48080DF20E00ADB00D21067 /* icon_listview-deselected@2x.png in Resources */,
+				E48080FD20E00ADB00D21067 /* AdventureCalls_60_60r.png in Resources */,
+				E48080E920E00ADB00D21067 /* LaunchImage_768_1024.png in Resources */,
+				E480811120E00ADB00D21067 /* icon_wolf_footprint@3x.png in Resources */,
+				E48080F520E00ADB00D21067 /* AdventureCalls_1024.png in Resources */,
+				E480810620E00ADB00D21067 /* AdventureCalls_120_120r.png in Resources */,
+				E480811320E00ADB00D21067 /* LaunchImage_1024_748.png in Resources */,
+				E48080F320E00ADB00D21067 /* LaunchImage_1024_768.png in Resources */,
+				E480810720E00ADB00D21067 /* AdventureCalls_87.png in Resources */,
+				E48080F820E00ADB00D21067 /* LaunchImage_1536_2048.png in Resources */,
+				E48080D720E00ADB00D21067 /* icon_mapview-deselected@3x.png in Resources */,
+				E480811220E00ADB00D21067 /* icon_mapview-deselected@2x.png in Resources */,
+				E48080E620E00ADB00D21067 /* LaunchImage_2048_1536.png in Resources */,
+				E480810520E00ADB00D21067 /* icon_listview-deselected.png in Resources */,
+				E48080D620E00ADB00D21067 /* AdventureCalls_80_120r.png in Resources */,
+				E48080F020E00ADB00D21067 /* icon_listview-selected@3x.png in Resources */,
+				E48080FC20E00ADB00D21067 /* LaunchImage_1125.png in Resources */,
+				E48080E520E00ADB00D21067 /* icon_pin@3x.png in Resources */,
+				E480810F20E00ADB00D21067 /* icon_footprint.png in Resources */,
 				E46F74A120BF6272009C3452 /* LaunchScreen.storyboard in Resources */,
+				E48080D520E00ADB00D21067 /* AdventureCalls_58.png in Resources */,
+				E48080EB20E00ADB00D21067 /* LaunchImage_2208.png in Resources */,
+				E48080E420E00ADB00D21067 /* icon_mapview-selected@3x.png in Resources */,
+				E48080E720E00ADB00D21067 /* LaunchImage_1536_2008.png in Resources */,
+				E48080F620E00ADB00D21067 /* icon_listview-deselected@3x.png in Resources */,
+				E48080FA20E00ADB00D21067 /* LaunchImage_768_1004.png in Resources */,
+				E480811020E00ADB00D21067 /* AdventureCalls_40.png in Resources */,
+				E480810120E00ADB00D21067 /* icon_footprint@2x.png in Resources */,
+				E48080FF20E00ADB00D21067 /* icon_pin@2x.png in Resources */,
 				E46B22EF20C11C170099AF1C /* Assets.xcassets in Resources */,
+				E48080D920E00ADB00D21067 /* AdventureCalls_58_87r.png in Resources */,
+				E48080DC20E00ADB00D21067 /* LaunchImage_750.png in Resources */,
+				E48080DE20E00ADB00D21067 /* AdventureCalls_84.png in Resources */,
+				E48080FE20E00ADB00D21067 /* AdventureCalls_167.png in Resources */,
+				E48080E220E00ADB00D21067 /* icon_pin.png in Resources */,
+				E480810220E00ADB00D21067 /* LaunchImage_320.png in Resources */,
+				E480810E20E00ADB00D21067 /* AdventureCalls_152.png in Resources */,
+				E480810C20E00ADB00D21067 /* AdventureCalls_180.png in Resources */,
+				E48080E320E00ADB00D21067 /* icon_listview-selected@2x.png in Resources */,
+				E48080F120E00ADB00D21067 /* AdventureCalls_76.png in Resources */,
+				E480810A20E00ADB00D21067 /* icon_mapview-deselected.png in Resources */,
+				E48080ED20E00ADB00D21067 /* LaunchImage_1536.png in Resources */,
+				E48080EC20E00ADB00D21067 /* AdventureCalls_20_40r.png in Resources */,
+				E4F8A20E20DEE6E50077E4CF /* LICENSE in Resources */,
+				E48080DB20E00ADB00D21067 /* icon_back-arrow@3x.png in Resources */,
+				E480810D20E00ADB00D21067 /* LaunchImage_640_1136.png in Resources */,
+				E480810B20E00ADB00D21067 /* LaunchImage_640.png in Resources */,
+				E48080F220E00ADB00D21067 /* icon_footprint@3x.png in Resources */,
+				E48080D320E00ADB00D21067 /* LaunchImage_1242.png in Resources */,
+				E48080DD20E00ADB00D21067 /* icon_addpin.png in Resources */,
+				E48080F420E00ADB00D21067 /* AdventureCalls_29.png in Resources */,
+				E480810920E00ADB00D21067 /* icon_wolf_footprint.png in Resources */,
+				E48080E020E00ADB00D21067 /* icon_listview-selected.png in Resources */,
+				E480810820E00ADB00D21067 /* LaunchImage_2048_1496.png in Resources */,
+				E48080F920E00ADB00D21067 /* AdventureCalls_80.png in Resources */,
+				E48080D420E00ADB00D21067 /* icon_wolf_footprint@2x.png in Resources */,
+				E48080EE20E00ADB00D21067 /* AdventureCalls_60.png in Resources */,
+				E48080D220E00ADB00D21067 /* AdventureCalls_40_60r.png in Resources */,
+				E48080DA20E00ADB00D21067 /* AdventureCalls_120.png in Resources */,
 				E46F749920BF626A009C3452 /* Main.storyboard in Resources */,
+				E48080EA20E00ADB00D21067 /* LaunchImage_768.png in Resources */,
+				E48080D820E00ADB00D21067 /* LaunchImage.png in Resources */,
+				E480810320E00ADB00D21067 /* LaunchImage_2436.png in Resources */,
+				E480810020E00ADB00D21067 /* AdventureCalls_40_40r.png in Resources */,
+				E48080FB20E00ADB00D21067 /* icon_mapview-selected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
