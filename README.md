@@ -100,17 +100,11 @@ User may enter a title for the selected photo:
 - Taps **Cancel** to go back to **Photo Album View**
 ![Alt](/Users/shirley/Documents/Udacity/iOS-Developer-Nanodegree/MyProject/ParkBeauty/AdventureCalls/AdventureCalls_assets/PhotoPostingView.png) ![Alt](/Users/shirley/Documents/Udacity/iOS-Developer-Nanodegree/MyProject/ParkBeauty/AdventureCalls/AdventureCalls_assets/PhotoPostingV_ImagePicker_Camera.png)
 ![Alt](/Users/shirley/Documents/Udacity/iOS-Developer-Nanodegree/MyProject/ParkBeauty/AdventureCalls/AdventureCalls_assets/PhotoPostingV_ImageTitle.png) ![Alt](/Users/shirley/Documents/Udacity/iOS-Developer-Nanodegree/MyProject/ParkBeauty/AdventureCalls/AdventureCalls_assets/PhotoPostingV_Image.png) ![Alt](/Users/shirley/Documents/Udacity/iOS-Developer-Nanodegree/MyProject/ParkBeauty/AdventureCalls/AdventureCalls_assets/PhotoPostingV_ImageTitle.png) ![Alt](/Users/shirley/Documents/Udacity/iOS-Developer-Nanodegree/MyProject/ParkBeauty/AdventureCalls/AdventureCalls_assets/PhotoPostingV_Image.png) ![Alt](/Users/shirley/Documents/Udacity/iOS-Developer-Nanodegree/MyProject/ParkBeauty/AdventureCalls/AdventureCalls_assets/PhotoAlbumView.png)
-
 # Compatibility
-
 - Xcode 9.31
-
 - Swift 4.1
-
 # Build and Run Project
-
-- Download or clone repository
-
+- Download or clone the gitHub repository `https://github.com/shirleykc/AdventureCalls.git`
 - Open **AdventureCalls.xcworkspace**
 
 
