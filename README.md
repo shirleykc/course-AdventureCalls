@@ -104,7 +104,7 @@ User may enter a title for the selected photo:
 - Xcode 9.31
 - Swift 4.1
 # Build and Run Project
-- Download or clone the gitHub repository `https://github.com/shirleykc/AdventureCalls.git`
+- Download or clone the gitHub repository `https://github.com/shirleykc/course-AdventureCalls.git`
 - Open **AdventureCalls.xcworkspace**
 
 
