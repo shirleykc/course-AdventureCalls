@@ -159,6 +159,7 @@
 		E480817B20E0540E00D21067 /* PhotoAlbumV_Delete.png in Resources */ = {isa = PBXBuildFile; fileRef = E480814620E0540E00D21067 /* PhotoAlbumV_Delete.png */; };
 		E480817C20E0540E00D21067 /* icon_diaryview-deselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E480814720E0540E00D21067 /* icon_diaryview-deselected@3x.png */; };
 		E480817D20E0540E00D21067 /* PhotoAlbumV_BeforeDelete.png in Resources */ = {isa = PBXBuildFile; fileRef = E480814820E0540E00D21067 /* PhotoAlbumV_BeforeDelete.png */; };
+		E480817F20E08D6F00D21067 /* PhotoPostingV_Share.png in Resources */ = {isa = PBXBuildFile; fileRef = E480817E20E08D6F00D21067 /* PhotoPostingV_Share.png */; };
 		E4A9937E20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9937D20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift */; };
 		E4A9938020D5F4DA00117BC5 /* SearchParkViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9937F20D5F4DA00117BC5 /* SearchParkViewController+Helper.swift */; };
 		E4A9938320D6036700117BC5 /* ParkListViewController+Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9938220D6036700117BC5 /* ParkListViewController+Park.swift */; };
@@ -339,6 +340,7 @@
 		E480814620E0540E00D21067 /* PhotoAlbumV_Delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PhotoAlbumV_Delete.png; sourceTree = "<group>"; };
 		E480814720E0540E00D21067 /* icon_diaryview-deselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_diaryview-deselected@3x.png"; sourceTree = "<group>"; };
 		E480814820E0540E00D21067 /* PhotoAlbumV_BeforeDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PhotoAlbumV_BeforeDelete.png; sourceTree = "<group>"; };
+		E480817E20E08D6F00D21067 /* PhotoPostingV_Share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PhotoPostingV_Share.png; sourceTree = "<group>"; };
 		E4A9937D20D457E500117BC5 /* ParkInfoPostingViewController+Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParkInfoPostingViewController+Park.swift"; sourceTree = "<group>"; };
 		E4A9937F20D5F4DA00117BC5 /* SearchParkViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchParkViewController+Helper.swift"; sourceTree = "<group>"; };
 		E4A9938220D6036700117BC5 /* ParkListViewController+Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParkListViewController+Park.swift"; sourceTree = "<group>"; };
@@ -581,6 +583,7 @@
 		E4F8A31D20E007490077E4CF /* AdventureCalls_assets */ = {
 			isa = PBXGroup;
 			children = (
+				E480817E20E08D6F00D21067 /* PhotoPostingV_Share.png */,
 				E480813020E0540A00D21067 /* DiaryDetailView.png */,
 				E480814020E0540D00D21067 /* DiaryListV_Delete.png */,
 				E480814520E0540E00D21067 /* DiaryListV_DeleteDone.png */,
@@ -854,6 +857,7 @@
 				E480815920E0540E00D21067 /* SearchParkView.png in Resources */,
 				E480810D20E00ADB00D21067 /* LaunchImage_640_1136.png in Resources */,
 				E480810B20E00ADB00D21067 /* LaunchImage_640.png in Resources */,
+				E480817F20E08D6F00D21067 /* PhotoPostingV_Share.png in Resources */,
 				E48080F220E00ADB00D21067 /* icon_footprint@3x.png in Resources */,
 				E480814F20E0540E00D21067 /* icon_plane.png in Resources */,
 				E48080D320E00ADB00D21067 /* LaunchImage_1242.png in Resources */,
