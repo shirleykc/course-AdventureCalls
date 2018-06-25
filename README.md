@@ -1,4 +1,3 @@
-![Alt](https://github.com/shirleykc/course-AdventureCalls/blob/mac4_2_newname/AdventureCalls_assets/AdventureCalls_60.png =60x60)
 <img src="https://github.com/shirleykc/course-AdventureCalls/blob/mac4_2_newname/AdventureCalls_assets/AdventureCalls_60.png" height="60" width="60">
 #  AdventureCalls
 AdventureCalls is an iOS travel companion apps for exploring the National Parks.  
@@ -8,7 +7,7 @@ AdventureCalls is an iOS travel companion apps for exploring the National Parks.
 ## Parks Map View
 ### Parks Map Tab ( Home Tab )
 The park map tab, when the user opens the app, displays a map view for the park watchlists.
-![Alt](/https://github.com/shirleykc/course-AdventureCalls/blob/mac4_2_newname/AdventureCalls_assets/ParkMapView.png =200x400)
+<img src="/https://github.com/shirleykc/course-AdventureCalls/blob/mac4_2_newname/AdventureCalls_assets/ParkMapView.png" height="400" width="200">
 #### Navigation:
 - Taps an red park pin to see the park name.  Tap the park name callout to launch the **Places Collection View**.
 ![Alt](https://github.com/shirleykc/course-AdventureCalls/blob/mac4_2_newname/AdventureCalls_assets/ParkMapV_Callout.png =200x400) ![Alt](https://github.com/shirleykc/course-AdventureCalls/blob/mac4_2_newname/AdventureCalls_assets/PlaceCollectionView.png =200x400)
