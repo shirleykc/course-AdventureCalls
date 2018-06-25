@@ -126,7 +126,7 @@ User may enter a title for the selected photo:
 - Taps ![Alt](/AdventureCalls_assets/icon_share.png) on the top navigation bar to share photo
 - Taps **Cancel** to go back to **Photo Album View**
 
-<img src="/AdventureCalls_assets/PhotoPostingView.png" height="497" width="280" border="1"> <img src="/AdventureCalls_assets/PhotoPostingV_ImagePicker_Camera.png" height="497" width="280" border="1"> 
+<img src="/AdventureCalls_assets/PhotoPostingView.png" height="497" width="280" border="1"> <img src="/AdventureCalls_assets/PhotoPostingV_ImagePicker_Camera.png" height="497" width="280" border="1"> <img src="/AdventureCalls_assets/PhotoPostingV_Share.png" height="497" width="280" border="1"> 
 
 <img src="/AdventureCalls_assets/PhotoPostingV_ImageTitle.png" height="497" width="280" border="1"> <img src="/AdventureCalls_assets/PhotoPostingV_Image.png" height="497" width="280" border="1"> <img src="/AdventureCalls_assets/PhotoPostingV_ImageTitle.png" height="497" width="280" border="1"> 
 
