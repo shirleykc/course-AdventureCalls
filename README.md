@@ -7,7 +7,7 @@ AdventureCalls is an iOS travel companion apps for exploring the National Parks.
 ## Parks Map View
 ### Parks Map Tab ( Home Tab )
 The park map tab, when the user opens the app, displays a map view for the park watchlists.
-<img src="/AdventureCalls_assets/ParkInfoPostingV_DoneSave.png" style="height:533; width:300; border:thin solid black;">
+<img src="/AdventureCalls_assets/ParkInfoPostingV_DoneSave.png" style="width:300px;height:533px;border:thin solid black;">
 
 #### Navigation:
 - Taps an red park pin to see the park name.  Tap the park name callout to launch the **Places Collection View**.
