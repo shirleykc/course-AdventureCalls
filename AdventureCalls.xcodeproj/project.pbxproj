@@ -118,13 +118,13 @@
 		E480815220E0540E00D21067 /* DiaryListView.png in Resources */ = {isa = PBXBuildFile; fileRef = E480811D20E0540700D21067 /* DiaryListView.png */; };
 		E480815320E0540E00D21067 /* DiaryListV_Title.png in Resources */ = {isa = PBXBuildFile; fileRef = E480811E20E0540700D21067 /* DiaryListV_Title.png */; };
 		E480815420E0540E00D21067 /* ParkInfoPostingV_Callout.png in Resources */ = {isa = PBXBuildFile; fileRef = E480811F20E0540700D21067 /* ParkInfoPostingV_Callout.png */; };
-		E480815520E0540E00D21067 /* VisitInfoPostingView_DatePicker.png in Resources */ = {isa = PBXBuildFile; fileRef = E480812020E0540800D21067 /* VisitInfoPostingView_DatePicker.png */; };
+		E480815520E0540E00D21067 /* VisitInfoPostingV_DatePicker.png in Resources */ = {isa = PBXBuildFile; fileRef = E480812020E0540800D21067 /* VisitInfoPostingV_DatePicker.png */; };
 		E480815620E0540E00D21067 /* icon_home@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E480812120E0540800D21067 /* icon_home@3x.png */; };
 		E480815720E0540E00D21067 /* SearchParkV_NotFound.png in Resources */ = {isa = PBXBuildFile; fileRef = E480812220E0540800D21067 /* SearchParkV_NotFound.png */; };
 		E480815820E0540E00D21067 /* icon_camera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E480812320E0540800D21067 /* icon_camera@3x.png */; };
 		E480815920E0540E00D21067 /* SearchParkView.png in Resources */ = {isa = PBXBuildFile; fileRef = E480812420E0540800D21067 /* SearchParkView.png */; };
 		E480815A20E0540E00D21067 /* icon_plane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E480812520E0540800D21067 /* icon_plane@2x.png */; };
-		E480815B20E0540E00D21067 /* ParkInfoPosting_DoneSave.png in Resources */ = {isa = PBXBuildFile; fileRef = E480812620E0540800D21067 /* ParkInfoPosting_DoneSave.png */; };
+		E480815B20E0540E00D21067 /* ParkInfoPostingV_DoneSave.png in Resources */ = {isa = PBXBuildFile; fileRef = E480812620E0540800D21067 /* ParkInfoPostingV_DoneSave.png */; };
 		E480815C20E0540E00D21067 /* PlaceCollectionV_Callout_Expand.png in Resources */ = {isa = PBXBuildFile; fileRef = E480812720E0540900D21067 /* PlaceCollectionV_Callout_Expand.png */; };
 		E480815D20E0540E00D21067 /* icon_trash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E480812820E0540900D21067 /* icon_trash@3x.png */; };
 		E480815E20E0540E00D21067 /* icon_info.png in Resources */ = {isa = PBXBuildFile; fileRef = E480812920E0540900D21067 /* icon_info.png */; };
@@ -298,13 +298,13 @@
 		E480811D20E0540700D21067 /* DiaryListView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DiaryListView.png; sourceTree = "<group>"; };
 		E480811E20E0540700D21067 /* DiaryListV_Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DiaryListV_Title.png; sourceTree = "<group>"; };
 		E480811F20E0540700D21067 /* ParkInfoPostingV_Callout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ParkInfoPostingV_Callout.png; sourceTree = "<group>"; };
-		E480812020E0540800D21067 /* VisitInfoPostingView_DatePicker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VisitInfoPostingView_DatePicker.png; sourceTree = "<group>"; };
+		E480812020E0540800D21067 /* VisitInfoPostingV_DatePicker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VisitInfoPostingV_DatePicker.png; sourceTree = "<group>"; };
 		E480812120E0540800D21067 /* icon_home@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_home@3x.png"; sourceTree = "<group>"; };
 		E480812220E0540800D21067 /* SearchParkV_NotFound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchParkV_NotFound.png; sourceTree = "<group>"; };
 		E480812320E0540800D21067 /* icon_camera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_camera@3x.png"; sourceTree = "<group>"; };
 		E480812420E0540800D21067 /* SearchParkView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchParkView.png; sourceTree = "<group>"; };
 		E480812520E0540800D21067 /* icon_plane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_plane@2x.png"; sourceTree = "<group>"; };
-		E480812620E0540800D21067 /* ParkInfoPosting_DoneSave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ParkInfoPosting_DoneSave.png; sourceTree = "<group>"; };
+		E480812620E0540800D21067 /* ParkInfoPostingV_DoneSave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ParkInfoPostingV_DoneSave.png; sourceTree = "<group>"; };
 		E480812720E0540900D21067 /* PlaceCollectionV_Callout_Expand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlaceCollectionV_Callout_Expand.png; sourceTree = "<group>"; };
 		E480812820E0540900D21067 /* icon_trash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_trash@3x.png"; sourceTree = "<group>"; };
 		E480812920E0540900D21067 /* icon_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_info.png; sourceTree = "<group>"; };
@@ -610,7 +610,7 @@
 				E480812F20E0540A00D21067 /* icon_trash.png */,
 				E480811920E0540600D21067 /* icon_trash@2x.png */,
 				E480812820E0540900D21067 /* icon_trash@3x.png */,
-				E480812620E0540800D21067 /* ParkInfoPosting_DoneSave.png */,
+				E480812620E0540800D21067 /* ParkInfoPostingV_DoneSave.png */,
 				E480811F20E0540700D21067 /* ParkInfoPostingV_Callout.png */,
 				E480812B20E0540900D21067 /* ParkInfoPostingV_Save.png */,
 				E480813B20E0540C00D21067 /* ParkInfoPostingView.png */,
@@ -630,7 +630,7 @@
 				E480813420E0540B00D21067 /* PlaceCollectionView.png */,
 				E480812220E0540800D21067 /* SearchParkV_NotFound.png */,
 				E480812420E0540800D21067 /* SearchParkView.png */,
-				E480812020E0540800D21067 /* VisitInfoPostingView_DatePicker.png */,
+				E480812020E0540800D21067 /* VisitInfoPostingV_DatePicker.png */,
 				E480813520E0540B00D21067 /* VisitInfoPostingView.png */,
 				E480812D20E0540A00D21067 /* VisitListV_SelectRow.png */,
 				E480811B20E0540700D21067 /* VisitListView.png */,
@@ -801,7 +801,7 @@
 				E480817520E0540E00D21067 /* DiaryListV_Delete.png in Resources */,
 				E480817120E0540E00D21067 /* icon_info@2x.png in Resources */,
 				E48080E520E00ADB00D21067 /* icon_pin@3x.png in Resources */,
-				E480815520E0540E00D21067 /* VisitInfoPostingView_DatePicker.png in Resources */,
+				E480815520E0540E00D21067 /* VisitInfoPostingV_DatePicker.png in Resources */,
 				E480817B20E0540E00D21067 /* PhotoAlbumV_Delete.png in Resources */,
 				E480810F20E00ADB00D21067 /* icon_footprint.png in Resources */,
 				E480816120E0540E00D21067 /* ParkListV_SelectRow.png in Resources */,
@@ -842,7 +842,7 @@
 				E480816D20E0540E00D21067 /* icon_home.png in Resources */,
 				E48080E320E00ADB00D21067 /* icon_listview-selected@2x.png in Resources */,
 				E480816620E0540E00D21067 /* ParkMapV_Callout.png in Resources */,
-				E480815B20E0540E00D21067 /* ParkInfoPosting_DoneSave.png in Resources */,
+				E480815B20E0540E00D21067 /* ParkInfoPostingV_DoneSave.png in Resources */,
 				E48080F120E00ADB00D21067 /* AdventureCalls_76.png in Resources */,
 				E480810A20E00ADB00D21067 /* icon_mapview-deselected.png in Resources */,
 				E48080ED20E00ADB00D21067 /* LaunchImage_1536.png in Resources */,
