@@ -129,9 +129,7 @@ User may enter a title for the selected photo:
 
 <img src="/AdventureCalls_assets/PhotoPostingView.png" height="497" width="280" border="1"> <img src="/AdventureCalls_assets/PhotoPostingV_ImagePicker_Camera.png" height="497" width="280" border="1"> <img src="/AdventureCalls_assets/PhotoPostingV_Share.png" height="497" width="280" border="1"> 
 
-<img src="/AdventureCalls_assets/PhotoPostingV_ImageTitle.png" height="497" width="280" border="1"> <img src="/AdventureCalls_assets/PhotoPostingV_Image.png" height="497" width="280" border="1"> <img src="/AdventureCalls_assets/PhotoPostingV_ImageTitle.png" height="497" width="280" border="1"> 
-
-<img src="/AdventureCalls_assets/PhotoPostingV_Image.png" height="497" width="280" border="1"> <img src="/AdventureCalls_assets/PhotoAlbumView.png" height="497" width="280" border="1"> 
+<img src="/AdventureCalls_assets/PhotoPostingV_ImageTitle.png" height="497" width="280" border="1"> <img src="/AdventureCalls_assets/PhotoPostingV_Image.png" height="497" width="280" border="1"> <img src="/AdventureCalls_assets/PhotoAlbumView.png" height="497" width="280" border="1"> 
 
 # Compatibility
 - Xcode 9.31
